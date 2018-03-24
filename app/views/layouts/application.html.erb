@@ -9,6 +9,15 @@
   </head>
 
   <body>
+    <div class="navbar">
+      <%= link_to "Home", root_path %>
+      <%= link_to "Shelters", root_path %>
+      <%= link_to "Adopters", users_path %>
+      <% if signed_in? %>
+        <%= link_to "Your page", users_path(current_user) %>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>

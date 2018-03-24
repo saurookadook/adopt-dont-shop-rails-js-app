@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :pets
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'welcome#home'
 
   devise_for :users
-  resource :users
+  get '/users', to: 'users#index'
+  get '/users/:id', to: 'users#show', as: 'user_page'
+  get '/users/:id/edit', to: 'users#edit', as: 'user_edit'
+  patch '/users/:id/update', to: 'users#update'
 
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
+  resources :pets
 end
