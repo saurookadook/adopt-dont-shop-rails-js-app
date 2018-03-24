@@ -37,6 +37,8 @@ gem 'omniauth'
 
 gem 'dotenv-rails', '~> 2.2.1'
 
+gem 'pundit'
+
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 

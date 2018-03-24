@@ -6,7 +6,8 @@ class CreateCats < ActiveRecord::Migration[5.1]
       t.integer :age
       t.string :breed
       t.text :info
-      t.string :location
+      t.string :shelter
+      t.string :city
       t.string :state
       t.integer :user_id
 
