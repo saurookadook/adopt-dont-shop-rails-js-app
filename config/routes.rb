@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'welcome#home'
 
   devise_for :users
+  resource :users
 
   get 'sessions/new'
   get 'sessions/create'
