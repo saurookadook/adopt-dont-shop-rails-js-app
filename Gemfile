@@ -37,6 +37,9 @@ gem 'omniauth'
 
 gem 'dotenv-rails', '~> 2.2.1'
 
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
