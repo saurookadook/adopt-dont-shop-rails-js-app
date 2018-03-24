@@ -1,8 +1,9 @@
-class CreateDogs < ActiveRecord::Migration[5.1]
+class CreatePets < ActiveRecord::Migration[5.1]
   def change
-    create_table :dogs do |t|
+    create_table :pets do |t|
       t.string :name
       t.string :nickname
+      t.string :animal
       t.integer :age
       t.string :breed
       t.text :info
