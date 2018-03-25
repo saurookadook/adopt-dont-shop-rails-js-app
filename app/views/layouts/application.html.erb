@@ -9,6 +9,47 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Adopt Don't Shop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <!-- Shelters Nav -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Browse Shelters
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">View all</a>
+          <a class="dropdown-item" href="#">Browse by City</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+
+      <!-- Users Nav -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Users <!-- maybe make helper to change display? -->
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<%= users_path(current_user) %>">Your Page</a>
+          <a class="dropdown-item" href="#">Your Pets</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<%= destroy user_session_path %>">Sign Out</a>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
     <div class="navbar">
       <%= link_to "Home", root_path %>
       <%= link_to "Shelters", root_path %>

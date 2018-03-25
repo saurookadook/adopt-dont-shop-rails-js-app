@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet
+  # before_action :set_pet
 
   def index
     @pets = Pet.all
