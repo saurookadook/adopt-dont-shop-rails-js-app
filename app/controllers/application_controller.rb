@@ -1,16 +1,11 @@
 class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
-  helper_method :location
-
-  def location
-    self.city + ", " + self.state
-  end
 
   private
 
-  def set_user
-    @user ||= User.find(params[:id]) if params[:id]
+  def set_user!
+    @user ||= current_user if current_user
   end
 
   def set_session(params)
