@@ -1,0 +1,6 @@
+<h1>Contributing Shelters:</h1>
+
+<%= div_for @shelters do |shelter| %>
+  <%= link_to shelter.name, shelter_path(shelter) %>
+  <%= shelter.full_address %>
+<% end %>

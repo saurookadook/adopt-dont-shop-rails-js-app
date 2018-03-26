@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :employees
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'welcome#home'
 
-  devise_for :users, controllers: { sessions: 'users/sessions'}
+  devise_for :users
+  devise_for :employees
 
   resources :users, only: [:show] do
     resources :pets, only: [:index, :show, :new]
@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   # patch '/users/:id/update', to: 'users#update'
 
   resources :pets
+  resources :shelters
+
+  resources :shelters, only: [:show] do
+    resources :pets, only: [:index, :show, :new]
+  end
 end
