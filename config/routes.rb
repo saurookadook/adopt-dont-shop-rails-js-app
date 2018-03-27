@@ -3,7 +3,15 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
 
-  resources :users
+  resources :users, only: [:index, :create, :edit, :update, :destroy]
+  get '/users/new', to: 'users#new', as: 'new_user_registration'
+
+  resources :employees
+
+  get '/sessions/new', to: 'sessions#new', as: 'new_user_session'
+  post '/sessions', to: 'sessions#create'
+  delete '/sessions/:id', to: 'sessions#destroy', as: 'destroy_user_session'
+
   resources :shelters
 
   resources :users, only: [:show] do
