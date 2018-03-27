@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   resources :employees
 
-  get '/sessions/new', to: 'sessions#new', as: 'new_user_session'
-  post '/sessions', to: 'sessions#create'
-  delete '/sessions/:id', to: 'sessions#destroy', as: 'destroy_user_session'
+  get '/login', to: 'sessions#new', as: 'new_user_session'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: 'destroy_user_session'
 
   resources :shelters
 

@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
     @user ||= User.find(params[:id]) if params[:id]
   end
 
-  def set_session(params)
-    session[:user_id] = params[:id]
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
+
+  def set_session(user_id)
+    session[:user_id] = user_id
   end
 end

@@ -1,13 +1,16 @@
 class SessionsController < ApplicationController
+
   def new
+    @user = User.new
   end
 
   def create
-    if params[:id].nil? || params[:id] == ""
-      redirect_to sessions_new_path
-    elsif params[:id]
-      set_session
+    @user = User.find_by(username: user_params[:username])
+    if @user
+      set_session(@user.id)
       redirect_to :root
+    else
+      render :new
     end
   end
 
