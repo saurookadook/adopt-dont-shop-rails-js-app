@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'destroy_user_session'
 
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'sessions#new'
+
   resources :shelters
 
   resources :users, only: [:show] do

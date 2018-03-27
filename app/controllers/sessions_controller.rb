@@ -18,4 +18,10 @@ class SessionsController < ApplicationController
     session.delete :user_id if !session[:user_id].nil?
     redirect_to :root
   end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
+  end
 end

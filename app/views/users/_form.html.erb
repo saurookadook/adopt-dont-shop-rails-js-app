@@ -14,7 +14,7 @@
   <%= f.label :password %>
   <%= f.password_field :password %><br>
 
-  <%= f.label 'Have any pets already?' %>
+  <%= f.label 'Have any pets already?' %><br>
   <%= f.fields_for :pets, @user.pets.build do |pets_fields| %>
     <%= pets_fields.label :name %>
     <%= pets_fields.text_field :name %><br>
@@ -26,7 +26,7 @@
     <%= pets_fields.number_field :age %><br>
     <%= pets_fields.label :breed %>
     <%= pets_fields.text_field :breed %><br>
-    <%= pets_fields.label 'Any stories to share about them?'%>
+    <%= pets_fields.label 'Any stories to share about them?'%><br>
     <%= pets_fields.text_area :info %><br>
   <% end %>
 
