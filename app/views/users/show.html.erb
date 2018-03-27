@@ -7,3 +7,5 @@
     <p>Address: <%= @user.address.full_address %></p>
   <% end %>
 </li>
+
+<%= link_to 'Update Account Info', edit_user_path(current_user) %>

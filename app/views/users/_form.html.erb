@@ -14,5 +14,21 @@
   <%= f.label :password %>
   <%= f.password_field :password %><br>
 
+  <%= f.label 'Have any pets already?' %>
+  <%= f.fields_for :pets, @user.pets.build do |pets_fields| %>
+    <%= pets_fields.label :name %>
+    <%= pets_fields.text_field :name %><br>
+    <%= pets_fields.label :nickname %>
+    <%= pets_fields.text_field :nickname %><br>
+    <%= pets_fields.label :animal %>
+    <%= pets_fields.text_field :animal %><br>
+    <%= pets_fields.label :age %>
+    <%= pets_fields.number_field :age %><br>
+    <%= pets_fields.label :breed %>
+    <%= pets_fields.text_field :breed %><br>
+    <%= pets_fields.label 'Any stories to share about them?'%>
+    <%= pets_fields.text_area :info %><br>
+  <% end %>
+
   <%= f.submit %>
 <% end %>
