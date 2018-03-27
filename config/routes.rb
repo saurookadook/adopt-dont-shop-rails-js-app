@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
 
-  resources :users, only: [:index, :create, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
   get '/signup', to: 'users#new', as: 'new_user_registration'
 
   resources :employees

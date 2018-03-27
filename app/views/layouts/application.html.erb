@@ -45,7 +45,7 @@
                 <%= current_user.username %> <!-- maybe make helper to change display? -->
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Your Page", users_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Your Page", user_path(current_user), class: "dropdown-item" %>
                 <a class="dropdown-item" href="#">Your Pets</a>
                 <div class="dropdown-divider"></div>
                 <%= link_to "Sign Out", destroy_user_session_path, method: 'delete', class: "dropdown-item" %>
