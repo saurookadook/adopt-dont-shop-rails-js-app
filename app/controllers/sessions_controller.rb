@@ -11,12 +11,8 @@ class SessionsController < ApplicationController
       @user = User.find_by(username: user_params[:username])
     end
 
-    if @user.valid?
-      @user.save
+    if @user
       set_session(@user.id)
-      redirect_to :root
-    elsif @user.password.nil?
-      @user.password = SecureRandom.hex
       redirect_to :root
     else
       render :new
