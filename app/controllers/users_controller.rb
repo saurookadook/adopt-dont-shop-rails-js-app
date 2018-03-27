@@ -14,6 +14,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    if @user.valid?
+      @user.save
+      set_session(@user.id)
+      redirect_to :root
+    else
+      render :new
+    end
   end
 
   def edit
@@ -28,7 +35,4 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :city, :state, pets_attributes:[ ])
-  end
 end
