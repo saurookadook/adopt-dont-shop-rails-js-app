@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
 
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions'}
   devise_for :employees
 
   resources :users, only: [:show] do
@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   end
 
   get '/users', to: 'users#index'
-  # get '/users/:id', to: 'users#show', as: 'user_page'
-  # get '/users/:id/edit', to: 'users#edit', as: 'user_edit'
-  # patch '/users/:id/update', to: 'users#update'
+  get '/users/:id', to: 'users#show', as: 'user_page'
+  get '/users/:id/edit', to: 'users#edit', as: 'user_edit'
+  patch '/users/:id/update', to: 'users#update'
 
   resources :pets
   resources :shelters

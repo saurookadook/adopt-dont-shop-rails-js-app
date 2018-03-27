@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pets
-  has_one :address, inverse_of: :user
+  # has_one :address, inverse_of: :user
 
   def full_name
     self.first_name + " " + self.last_name

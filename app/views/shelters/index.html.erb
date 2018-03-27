@@ -1,6 +1,6 @@
-<h1>Contributing Shelters:</h1>
+<h1>Contributing Shelters:</h1><br />
 
-<%= div_for @shelters do |shelter| %>
+<% @shelters.each do |shelter| %>
   <%= link_to shelter.name, shelter_path(shelter) %>
-  <%= shelter.full_address %>
+  <%= shelter.full_address %><br />
 <% end %>
