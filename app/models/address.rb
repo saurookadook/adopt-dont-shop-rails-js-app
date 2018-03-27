@@ -1,4 +1,4 @@
 class Address < ApplicationRecord
-  # belongs_to :user, inverse_of: :address
-  # belongs_to :shelter, inverse_of: :address
+  belongs_to :user, optional: true
+  belongs_to :shelter, optional: true
 end

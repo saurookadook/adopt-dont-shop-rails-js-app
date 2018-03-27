@@ -3,14 +3,12 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
 
+  resources :users
+  resources :shelters
+
   resources :users, only: [:show] do
     resources :pets, only: [:index, :show, :new]
   end
-
-  get '/users', to: 'users#index'
-  get '/users/:id', to: 'users#show', as: 'user_page'
-  get '/users/:id/edit', to: 'users#edit', as: 'user_edit'
-  patch '/users/:id/update', to: 'users#update'
 
   resources :pets
   resources :shelters

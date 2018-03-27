@@ -1,7 +1,7 @@
 class Shelter < ApplicationRecord
   has_many :employees
   has_many :pets
-  # has_one :address, inverse_of: :shelter
+  has_one :address
 
   def full_address
     a = Address.find(self.address_id)

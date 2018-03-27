@@ -4,7 +4,7 @@ class CreateShelters < ActiveRecord::Migration[5.1]
       t.string :name
       t.integer :address_id
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
