@@ -3,9 +3,6 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
 
-  devise_for :users, controllers: { sessions: 'users/sessions'}
-  devise_for :employees
-
   resources :users, only: [:show] do
     resources :pets, only: [:index, :show, :new]
   end

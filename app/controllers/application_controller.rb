@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
     request.env['omniauth.origin'] || root_path
   end
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
   protected
 
   def set_user!
@@ -16,9 +14,5 @@ class ApplicationController < ActionController::Base
 
   def set_session(params)
     session[:user_id] = params[:id]
-  end
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:username, :email, :password])
   end
 end
