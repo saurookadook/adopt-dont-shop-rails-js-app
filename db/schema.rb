@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "last_name"
     t.string "username"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "last_name"
     t.string "username"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.integer "address_id"
   end
 
