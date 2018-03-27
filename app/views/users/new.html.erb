@@ -1,2 +1,6 @@
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
 <h1>Become an Adopter!</h1><br>
 <%= render 'form' %>

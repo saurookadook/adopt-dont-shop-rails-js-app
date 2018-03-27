@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "provider"
+    t.string "uid"
+    t.string "oauth_token"
+    t.datetime "oauth_expires_at"
     t.integer "address_id"
   end
 

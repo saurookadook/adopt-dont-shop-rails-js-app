@@ -5,9 +5,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: user_params[:username])
-    if @user
+    if !params[:provider].nil?
+      @user = User.from_omniauth(auth)
+    else
+      @user = User.find_by(username: user_params[:username])
+    end
+
+    if @user.valid?
+      @user.save
       set_session(@user.id)
+      redirect_to :root
+    elsif @user.password.nil?
+      @user.password = SecureRandom.hex
       redirect_to :root
     else
       render :new
