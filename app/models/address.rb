@@ -3,12 +3,13 @@ class Address < ApplicationRecord
   belongs_to :shelter, optional: true
 
   def full_address
-    if a.street2
-      "#{a.street1}<br />#{a.street2}<br />#{a.city}, #{a.state} #{a.zip}"
-    elsif a.street1 && a.zip
-      "#{a.street1}<br />#{a.city}, #{a.state} #{a.zip}"
+    if self.street2
+      # needs reformatting
+      "#{self.street1}<br />#{self.street2}<br />#{self.city}, #{self.state} #{self.zip}"
+    elsif self.street1 && self.zip
+      "#{self.street1}<br />#{self.city}, #{self.state} #{self.zip}"
     else
-      "#{a.city}, #{a.state}"
+      "#{self.city}, #{self.state}"
     end
   end
 end

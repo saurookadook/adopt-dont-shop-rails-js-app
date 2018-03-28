@@ -4,7 +4,7 @@
   <p>Name: <%= @user.full_name %></p>
   <p>Email: <%= @user.email %></p>
   <% if @user.address %>
-    <p>Address: <%= @user.address.full_address %></p>
+    <p>Address:</p> <%= @user.address.full_address %>
   <% end %>
 </li>
 
