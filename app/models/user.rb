@@ -6,22 +6,37 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
-  validates :password, length: { minimum: 8, maximum: 20}
+  validates :password, length: { in: 6..20 }
   has_secure_password
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
-      user.first_name = auth.info.first_name
-      user.last_name = auth.info.last_name
-      user.username = auth.info.name
-      user.email = auth.info.email
-      user.password = SecureRandom.hex(10)
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
+  def self.update_or_create(auth)
+    @user = User.find_by(email: auth.info.email)
+    if @user.nil?
+      @user = User.new(
+        first_name: auth.info.first_name,
+        last_name: auth.info.last_name,
+        username: auth.info.name,
+        email: auth.info.email,
+        password: SecureRandom.hex(10),
+        provider: auth.provider,
+        uid: auth.uid,
+        oauth_token: auth.credentials.token,
+        oauth_expires_at: Time.at(auth.credentials.expires_at)
+      )
+      @user.save
+    else
+      @user.update(
+        first_name: auth.info.first_name,
+        last_name: auth.info.last_name,
+        email: auth.info.email,
+        provider: auth.provider,
+        uid: auth.uid,
+        oauth_token: auth.credentials.token,
+        oauth_expires_at: Time.at(auth.credentials.expires_at)
+      )
     end
+    binding.pry
+    @user
   end
 
   def full_name
