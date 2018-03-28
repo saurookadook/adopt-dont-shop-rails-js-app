@@ -35,7 +35,6 @@ class User < ApplicationRecord
         oauth_expires_at: Time.at(auth.credentials.expires_at)
       )
     end
-    binding.pry
     @user
   end
 

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       @user = User.find_by(username: user_params[:username])
     end
 
-    if @user.authenticate(params[:password])
+    if @user.authenticate(user_params[:password])
       set_session(@user.id)
       redirect_to :root
     else
