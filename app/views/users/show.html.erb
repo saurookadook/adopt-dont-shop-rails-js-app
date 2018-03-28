@@ -6,6 +6,10 @@
   <% if @user.address %>
     <p>Address:</p> <%= @user.address.full_address %>
   <% end %>
+
+  <% if @user.pets %>
+    <%= render 'layouts/pets' %>
+  <% end %>
 </li>
 
 <%= link_to 'Update Account Info', edit_user_path(current_user) %>
