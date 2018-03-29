@@ -8,8 +8,10 @@
   <% end %>
 
   <% if @user.pets %>
-    <%= render 'layouts/pets' %>
+    <h3><%= @user.username %>'s pets:</h3><br>
+    <%= render partial: 'layouts/pets', locals: {pets: @user.pets} %>
   <% end %>
 </li>
 
-<%= link_to 'Update Account Info', edit_user_path(current_user) %>
+<%= link_to 'Edit Account Info', edit_user_path(current_user) %><br>
+<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure you would like to delete your account?' } %> 

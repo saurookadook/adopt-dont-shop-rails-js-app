@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :pets
   has_one :address
+  accepts_nested_attributes_for :pets
 
   validates :first_name, presence: true
   validates :last_name, presence: true

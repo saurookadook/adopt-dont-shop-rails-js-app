@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :city, :state, pets_attributes:[ ])
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :city, :state,
+      pets_attributes:[:name, :nickname, :animal, :age, :breed, :info, :shelter_id, :user_id])
   end
 
   def set_session(user_id)
