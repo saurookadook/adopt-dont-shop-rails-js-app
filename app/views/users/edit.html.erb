@@ -1,2 +1,42 @@
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
 <h1>Update your Account info:</h1>
-<%= render 'form' %>
+<%= form_for @user do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %><br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+
+  <% if @user.pets %>
+    <%= f.label 'Your pets:' %><br>
+    <%= f.fields_for :pets, @user.pets.each do |pets_fields| %>
+      <%= pets_fields.label :name %>
+      <%= pets_fields.text_field :name %><br>
+      <%= pets_fields.label :nickname %>
+      <%= pets_fields.text_field :nickname %><br>
+      <%= pets_fields.label :animal %>
+      <%= pets_fields.text_field :animal %><br>
+      <%= pets_fields.label :age %>
+      <%= pets_fields.number_field :age %><br>
+      <%= pets_fields.label :breed %>
+      <%= pets_fields.text_field :breed %><br>
+      <%= pets_fields.label "Stories/info:" %><br>
+      <%= pets_fields.text_area :info %><br>
+    <% end %>
+  <% end %>
+    <!-- figure out way to add additional pets to form? -->
+
+  <%= f.submit %>
+<% end %>
