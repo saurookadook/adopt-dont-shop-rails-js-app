@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  # before_action :set_pet
+  before_action :set_pet, only: [:show, :edit, :update]
 
   def index
     @pets = Pet.all
@@ -9,6 +9,7 @@ class PetsController < ApplicationController
   end
 
   def new
+    @pet = Pet.new
   end
 
   def create

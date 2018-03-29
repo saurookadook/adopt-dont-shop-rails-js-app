@@ -11,7 +11,8 @@
     <h3><%= @user.username %>'s pets:</h3><br>
     <%= render partial: 'layouts/pets', locals: {pets: @user.pets} %>
   <% end %>
+  <%= link_to "Add a pet!", new_user_pet_path(@user) %><br>
 </li>
 
 <%= link_to 'Edit Account Info', edit_user_path(current_user) %><br>
-<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure you would like to delete your account?' } %> 
+<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure you would like to delete your account?' } %>

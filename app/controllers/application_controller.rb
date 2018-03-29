@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   def set_session(user_id)
     session[:user_id] = user_id
   end
+
+  def set_pet
+    @pet ||= Pet.find(params[:id]) if [params[:id]]
+  end
 end

@@ -1,0 +1,16 @@
+<%= form_for @pet do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :nickname %>
+  <%= f.text_field :nickname %><br>
+  <%= f.label :animal %>
+  <%= f.text_field :animal %><br>
+  <%= f.label :age %>
+  <%= f.number_field :age %><br>
+  <%= f.label :breed %>
+  <%= f.text_field :breed %><br>
+  <%= f.label "Any stories or info you'd like to share?" %><br>
+  <%= f.text_area :info %><br>
+
+  <%= f.submit %>
+<% end %>
