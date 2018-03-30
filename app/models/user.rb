@@ -3,12 +3,7 @@ class User < ApplicationRecord
   has_one :address
   accepts_nested_attributes_for :pets
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :username, uniqueness: true, presence: true
-  validates :email, uniqueness: true, presence: true
-  validates :password, length: { in: 6..20 }
-  has_secure_password
+  include Validatable
 
   def self.update_or_create(auth)
     @user = User.find_by(email: auth.info.email)
