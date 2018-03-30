@@ -11,10 +11,18 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def current_employee
+    @current_employee ||= Employee.find(sessions[:employee_id]) if session[:employee_id]
+  end
+
   protected
 
   def set_user!
     @user ||= User.find(params[:id]) if params[:id]
+  end
+
+  def set_employee!
+    @employee = Employee.find(params[:id]) if params[:id]
   end
 
   def user_params

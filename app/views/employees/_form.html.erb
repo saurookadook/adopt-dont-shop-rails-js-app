@@ -1,0 +1,16 @@
+<%= form_for employee do |f| %>
+  <%= f.label :first_name %>
+  <%= f.label :last_name %>
+  <%= f.label :username %>
+  <%= f.label :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label "For which shelter do you work?" %>
+  <%= f.collection_check_boxes :shelter_ids, Shelter.all, :id, :name %>
+  <%= f.label "Don't see your employer? Add info about yours below:" %>
+  <%= f.fields_for :shelter, employee.shelter.build do |shelter_fields| %>
+    <%= shelter_fields.label :name %>
+    <%= shelter_fields.text_field :name %>
+    <%= shelter_fields.label :address %><!-- probably won't work, but need to incorporate address... -->
+  <% end %>
+<% end %>
