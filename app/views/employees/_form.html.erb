@@ -11,6 +11,6 @@
   <%= f.fields_for :shelter, employee.shelter.build do |shelter_fields| %>
     <%= shelter_fields.label :name %>
     <%= shelter_fields.text_field :name %>
-    <%= shelter_fields.label :address %><!-- probably won't work, but need to incorporate address... -->
+    <!-- need to incorporate adding address... -->
   <% end %>
 <% end %>

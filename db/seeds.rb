@@ -6,10 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create(username: "iamcatdad", email: "maskiella@gmail.com", first_name: "Andrew", last_name: "Maskiell", password: "catz4lyf3", address_id: 1)
-user2 = User.create(username: "bradfizzle", email: "bradfizzle@gmail.com", first_name: "Brad", last_name: "Demarest", password: "iheartplatez", address_id: 2)
-user3 = User.create(username: "comiccalvin", email: "calvin@gmail.com", first_name: "Calvin", last_name: "Watterson", password: "snowballfightz", address_id: 3)
-user4 = User.create(username: "chuckyb", email: "charles.brown@gmail.com", first_name: "Charlie", last_name: "Brown", password: "goodgrief", address_id: 4)
+user1 = User.create(first_name: "Andrew", last_name: "Maskiell", username: "iamcatdad", email: "maskiella@gmail.com", password: "catz4lyf3", address_id: 1)
+user2 = User.create(first_name: "Brad", last_name: "Demarest", username: "bradfizzle", email: "bradfizzle@gmail.com", password: "iheartplatez", address_id: 2)
+user3 = User.create(first_name: "Calvin", last_name: "Watterson", username: "comiccalvin", email: "calvin@gmail.com", password: "snowballfightz", address_id: 3)
+user4 = User.create(first_name: "Charlie", last_name: "Brown", username: "chuckyb", email: "charles.brown@gmail.com", password: "goodgrief", address_id: 4)
+
+employee1 = Employee.create(first_name: "Brittany", last_name: "Lasch", username: "kittymomma", email: "fands@gmail.com", password: "fands43va", shelter_id: 6)
+# employee2 = Employee.create(first_name: "", last_name: "", username: "", email: "", password: "", shelter_id: )
+# employee3 = Employee.create(first_name: "", last_name: "", username: "", email: "", password: "", shelter_id: )
+# employee4 = Employee.create(first_name: "", last_name: "", username: "", email: "", password: "", shelter_id: )
 
 cat1 = Pet.create(name: "Grandma", nickname: "Gram", animal: "Cat", age: 16, breed: "Tuxedo", info: "So old and goofy", user_id: 1)
 cat2 = Pet.create(name: "Kirito", nickname: "Kiki", animal: "Cat", age: 3, breed: "Black medium fur", info: "He's a little shit, but still really cute", user_id: 1)
