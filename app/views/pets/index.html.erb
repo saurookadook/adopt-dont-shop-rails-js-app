@@ -1,0 +1,2 @@
+<h1><%= current_user.username %>'s pets:</h1>
+<%= render partial: 'layouts/pets', locals: {pets: current_user.pets} %>
