@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
 
     if @user.authenticate(user_params[:password])
       set_session(@user.id)
+      flash[:message] = "Successfully logged in!"
       redirect_to :root
     else
       render :new
