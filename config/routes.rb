@@ -30,8 +30,6 @@ Rails.application.routes.draw do
     resources :pets, only: [:index, :show, :new]
   end
 
-  resources :employees
-
   resources :shelters, only: [:show] do
     resources :pets, only: [:index, :show, :new]
   end

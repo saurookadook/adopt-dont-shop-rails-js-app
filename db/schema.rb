@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.integer "shelter_id"
   end
 
   create_table "pets", force: :cascade do |t|
