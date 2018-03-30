@@ -15,14 +15,12 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'sessions#new'
 
+  resources :pets
   resources :shelters
 
   resources :users, only: [:show] do
     resources :pets, only: [:index, :show, :new]
   end
-
-  resources :pets
-  resources :shelters
 
   resources :shelters, only: [:show] do
     resources :pets, only: [:index, :show, :new]

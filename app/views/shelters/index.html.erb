@@ -2,5 +2,5 @@
 
 <% @shelters.each do |shelter| %>
   <%= link_to shelter.name, shelter_path(shelter) %>
-  <%= shelter.full_address %><br />
+  <%= shelter.address.full_address %><br />
 <% end %>
