@@ -8,9 +8,14 @@
   <%= f.label "For which shelter do you work?" %>
   <%= f.collection_check_boxes :shelter_ids, Shelter.all, :id, :name %>
   <%= f.label "Don't see your employer? Add info about yours below:" %>
+
+  <!-- possible solution? -->
+  <%= render partial: 'shelters/form', locals: {shelter: employee.shelter, address: employee.shelter.address} %>
+
   <%= f.fields_for :shelter, employee.shelter.build do |shelter_fields| %>
     <%= shelter_fields.label :name %>
     <%= shelter_fields.text_field :name %>
+
     <!-- need to incorporate adding address... -->
   <% end %>
 <% end %>
