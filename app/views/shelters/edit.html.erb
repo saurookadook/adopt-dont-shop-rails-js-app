@@ -1,2 +1,2 @@
 <h1>Update info for <%= @shelter.name %></h1>
-<%= render 'form' %>
+<%= render 'form', locals: {shelter: @shelter, address: @address} %>

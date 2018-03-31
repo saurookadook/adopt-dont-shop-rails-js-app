@@ -17,6 +17,8 @@
   <%= f.label :password %>
   <%= f.password_field :password %><br>
 
+  <!-- add address fields -->
+
   <% if @user.pets %>
     <%= f.label 'Your pets:' %><br>
     <%= f.fields_for :pets, @user.pets.each do |pets_fields| %>

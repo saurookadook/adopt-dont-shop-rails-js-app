@@ -2,6 +2,9 @@ class Address < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :shelter, optional: true
 
+  validates :city, presence: true
+  validates :state, presence: true
+
   def full_address
     if self.street2
       # needs reformatting
