@@ -1,2 +1,4 @@
 <h1><%= current_user.username %>'s pets:</h1>
-<%= render partial: 'layouts/pets', locals: {pets: current_user.pets} %>
+<% current_user.pets.each do |pet| %>
+  <%= render partial: 'layouts/pet', locals: {pet: pet} %>
+<% end %>

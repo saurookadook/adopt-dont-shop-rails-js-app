@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    # need to fix data duplication issue
     @user.update(user_params)
     if @user.valid?
       flash[:message] = "Information successfully updated."

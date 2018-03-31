@@ -9,7 +9,9 @@
 
   <% if @user.pets %>
     <h3><%= @user.username %>'s pets:</h3><br>
-    <%= render partial: 'layouts/pets', locals: {pets: @user.pets} %>
+    <% @user.pets.each do |pet| %>
+      <%= render partial: 'layouts/pet', locals: {pet: pet} %>
+    <% end %>
   <% end %>
   <%= link_to "Add a pet!", new_user_pet_path(@user) %><br>
 </li>

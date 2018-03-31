@@ -3,5 +3,5 @@
 
 <h4>Pets ready for adoption!</h4>
 <% @shelter.pets.each do |pet| %>
-  <!-- pet partial? -->
+  <%= render partial: 'layouts/pet', locals: {pet: pet} %>
 <% end %>
