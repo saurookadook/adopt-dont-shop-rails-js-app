@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'employee_sessions/new'
+
+  get 'employee_sessions/create'
+
+  get 'employee_sessions/destroy'
+
   get 'employees/index'
 
   get 'employees/show'
@@ -14,14 +20,20 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
   get '/signup', to: 'users#new', as: 'new_user_registration'
 
-  resources :employees
-
   get '/login', to: 'sessions#new', as: 'new_user_session'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'destroy_user_session'
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'sessions#new'
+
+  resources :employees, only: [:index, :show, :create, :edit, :update, :destroy]
+
+  get '/employees/signup', to: 'employees#new', as: 'new_employee_registration'
+  get '/employees/login', to: 'sessions#new', as: 'new_employee_session'
+
+
+
 
   resources :pets
   resources :shelters

@@ -38,6 +38,18 @@
             <a class="nav-link" href="<%= users_path %>">Adopters</a>
           </li>
 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="<%= shelters_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Employee Resources
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<%=  %>">Sign In</a>
+              <a class="dropdown-item" href="#">Sign Up</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+
           <!-- Current user nav -->
           <% if current_user %>
             <li class="nav-item dropdown">
