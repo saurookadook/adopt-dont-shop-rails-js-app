@@ -8,10 +8,10 @@
 
   <br>
 
-  <%= f.submit 'Log In' %>
+  <%= f.submit 'Log In', class: "btn btn-light mb-3" %>
 <% end %>
 
-<p>Don't have an account?</p>
-<%= link_to "Sign Up", new_user_registration_path %><br>
+<%= link_to "Sign in with Google", '/auth/google_oauth2', id: 'login', class: "btn btn-light mb-3" %>
 
-<%= link_to "Sign in with Google", '/auth/google_oauth2', id: 'login' %>
+<p class="pt-3">Don't have an account?</p>
+<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-light mb-3" %><br>
