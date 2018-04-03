@@ -4,4 +4,8 @@ class Employee < ApplicationRecord
   belongs_to :shelter
 
   include Validatable
+
+  accepts_nested_attributes_for :shelter
+
+  
 end

@@ -13,13 +13,12 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'sessions#new'
 
-  resources :employees, only: [:index, :show, :create, :edit, :update, :destroy]
-
   get '/employees/signup', to: 'employees#new', as: 'new_employee_registration'
   get '/employees/login', to: 'employee_sessions#new', as: 'new_employee_session'
-  post '/employees/login', to: 'employee_sessions#create'
+  post '/employees/login', to: 'employee_sessions#create', as: 'employee_login'
   delete '/employees/logout', to: 'employee_sessions#destroy', as: 'destroy_employee_session'
 
+  resources :employees, only: [:index, :show, :create, :edit, :update, :destroy]
 
   resources :pets
   resources :shelters

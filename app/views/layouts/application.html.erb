@@ -46,6 +46,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "Log In", new_employee_session_path, class: "dropdown-item" %>
               <%= link_to "Sign Up", new_employee_registration_path, class: "dropdown-item" %>
+              <%= link_to "Log Out", destroy_employee_session_path, class: "dropdown-item" %>
             </div>
           </li>
 
