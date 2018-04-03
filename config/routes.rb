@@ -1,18 +1,4 @@
 Rails.application.routes.draw do
-  get 'employee_sessions/new'
-
-  get 'employee_sessions/create'
-
-  get 'employee_sessions/destroy'
-
-  get 'employees/index'
-
-  get 'employees/show'
-
-  get 'employees/new'
-
-  get 'employees/edit'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'welcome#home'
@@ -30,9 +16,9 @@ Rails.application.routes.draw do
   resources :employees, only: [:index, :show, :create, :edit, :update, :destroy]
 
   get '/employees/signup', to: 'employees#new', as: 'new_employee_registration'
-  get '/employees/login', to: 'sessions#new', as: 'new_employee_session'
-
-
+  get '/employees/login', to: 'employee_sessions#new', as: 'new_employee_session'
+  post '/employees/login', to: 'employee_sessions#create'
+  delete '/employees/logout', to: 'employee_sessions#destroy', as: 'destroy_employee_session'
 
 
   resources :pets

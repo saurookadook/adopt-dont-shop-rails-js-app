@@ -39,14 +39,12 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="<%= shelters_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="<%= employees_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Employee Resources
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="<%=  %>">Sign In</a>
-              <a class="dropdown-item" href="#">Sign Up</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <%= link_to "Log In", new_employee_session_path, class: "dropdown-item" %>
+              <%= link_to "Sign Up", new_employee_registration_path, class: "dropdown-item" %>
             </div>
           </li>
 
@@ -61,15 +59,18 @@
                 <%= link_to "Your Pets", user_pets_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Edit Account Info", edit_user_path(current_user), class: "dropdown-item" %>
                 <div class="dropdown-divider"></div>
-                <%= link_to "Sign Out", destroy_user_session_path, method: 'delete', class: "dropdown-item" %>
+                <%= link_to "Log Out", destroy_user_session_path, method: 'delete', class: "dropdown-item" %>
               </div>
             </li>
           <% else %>
-            <li class="nav-item">
-              <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="<%= shelters_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Employee Resources
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+                <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+              </div>
             </li>
           <% end %>
         </ul>
