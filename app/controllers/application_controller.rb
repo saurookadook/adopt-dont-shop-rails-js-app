@@ -29,6 +29,10 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user_id
   end
 
+  def set_employee_session(employee_id)
+    session[:employee_id] = employee_id
+  end
+
   def set_pet
     @pet ||= Pet.find(params[:id]) if [params[:id]]
   end
@@ -36,6 +40,10 @@ class ApplicationController < ActionController::Base
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :city, :state,
       pets_attributes:[:name, :nickname, :animal, :age, :breed, :info, :shelter_id, :user_id])
+  end
+
+  def employee_params
+    params.require(:employee).permit(:first_name, :last_name, :username, :email, :password)
   end
 
 end
