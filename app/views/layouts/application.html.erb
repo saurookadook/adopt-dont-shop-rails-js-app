@@ -38,6 +38,7 @@
             <a class="nav-link" href="<%= users_path %>">Adopters</a>
           </li>
 
+          <!-- Employee nav -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="<%= employees_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Employee Resources
@@ -51,7 +52,7 @@
           <!-- Current user nav -->
           <% if current_user %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="<%= user_path(current_user) %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= current_user.username %> <!-- maybe make helper to change display? -->
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -65,7 +66,7 @@
           <% else %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="<%= shelters_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Employee Resources
+                User Resources
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
