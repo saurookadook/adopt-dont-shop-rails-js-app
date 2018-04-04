@@ -16,6 +16,7 @@
 
   <%= f.label "Current Location" %><br>
   <%= f.fields_for :address, @user.build_address do |address_fields| %>
+    <%= address_fields.hidden_field :id %>
     <%= address_fields.label :street1 %>
     <%= address_fields.text_field :street1 %><br>
     <%= address_fields.label :street2 %>

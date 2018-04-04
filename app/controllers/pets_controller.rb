@@ -27,7 +27,6 @@ class PetsController < ApplicationController
   end
 
   def update
-    binding.pry
     @pet.update(pet_params)
     if @pet.valid?
       flash[:message] = "Pet info updated!"
