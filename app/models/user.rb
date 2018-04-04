@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :pets
   has_one :address
   accepts_nested_attributes_for :pets
+  accepts_nested_attributes_for :address
 
   include Validatable
 
