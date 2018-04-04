@@ -26,7 +26,7 @@ class SheltersController < ApplicationController
   private
 
   def set_shelter!
-    @shelter = Shelter.params[:id] if params[:id]
+    @shelter = Shelter.find(params[:id]) if params[:id]
   end
 
   def shelter_params

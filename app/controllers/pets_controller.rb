@@ -13,6 +13,15 @@ class PetsController < ApplicationController
   end
 
   def create
+    raise params.inspect
+    @pet = Pet.new(pet_params)
+
+    if @pet.valid?
+      @pet.save
+      redirect_to user_pet_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,5 +34,11 @@ class PetsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def pet_params
+    params.require(:pet).permit(:name, :nickname, :animal, :age, :breed, :info, :owner_id, :owner_type)
   end
 end

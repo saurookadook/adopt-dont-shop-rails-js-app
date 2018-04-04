@@ -33,6 +33,7 @@ employee1 = Employee.create(first_name: "Brittany", last_name: "Lasch", username
 # employee2 = Employee.create(first_name: "", last_name: "", username: "", email: "", password: "", shelter_id: )
 # employee3 = Employee.create(first_name: "", last_name: "", username: "", email: "", password: "", shelter_id: )
 # employee4 = Employee.create(first_name: "", last_name: "", username: "", email: "", password: "", shelter_id: )
+employee5 = Employee.create(first_name: "Nikolai", last_name: "Tesla", username: "unlikelyadmin", email: "electromags@gmail.com", password: "electricityRulez", shelter_id: 6, admin: true)
 
 cat1 = Pet.create(name: "Grandma", nickname: "Gram", animal: "Cat", age: 16, breed: "Tuxedo", info: "So old and goofy", owner: user1)
 cat2 = Pet.create(name: "Kirito", nickname: "Kiki", animal: "Cat", age: 3, breed: "Black medium fur", info: "He's a little shit, but still really cute", owner: user1)
