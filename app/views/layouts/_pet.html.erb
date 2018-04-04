@@ -1,9 +1,9 @@
 <h4>Name: <%= pet.name %></h4><br>
 <ul>
-  <!-- figure out neater way to accomplish same thing -->
-  <p><%= "Nickname: #{pet.nickname}" if !pet.nickname.nil? %></p><br>
+  <!-- figure out neater way to accomplish same thing (helper_method to collect only certain attributes?) -->
+  <p><%= "Nickname: #{pet.nickname}" if pet.nickname != "" %></p><br>
   <p><%= "Species:  #{pet.animal}"%></p><br>
-  <p>Age: <%= pet.age %></p><br>
-  <p>Breed: <%= pet.breed %></p><br>
-  <p>Info: <%= pet.info %></p><br>
+  <p><%= "Age: #{pet.age}" if !pet.age.nil? %></p><br>
+  <p><%= "Breed: #{pet.breed}" if pet.breed != "" %></p><br>
+  <p><%= "Info: #{pet.info}" if pet.info != "" %></p><br>
 </ul>

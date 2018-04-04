@@ -27,6 +27,13 @@ class PetsController < ApplicationController
   end
 
   def update
+    @pet.update(pet_params)
+    if @pet.valid?
+      flash[:message] = "Pet info updated!"
+      redirect_to user_pet_path(current_user, @pet)
+    else
+      render :edit
+    end
   end
 
   def adopt
