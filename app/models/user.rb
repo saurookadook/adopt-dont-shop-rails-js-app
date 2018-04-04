@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :pets, as: :petsable
+  has_many :pets, as: :owner
   has_one :address
   accepts_nested_attributes_for :pets
   accepts_nested_attributes_for :address

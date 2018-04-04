@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "password_digest"
     t.boolean "admin", default: false
     t.integer "shelter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pets", force: :cascade do |t|
@@ -48,10 +50,11 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.integer "age"
     t.string "breed"
     t.text "info"
-    t.integer "shelter_id"
-    t.integer "user_id"
+    t.string "owner_type"
+    t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["owner_type", "owner_id"], name: "index_pets_on_owner_type_and_owner_id"
   end
 
   create_table "shelters", force: :cascade do |t|
@@ -74,6 +77,8 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "oauth_token"
     t.datetime "oauth_expires_at"
     t.integer "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
