@@ -13,12 +13,11 @@ class PetsController < ApplicationController
   end
 
   def create
-    raise params.inspect
     @pet = Pet.new(pet_params)
 
     if @pet.valid?
       @pet.save
-      redirect_to user_pet_path
+      redirect_to user_pet_path(current_user, @pet)
     else
       render :new
     end

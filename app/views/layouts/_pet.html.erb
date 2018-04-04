@@ -1,7 +1,8 @@
 <h4>Name: <%= pet.name %></h4><br>
 <ul>
-  <p>Nickname: <%= pet.nickname %></p><br>
-  <p>Species: <%= pet.animal %></p><br>
+  <!-- figure out neater way to accomplish same thing -->
+  <p><%= "Nickname: #{pet.nickname}" if !pet.nickname.nil? %></p><br>
+  <p><%= "Species:  #{pet.animal}"%></p><br>
   <p>Age: <%= pet.age %></p><br>
   <p>Breed: <%= pet.breed %></p><br>
   <p>Info: <%= pet.info %></p><br>
