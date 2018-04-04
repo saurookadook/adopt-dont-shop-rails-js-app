@@ -7,6 +7,6 @@
 <% end %>
 
 <% if current_employee.admin %>
-  <%= link_to "Edit Shelter Information", edit_shelter_path(@shelter) %>
-  <%= link_to 'Delete Account', @shelter, method: :delete, data: { confirm: 'Are you sure you would like to delete this shelter and all of its associated accounts?' } %>
+  <%= link_to "Edit Shelter Information", edit_shelter_path(@shelter), class: "btn btn-light mb-3" %>
+  <%= link_to 'Delete Account', @shelter, class: "btn btn-light mb-3", method: :delete, data: { confirm: 'Are you sure you would like to delete this shelter and all of its associated accounts?' } %>
 <% end %>
