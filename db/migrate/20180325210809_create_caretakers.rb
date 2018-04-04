@@ -4,7 +4,7 @@ class CreateCaretakers < ActiveRecord::Migration[5.1]
       t.integer :employee_id
       t.integer :pet_id
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

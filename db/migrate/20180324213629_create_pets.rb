@@ -7,8 +7,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.integer :age
       t.string :breed
       t.text :info
-      t.integer :shelter_id
-      t.integer :user_id
+      t.references :petsable, polymorphic: true, index: true
 
       t.timestamps null: false
     end

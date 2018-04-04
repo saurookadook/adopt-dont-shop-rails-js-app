@@ -6,6 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+address1 = Address.create(street1: "29 Colburne Rd.", street2: "Apt. 2", city: "Brighton", state: "MA", zip: "02135", user_id: 1)
+address2 = Address.create(street1: "", street2: "", city: "Rochester", state: "NY", zip: "14618", user_id: 2)
+address3 = Address.create(street1: "", street2: "", city: "Chagrin", state: "OH", zip: "44022", user_id: 3)
+address4 = Address.create(street1: "", street2: "", city: "Saint Paul", state: "MN", zip: "55101", user_id: 4)
+address5 = Address.create(street1: "250 Florida St.", street2: "", city: "San Francisco", state: "CA", zip: "94103", shelter_id: 1)
+address6 = Address.create(street1: "200 Centre St.", street2: "", city: "New York", state: "NY", zip: "10013", shelter_id: 2)
+address7 = Address.create(street1: "142 Kindness Ct.", street2: "", city: "Burlington", state: "VT", zip: "05403", shelter_id: 3)
+address8 = Address.create(street1: "99 Victor Rd.", street2: "", city: "Fairport", state: "NY", zip: "14450", shelter_id: 4)
+address9 = Address.create(street1: "1845 Pontius Ave.", street2: "", city: "Los Angeles", state: "CA", zip: "90025", shelter_id: 5)
+address10 = Address.create(street1: "629 Oakland Park Ave.", street2: "", city: "Columbus (London)", state: "OH", zip: "43214", shelter_id: 6)
+
+shelter1 = Shelter.create(name: "San Francisco SPCA", address_id: 5)
+shelter2 = Shelter.create(name: "Animal Haven Shelter", address_id: 6)
+shelter3 = Shelter.create(name: "Humane Society of Chittenden County", address_id: 7)
+shelter4 = Shelter.create(name: "Lollypop Farm Adoption Center",  address_id: 8)
+shelter5 = Shelter.create(name: "NKLA Pet Adoption Center", address_id: 9)
+shelter6 = Shelter.create(name: "Pets Without Parents", address_id: 10)
+
 user1 = User.create(first_name: "Andrew", last_name: "Maskiell", username: "iamcatdad", email: "maskiella@gmail.com", password: "catz4lyf3", address_id: 1)
 user2 = User.create(first_name: "Brad", last_name: "Demarest", username: "bradfizzle", email: "bradfizzle@gmail.com", password: "iheartplatez", address_id: 2)
 user3 = User.create(first_name: "Calvin", last_name: "Watterson", username: "comiccalvin", email: "calvin@gmail.com", password: "snowballfightz", address_id: 3)
@@ -30,23 +48,9 @@ dog4 = Pet.create(name: "Mr. Peanut Butter", nickname: "Dumbo", animal: "Dog", a
 dog5 = Pet.create(name: "Scrouge", nickname: "Ebby", animal: "Dog", age: 7, breed: "Pug", info: "Lovable, despite his grumpy appearance", shelter_id: 6)
 dog6 = Pet.create(name: "Killer", nickname: "Cupcake", animal: "Dog", age: 11, breed: "Poodle", info: "Don't judge a book by its cover", shelter_id: 2)
 
-shelter1 = Shelter.create(name: "San Francisco SPCA", address_id: 5)
-shelter2 = Shelter.create(name: "Animal Haven Shelter", address_id: 6)
-shelter3 = Shelter.create(name: "Humane Society of Chittenden County", address_id: 7)
-shelter4 = Shelter.create(name: "Lollypop Farm Adoption Center",  address_id: 8)
-shelter5 = Shelter.create(name: "NKLA Pet Adoption Center", address_id: 9)
-shelter6 = Shelter.create(name: "Pets Without Parents", address_id: 10)
 
-address1 = Address.create(street1: "29 Colburne Rd.", street2: "Apt. 2", city: "Brighton", state: "MA", zip: "02135", user_id: 1)
-address2 = Address.create(street1: "", street2: "", city: "Rochester", state: "NY", zip: "14618", user_id: 2)
-address3 = Address.create(street1: "", street2: "", city: "Chagrin", state: "OH", zip: "44022", user_id: 3)
-address4 = Address.create(street1: "", street2: "", city: "Saint Paul", state: "MN", zip: "55101", user_id: 4)
-address5 = Address.create(street1: "250 Florida St.", street2: "", city: "San Francisco", state: "CA", zip: "94103", shelter_id: 1)
-address6 = Address.create(street1: "200 Centre St.", street2: "", city: "New York", state: "NY", zip: "10013", shelter_id: 2)
-address7 = Address.create(street1: "142 Kindness Ct.", street2: "", city: "Burlington", state: "VT", zip: "05403", shelter_id: 3)
-address8 = Address.create(street1: "99 Victor Rd.", street2: "", city: "Fairport", state: "NY", zip: "14450", shelter_id: 4)
-address9 = Address.create(street1: "1845 Pontius Ave.", street2: "", city: "Los Angeles", state: "CA", zip: "90025", shelter_id: 5)
-address10 = Address.create(street1: "629 Oakland Park Ave.", street2: "", city: "Columbus (London)", state: "OH", zip: "43214", shelter_id: 6)
+
+
 
 # user1.pets << cat1 << cat2
 # user2.pets << dog2
