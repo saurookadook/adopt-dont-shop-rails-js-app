@@ -37,20 +37,11 @@
           <li class="nav-item">
             <a class="nav-link" href="<%= users_path %>">Adopters</a>
           </li>
+        </ul>
 
-          <!-- Employee nav -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="<%= employees_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Employee Resources
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "Log In", new_employee_session_path, class: "dropdown-item" %>
-              <%= link_to "Sign Up", new_employee_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log Out", destroy_employee_session_path, method: 'delete', class: "dropdown-item" %>
-            </div>
-          </li>
 
-          <!-- Current user nav -->
+        <ul class="navbar-nav ml-auto">
+          <!-- Current user/employee nav -->
           <% if current_user %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="<%= user_path(current_user) %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,16 +55,41 @@
                 <%= link_to "Log Out", destroy_user_session_path, method: 'delete', class: "dropdown-item" %>
               </div>
             </li>
-          <% else %>
+          <% elsif current_employee %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="<%= shelters_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                User Resources
+              <a class="nav-link dropdown-toggle" href="<%= user_path(current_user) %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_employee.username %> <!-- maybe make helper to change display? -->
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
-                <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+                <%= link_to "Your Page", employee_path(current_employee), class: "dropdown-item" %>
+                <%= link_to "Your Shelter", shelter_path(current_employee.shelter), class: "dropdown-item" %>
+                <%= link_to "Edit Account Info", edit_employee_path(current_employee), class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Log Out", destroy_employee_session_path, method: 'delete', class: "dropdown-item" %>
               </div>
             </li>
+          <% else %>
+          <!-- Employee nav -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="<%= employees_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Employee Resources
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "Log In", new_employee_session_path, class: "dropdown-item" %>
+              <%= link_to "Sign Up", new_employee_registration_path, class: "dropdown-item" %>
+            </div>
+          </li>
+
+          <!-- User nav -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="<%= shelters_path %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              User Resources
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+            </div>
+          </li>
           <% end %>
         </ul>
 
