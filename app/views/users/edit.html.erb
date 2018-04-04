@@ -14,9 +14,6 @@
   <%= f.label :email %>
   <%= f.text_field :email %><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
-
   <%= f.label "Current Location" %><br>
   <%= f.fields_for :address, @user.build_address do |address_fields| %>
     <%= address_fields.label :street1 %>
@@ -36,6 +33,7 @@
   <% if @user.pets %>
     <%= f.label 'Your pets:' %><br>
     <%= f.fields_for :pets, @user.pets.each do |pets_fields| %>
+      <%= pets_fields.hidden_field :id %>
       <%= pets_fields.label :name %>
       <%= pets_fields.text_field :name %><br>
       <%= pets_fields.label :nickname %>
