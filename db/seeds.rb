@@ -48,14 +48,14 @@ address8 = Address.create(street1: "99 Victor Rd.", street2: "", city: "Fairport
 address9 = Address.create(street1: "1845 Pontius Ave.", street2: "", city: "Los Angeles", state: "CA", zip: "90025", shelter_id: 5)
 address10 = Address.create(street1: "629 Oakland Park Ave.", street2: "", city: "Columbus (London)", state: "OH", zip: "43214", shelter_id: 6)
 
-user1.pets << cat1 << cat2
-user2.pets << dog2
-user3.pets << cat5
-user4.pets << dog1
-
-shelter1.pets << cat3
-shelter2.pets << cat4 << dog6
-shelter3.pets << cat6
-shelter4.pets << dog3
-shelter5.pets << dog4
-shelter6.pets << dog5
+# user1.pets << cat1 << cat2
+# user2.pets << dog2
+# user3.pets << cat5
+# user4.pets << dog1
+#
+# shelter1.pets << cat3
+# shelter2.pets << cat4 << dog6
+# shelter3.pets << cat6
+# shelter4.pets << dog3
+# shelter5.pets << dog4
+# shelter6.pets << dog5

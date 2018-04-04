@@ -57,7 +57,7 @@
             </li>
           <% elsif current_employee %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="<%= user_path(current_user) %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="<%= employee_path(current_employee) %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= current_employee.username %> <!-- maybe make helper to change display? -->
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">

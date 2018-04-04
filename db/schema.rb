@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.boolean "admin", default: false
     t.integer "shelter_id"
   end
 
@@ -55,6 +56,8 @@ ActiveRecord::Schema.define(version: 20180327005014) do
 
   create_table "shelters", force: :cascade do |t|
     t.string "name"
+    t.string "email"
+    t.string "phone_number"
     t.integer "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
