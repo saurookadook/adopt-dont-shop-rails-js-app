@@ -17,7 +17,21 @@
   <%= f.label :password %>
   <%= f.password_field :password %><br>
 
-  <!-- add address fields -->
+  <%= f.label "Current Location" %><br>
+  <%= f.fields_for :address, @user.build_address do |address_fields| %>
+    <%= address_fields.label :street1 %>
+    <%= address_fields.text_field :street1 %><br>
+    <%= address_fields.label :street2 %>
+    <%= address_fields.text_field :street2 %><br>
+    <%= address_fields.label :city %>
+    <%= address_fields.text_field :city %><br>
+    <%= address_fields.label :state %>
+    <%= address_fields.text_field :state %><br>
+    <%= address_fields.label :zip %>
+    <%= address_fields.text_field :zip %><br>
+  <% end %>
+
+  <br>
 
   <% if @user.pets %>
     <%= f.label 'Your pets:' %><br>
