@@ -2,7 +2,15 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update]
 
   def index
-    @pets = Pet.all
+    if params[:user_id]
+      @owner = User.find(params[:user_id])
+      @pets = @owner.pets
+    elsif params[:shelter_id]
+      @owner = Shelter.find(params[:shelter_id])
+      @pets = @owner.pets
+    else
+      @pets = Pet.all
+    end
   end
 
   def show
