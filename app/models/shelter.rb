@@ -7,4 +7,7 @@ class Shelter < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  def display_address
+    self.address.full_address.html_safe
+  end
 end

@@ -39,6 +39,10 @@ class User < ApplicationRecord
     self.first_name + " " + self.last_name
   end
 
+  def display_address
+    self.address.full_address.html_safe
+  end
+
   def pets_attributes=(pet_attributes)
     pet_attributes.values.each do |pet_attr_hash|
       pet = Pet.find(pet_attr_hash[:id])
