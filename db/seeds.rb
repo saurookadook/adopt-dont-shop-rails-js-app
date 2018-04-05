@@ -17,12 +17,29 @@ address8 = Address.create(street1: "99 Victor Rd.", street2: "", city: "Fairport
 address9 = Address.create(street1: "1845 Pontius Ave.", street2: "", city: "Los Angeles", state: "CA", zip: "90025", resident_id: 9, resident_type: "Shelter")
 address10 = Address.create(street1: "629 Oakland Park Ave.", street2: "", city: "Columbus (London)", state: "OH", zip: "43214", resident_id: 10, resident_type: "Shelter")
 
-shelter1 = Shelter.create(name: "San Francisco SPCA", address_id: 5)
-shelter2 = Shelter.create(name: "Animal Haven Shelter", address_id: 6)
-shelter3 = Shelter.create(name: "Humane Society of Chittenden County", address_id: 7)
-shelter4 = Shelter.create(name: "Lollypop Farm Adoption Center",  address_id: 8)
-shelter5 = Shelter.create(name: "NKLA Pet Adoption Center", address_id: 9)
-shelter6 = Shelter.create(name: "Pets Without Parents", address_id: 10)
+shelter1 = Shelter.new(name: "San Francisco SPCA", email: "adoptions@sfpca.org", phone_number: "415-522-3500")
+shelter1.address = address5
+shelter1.save
+
+shelter2 = Shelter.new(name: "Animal Haven Shelter", phone_number: "212-274-8511")
+shelter2.address = address6
+shelter2.save
+
+shelter3 = Shelter.new(name: "Humane Society of Chittenden County", email: "bestfriends@chittendenhumane.org", phone_number: "802-862-0135")
+shelter3.address = address7
+shelter3.save
+
+shelter4 = Shelter.new(name: "Lollypop Farm Adoption Center", email: "info@lollypop.org", phone_number: "585-223-1330")
+shelter4.address = address8
+shelter4.save
+
+shelter5 = Shelter.new(name: "NKLA Pet Adoption Center", email: "bestfriends@bestfriends.org", phone_number: "424-208-8840")
+shelter5.address = address9
+shelter5.save
+
+shelter6 = Shelter.new(name: "Pets Without Parents", email: "pets@petswithoutparents.net", phone_number: "614-267-7297")
+shelter6.address = address10
+shelter6.save
 
 user1 = User.new(first_name: "Andrew", last_name: "Maskiell", username: "iamcatdad", email: "maskiella@gmail.com", password: "catz4lyf3")
 user1.address = address1
@@ -60,19 +77,3 @@ dog3 = Pet.create(name: "Pooper", nickname: "Poopz", animal: "Dog", age: 8, bree
 dog4 = Pet.create(name: "Mr. Peanut Butter", nickname: "Dumbo", animal: "Dog", age: 5, breed: "Golden Lab", info: "Waaaaaaaaay too much energy", owner: shelter5)
 dog5 = Pet.create(name: "Scrouge", nickname: "Ebby", animal: "Dog", age: 7, breed: "Pug", info: "Lovable, despite his grumpy appearance", owner: shelter6)
 dog6 = Pet.create(name: "Killer", nickname: "Cupcake", animal: "Dog", age: 11, breed: "Poodle", info: "Don't judge a book by its cover", owner: shelter2)
-
-
-
-
-
-# user1.pets << cat1 << cat2
-# user2.pets << dog2
-# user3.pets << cat5
-# user4.pets << dog1
-#
-# shelter1.pets << cat3
-# shelter2.pets << cat4 << dog6
-# shelter3.pets << cat6
-# shelter4.pets << dog3
-# shelter5.pets << dog4
-# shelter6.pets << dog5
