@@ -59,10 +59,18 @@ user4.save
 
 
 employee1 = Employee.create(first_name: "Brittany", last_name: "Lasch", username: "kittymomma", email: "fands@gmail.com", password: "fands43va", shelter_id: 6)
-# employee2 = Employee.create(first_name: "", last_name: "", username: "", email: "", password: "", shelter_id: )
-# employee3 = Employee.create(first_name: "", last_name: "", username: "", email: "", password: "", shelter_id: )
-# employee4 = Employee.create(first_name: "", last_name: "", username: "", email: "", password: "", shelter_id: )
-employee5 = Employee.create(first_name: "Nikolai", last_name: "Tesla", username: "unlikelyadmin", email: "electromags@gmail.com", password: "electricityRulez", shelter_id: 6, admin: true)
+employee2 = Employee.create(first_name: "Max", last_name: "Fluff", username: "maxyflu", email: "mfluff@gmail.com", password: "fluffernutter", shelter_id: 1)
+employee3 = Employee.create(first_name: "Kitty", last_name: "Catz", username: "kittycatz", email: "kcatz@gmail.com", password: "kittiezdhabest", shelter_id: 2)
+employee4 = Employee.create(first_name: "Bob", last_name: "Smith", username: "billybob", email: "bsmith@gmail.com", password: "bobbylovesdogz", shelter_id: 3)
+employee5 = Employee.create(first_name: "Jane", last_name: "Svarten", username: "svartenj", email: "jsvarten@gmail.com", password: "svartyfarty", shelter_id: 4)
+employee6 = Employee.create(first_name: "Jill", last_name: "Jensen", username: "jillyj", email: "jjensen@gmail.com", password: "DOGZ4R3B3ST", shelter_id: 4)
+employee7 = Employee.create(first_name: "Helga", last_name: "Schumann", username: "ilikeshoez", email: "hschumann@gmail.com", password: "shoezshoes5H035", shelter_id: 5)
+employee8 = Employee.create(first_name: "Nikolai", last_name: "Tesla", username: "unlikelyadmin", email: "electromags@gmail.com", password: "electricityRulez", shelter_id: 6, admin: true)
+employee9 = Employee.create(first_name: "Ted", last_name: "Spacko", username: "teddy", email: "tspacko@gmail.com", password: "spackywacky", shelter_id: 1, admin: true)
+employee10 = Employee.create(first_name: "Tim", last_name: "Knowsitall", username: "genius_man", email: "sosmart@gmail.com", password: "DhaSmartest", shelter_id: 2, admin: true)
+employee11 = Employee.create(first_name: "Peter", last_name: "Baumwollschwanz", username: "CARROT_COLLECTOR", email: "carrotlove@gmail.com", password: "iL0v3C4Rr0tZ", shelter_id: 3, admin: true)
+employee12 = Employee.create(first_name: "Yogi", last_name: "Honeywell", username: "y_beara", email: "yhoney@gmail.com", password: "lolzb34rz", shelter_id: 4, admin: true)
+employee13 = Employee.create(first_name: "Smartman", last_name: "Sosmart", username: "smartsmart", email: "ssosmart@gmail.com", password: "timizdum", shelter_id: 5, admin: true)
 
 cat1 = Pet.create(name: "Grandma", nickname: "Gram", animal: "Cat", age: 16, breed: "Tuxedo", info: "So old and goofy", owner: user1)
 cat2 = Pet.create(name: "Kirito", nickname: "Kiki", animal: "Cat", age: 3, breed: "Black medium fur", info: "He's a little shit, but still really cute", owner: user1)
