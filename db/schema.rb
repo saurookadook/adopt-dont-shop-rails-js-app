@@ -18,10 +18,11 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.integer "user_id"
-    t.integer "shelter_id"
+    t.string "resident_type"
+    t.integer "resident_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["resident_type", "resident_id"], name: "index_addresses_on_resident_type_and_resident_id"
   end
 
   create_table "caretakers", force: :cascade do |t|

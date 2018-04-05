@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
-  belongs_to :user, optional: true
-  belongs_to :shelter, optional: true
+  belongs_to :resident, polymorphic: true, optional: true
+  # belongs_to :shelter, optional: true
 
   validates :city, presence: true
   validates :state, presence: true
