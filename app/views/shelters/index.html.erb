@@ -2,6 +2,6 @@
 
 <% @shelters.each do |shelter| %>
   <%= link_to shelter.name, shelter_path(shelter) %><br />
-  <%= shelter.address.full_address %><br />
+  <%= shelter.address.full_address.html_safe %><br />
   <br />
 <% end %>

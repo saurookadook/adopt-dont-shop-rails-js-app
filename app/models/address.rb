@@ -1,4 +1,5 @@
 class Address < ApplicationRecord
+  include ActionView::Helpers
   belongs_to :resident, polymorphic: true, optional: true
   # belongs_to :shelter, optional: true
 
@@ -7,10 +8,9 @@ class Address < ApplicationRecord
 
   def full_address
     if self.street2
-      # needs reformatting
-      "#{self.street1}<br />#{self.street2}<br />#{self.city}, #{self.state} #{self.zip}"
+      "#{self.street1}" + tag('br') + "#{self.street2}" + tag('br') + "#{self.city}, #{self.state} #{self.zip}"
     elsif self.street1 && self.zip
-      "#{self.street1}<br />#{self.city}, #{self.state} #{self.zip}"
+      "#{self.street1}" + tag('br') + "#{self.city}, #{self.state} #{self.zip}"
     else
       "#{self.city}, #{self.state}"
     end
