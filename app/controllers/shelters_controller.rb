@@ -1,5 +1,5 @@
 class SheltersController < ApplicationController
-  before_action :set_shelter!, only: [:show, :edit, :update]
+  before_action :set_shelter, only: [:show, :edit, :update]
 
   def index
     @shelters = Shelter.all
@@ -24,10 +24,6 @@ class SheltersController < ApplicationController
   end
 
   private
-
-  def set_shelter!
-    @shelter = Shelter.find(params[:id]) if params[:id]
-  end
 
   def shelter_params
     params.require(:shelter).permit(:name, address_attributes: [:street1, :street2, :city, :state, :zip])

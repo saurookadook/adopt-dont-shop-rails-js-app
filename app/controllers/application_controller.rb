@@ -22,20 +22,28 @@ class ApplicationController < ActionController::Base
     @user ||= User.find(params[:id]) if params[:id]
   end
 
-  def set_employee!
-    @employee = Employee.find(params[:id]) if params[:id]
-  end
-
   def set_session(user_id)
     session[:user_id] = user_id
+  end
+
+  def set_employee!
+    @employee = Employee.find(params[:id]) if params[:id]
   end
 
   def set_employee_session(employee_id)
     session[:employee_id] = employee_id
   end
 
-  def set_pet
-    @pet ||= Pet.find(params[:id]) if [params[:id]]
+  def set_pet!
+    @pet ||= Pet.find(params[:id]) if params[:id]
+  end
+
+  def set_shelter
+    if params[:shelter_id]
+      @shelter ||= Shelter.find(params[:shelter_id])
+    elsif params[:id]
+      @shelter ||= Shelter.find(params[:id])
+    end
   end
 
   def user_params

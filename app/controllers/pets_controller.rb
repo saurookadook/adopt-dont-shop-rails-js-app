@@ -1,7 +1,9 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update]
+  before_action :set_shelter, only: [:index, :show, :new, :edit, :update]
 
   def index
+    # refactor into method
     if params[:user_id]
       @owner = User.find(params[:user_id])
       @pets = @owner.pets

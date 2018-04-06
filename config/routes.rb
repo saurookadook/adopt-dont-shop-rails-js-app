@@ -24,10 +24,10 @@ Rails.application.routes.draw do
   resources :shelters
 
   resources :users, only: [:show] do
-    resources :pets, only: [:index, :show, :new]
+    resources :pets, only: [:index, :show, :new, :edit]
   end
 
   resources :shelters, only: [:show] do
-    resources :pets, only: [:index, :show, :new]
+    resources :pets, only: [:index, :show, :new, :edit]
   end
 end
