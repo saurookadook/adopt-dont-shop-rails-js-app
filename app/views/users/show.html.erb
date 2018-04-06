@@ -3,7 +3,7 @@
 <ul>
   <p>Name: <%= @user.full_name %></p>
   <p>Email: <%= @user.email %></p>
-  <p>Address:</p> <%= @user.display_address %>
+  <p>Address:</p> <%= display_address(@user) %>
 
   <% if @user.pets %>
     <h3><%= @user.username %>'s pets:</h3><br>

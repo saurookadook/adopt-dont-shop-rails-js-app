@@ -2,6 +2,7 @@ class SheltersController < ApplicationController
   before_action :set_shelter, only: [:show, :edit, :update]
 
   def index
+    binding.pry
     if !params[:city].blank?
       @shelters = Shelter.by_city(params[:city])
     elsif !params[:state].blank?

@@ -9,14 +9,10 @@ class Shelter < ApplicationRecord
   validates :name, :email, :phone_number, presence: true, uniqueness: true
 
   def self.by_city(city_name)
-    where(address: {city: city_name})
+    self.joins(:address).where(addresses: {city: city_name})
   end
 
   def self.by_state(state_name)
-    where(address: {state: state_name})
-  end
-
-  def display_address
-    self.address.full_address.html_safe
+    self.joins(:address).where(addresses: {state: state_name})
   end
 end
