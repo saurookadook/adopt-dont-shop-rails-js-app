@@ -10,7 +10,7 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
   <%= f.label "For which shelter do you work?" %>
-  <%= f.collection_check_boxes :shelter_id, Shelter.all, :id, :name %>
+  <%= f.collection_radio_buttons :shelter_id, Shelter.all, :id, :name %>
   <%= f.label "Don't see your employer? Add info about yours below:" %>
 
   <%= f.fields_for :shelter, employee.build_shelter do |shelter_fields| %>

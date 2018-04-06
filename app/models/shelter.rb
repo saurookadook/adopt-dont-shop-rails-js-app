@@ -5,7 +5,7 @@ class Shelter < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, :email, :phone_number, presence: true, uniqueness: true
 
   def display_address
     self.address.full_address.html_safe

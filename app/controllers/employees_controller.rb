@@ -13,6 +13,8 @@ class EmployeesController < ApplicationController
   end
 
   def create
+    binding.pry
+    @employee = Employee.new(employee_params)
   end
 
   def edit
