@@ -1,5 +1,12 @@
 <h1>Contributing Shelters:</h1><br />
 
+<h3>Filter Shelters:</h3>
+<%= form_tag("/shelters", method: "get") do %>
+  <%= select_tag "city", options_for_select(Address.all.map {|a| a.city}), include_blank: true %>
+  <%= select_tag "state", options_for_select(Address.all.map {|a| a.state}), include_blank: true %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
 <% @shelters.each do |shelter| %>
   <h4><%= link_to shelter.name, shelter_path(shelter) %></h4><br />
   <%= shelter.address.full_address.html_safe %><br />

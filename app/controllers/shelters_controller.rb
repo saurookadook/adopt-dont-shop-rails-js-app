@@ -2,7 +2,13 @@ class SheltersController < ApplicationController
   before_action :set_shelter, only: [:show, :edit, :update]
 
   def index
-    @shelters = Shelter.all
+    if !params[:city].blank?
+      @shelters = Shelter.by_city(params[:city])
+    elsif !params[:state].blank?
+      @shelters = Shelter.by_state(params[:state])
+    else
+      @shelters = Shelter.all
+    end
   end
 
   def show
@@ -26,6 +32,6 @@ class SheltersController < ApplicationController
   private
 
   def shelter_params
-    params.require(:shelter).permit(:name, address_attributes: [:street1, :street2, :city, :state, :zip])
+    params.require(:shelter).permit(:name, :email, :phone_number, :city, :state, address_attributes: [:street1, :street2, :city, :state, :zip])
   end
 end
