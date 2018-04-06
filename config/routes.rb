@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   resources :employees, only: [:index, :show, :create, :edit, :update, :destroy]
 
   resources :pets
+
+  get '/shelters/by_city', to: 'shelters#by_city', as: 'shelters_by_city'
+  get '/shelters/by_state', to: 'shelters#by_state', as: 'shelters_by_state'
   resources :shelters
 
   resources :users, only: [:show] do

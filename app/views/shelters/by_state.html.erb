@@ -1,0 +1,7 @@
+<h1>Contributing Shelters listed by State:</h1><br>
+
+<% @shelters.each do |shelter| %>
+  <h4><%= link_to shelter.name, shelter_path(shelter) %></h4><br />
+  <%= shelter.address.full_address.html_safe %><br />
+  <br />
+<% end %>

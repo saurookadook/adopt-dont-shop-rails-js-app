@@ -12,6 +12,14 @@ class SheltersController < ApplicationController
     @shelters ||= Shelter.all
   end
 
+  def by_city
+    @shelters = Shelter.order_by_city
+  end
+
+  def by_state
+    @shelters = Shelter.order_by_state
+  end
+
   def show
   end
 
