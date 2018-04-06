@@ -16,6 +16,10 @@
   <%= f.fields_for :shelter, employee.build_shelter do |shelter_fields| %>
     <%= shelter_fields.label :name %>
     <%= shelter_fields.text_field :name %>
+    <%= shelter_fields.label :email %>
+    <%= shelter_fields.text_field :email %>
+    <%= shelter_fields.label :phone_number %>
+    <%= shelter_fields.text_field :phone_number %>
     <%= shelter_fields.fields_for :address, employee.shelter.build_address do |address_fields| %>
       <%= address_fields.label :street1 %>
       <%= address_fields.text_field :street1 %>
@@ -28,8 +32,6 @@
       <%= address_fields.label :zip %>
       <%= address_fields.text_field :zip %>
     <% end %>
-
-    <!-- need to incorporate adding address... -->
   <% end %>
 
   <%= f.submit %>

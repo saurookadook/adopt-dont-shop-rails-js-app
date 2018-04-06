@@ -1,2 +1,2 @@
-<h1>Employees#edit</h1>
-<p>Find me in app/views/employees/edit.html.erb</p>
+<h1>Edit your info below, <%= @employee.username %></h1>
+<%= render partial: 'employees/form', locals: {employee: @employee} %>
