@@ -6,15 +6,11 @@
   <p>Address:</p> <%= display_address(@user) %>
 
   <% if @user.pets %>
-    <h3><%= @user.username %>'s pets:</h3><br>
-    <% @user.pets.each do |pet| %>
-      <%= render partial: 'layouts/pet', locals: {pet: pet} %>
-    <% end %>
+    <p><%= link_to "#{@user.username}'s pets", user_pets_path(@user) %></p><br>
   <% end %>
 </li>
 
 <% if current_user == @user %>
-  <%= link_to "Add a pet!", new_user_pet_path(@user), class: "btn btn-light mb-3" %><br>
   <%= link_to 'Edit Account Info', edit_user_path(current_user), class: "btn btn-light mb-3" %><br>
   <%= link_to 'Delete Account', @user, class: "btn btn-light mb-3", method: :delete, data: { confirm: 'Are you sure you would like to delete your account?' } %>
 <% end %>

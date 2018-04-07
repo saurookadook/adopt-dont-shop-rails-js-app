@@ -24,10 +24,13 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
+    @owner = Shelter.find(params[:pet][:owner_id])
+    @pet.owner = @owner
 
     if @pet.valid?
       @pet.save
-      redirect_to user_pet_path(current_user, @pet)
+      redirect_to shelter_pets_path(@owner) if @pet.owner_type == "Shelter"
+      redirect_to user_pets_path(current_user) if @pet.owner_type == "User"
     else
       render :new
     end
@@ -56,6 +59,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :nickname, :animal, :age, :breed, :info, :owner_id, :owner_type)
+    params.require(:pet).permit(:name, :nickname, :animal, :age, :breed, :info, :owner_id, :owner_type, employee_ids: [])
   end
 end

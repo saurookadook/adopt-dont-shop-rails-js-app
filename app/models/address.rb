@@ -7,9 +7,9 @@ class Address < ApplicationRecord
 
   # figure out way to make this into a module?
   def full_address
-    if self.street2
+    if self.street2 != ""
       "#{self.street1}" + tag('br') + "#{self.street2}" + tag('br') + "#{self.city}, #{self.state} #{self.zip}"
-    elsif self.street1 && self.zip
+    elsif self.street1 != "" && self.zip != ""
       "#{self.street1}" + tag('br') + "#{self.city}, #{self.state} #{self.zip}"
     else
       "#{self.city}, #{self.state}"

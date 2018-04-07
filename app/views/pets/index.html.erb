@@ -1,4 +1,15 @@
-<h1><%= @owner.username %>'s pets:</h1>
+<% if !@shelter.nil? %>
+  <h1>Pets available for adoption at <%= @shelter.name %></h1>
+<% else %>
+  <h1><%= @owner.username %>'s pets:</h1>
+<% end %>
+
 <% @owner.pets.each do |pet| %>
   <%= render partial: 'layouts/pet', locals: {pet: pet} %>
+<% end %>
+
+<% if current_user == @owner %>
+  <%= link_to "Add a pet!", new_user_pet_path(@owner), class: "btn btn-light mb-3" %><br>
+<% elsif @owner.employees.include?(current_employee) %>
+  <%= link_to "Add a pet, who's ready for adoption!", new_shelter_pet_path(@owner), class: "btn btn-light mb-3" %>
 <% end %>

@@ -13,10 +13,10 @@
   <%= f.text_area :info %><br>
 
   <% if current_employee %>
-    <%= f.hidden_field :owner_id, value: current_employee.id %>
-    <%= f.hidden_field :owner_id, value: "Employee" %>
+    <%= f.hidden_field :owner_id, value: current_employee.shelter.id %>
+    <%= f.hidden_field :owner_type, value: "Shelter" %>
     <%= f.label "Which employee(s) will primarily take care of this animal?" %>
-    <%= f.collection_check_boxes :caretaker_ids, @shelter.employees, :id, :username %>
+    <%= f.collection_check_boxes :employee_ids, current_employee.shelter.employees, :id, :username %>
   <% elsif current_user %>
     <%= f.hidden_field :owner_id, value: current_user.id %>
     <%= f.hidden_field :owner_type, value: "User" %>

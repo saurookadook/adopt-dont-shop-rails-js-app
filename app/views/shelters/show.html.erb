@@ -1,5 +1,5 @@
 <h1><%= @shelter.name %></h1>
-<p><%= @shelter.display_address %></p>
+<p><%= display_address(@shelter) %></p>
 
 <h4>Pets ready for adoption!</h4>
 <% @shelter.pets.each do |pet| %>
