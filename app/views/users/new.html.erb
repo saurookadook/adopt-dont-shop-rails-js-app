@@ -1,6 +1,7 @@
 <%= render partial: 'layouts/errors', locals: {resource: @user} %>
 
 <h1>Become an Adopter!</h1><br>
+<!-- utilize partial(s)? -->
 <%= form_for @user do |f| %>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %><br>

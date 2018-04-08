@@ -1,6 +1,7 @@
 <%= render partial: 'layouts/errors', locals: {resource: @user} %>
 
 <h1>Update your Account info:</h1>
+<!-- utilize partial(s)? -->
 <%= form_for @user do |f| %>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %><br>

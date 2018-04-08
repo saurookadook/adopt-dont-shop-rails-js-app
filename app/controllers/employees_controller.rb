@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee!, only: [:show, :edit, :delete]
+  before_action :set_employee!, only: [:show, :edit, :update, :delete]
 
   def index
     @employees = Employee.all
@@ -28,6 +28,13 @@ class EmployeesController < ApplicationController
   end
 
   def update
+    @employee.update(employee_params)
+    if @employee.valid?
+      flash[:message] = "Information successfully updated."
+      redirect_to employee_path(@employee)
+    else
+      render :edit
+    end
   end
 
   def destroy
