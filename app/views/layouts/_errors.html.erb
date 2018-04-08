@@ -3,7 +3,7 @@
     <h4>There were some errors with the information you entered:</h4>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <p class="bg-warning text-dark"><%= message %></p>
       <% end %>
     </ul>
   </div>
