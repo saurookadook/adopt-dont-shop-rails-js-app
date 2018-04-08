@@ -27,6 +27,7 @@ class Shelter < ApplicationRecord
     self.joins(:address).order("addresses.state")
   end
 
+  # move elsewhere?
   def contact_info
     if !self.phone_number.nil? && !self.email.nil?
       "Phone Number: " + self.phone_number + tag('br') + "Email: " + self.email

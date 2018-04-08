@@ -13,8 +13,15 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    binding.pry
     @employee = Employee.new(employee_params)
+    if @employee.valid?
+      @employee.save
+      set_employee_session(@employee.id)
+      flash[:message] = "Account successfully created."
+      redirect_to employee_path(@employee)
+    else
+      render :new
+    end
   end
 
   def edit
