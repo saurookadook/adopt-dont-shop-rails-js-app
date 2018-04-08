@@ -5,8 +5,7 @@ class Shelter < ApplicationRecord
   has_many :pets, as: :owner
   has_one :address, as: :resident
 
-  accepts_nested_attributes_for :address
-  accepts_nested_attributes_for :employees
+  accepts_nested_attributes_for :address, :employess
 
   validates :name, presence: true, uniqueness: true
   validates :email, :phone_number, uniqueness: true

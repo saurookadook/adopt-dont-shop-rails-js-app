@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :pets, as: :owner
   has_one :address, as: :resident
-  accepts_nested_attributes_for :pets
+  accepts_nested_attributes_for :pets, reject_if: proc {|attributes| attributes['name'].blank? || attributes['animal'].blank?}
   accepts_nested_attributes_for :address
 
   include Validatable
@@ -37,18 +37,6 @@ class User < ApplicationRecord
 
   def full_name
     self.first_name + " " + self.last_name
-  end
-
-  def pets_attributes=(pet_attributes)
-    pet_attributes.values.each do |pet_attr_hash|
-      pet = Pet.find(pet_attr_hash[:id])
-      if !pet.nil?
-        pet.update(pet_attr_hash)
-      else
-        pet = Pet.create(pet_attr_hash)
-        self.pets << pet
-      end
-    end
   end
 
 end

@@ -5,5 +5,5 @@ class Employee < ApplicationRecord
 
   include Validatable
 
-  accepts_nested_attributes_for :shelter, reject_if: proc {|attributes| attributes['title'].blank?}
+  accepts_nested_attributes_for :shelter, reject_if: proc {|attributes| attributes['name'].blank?}
 end

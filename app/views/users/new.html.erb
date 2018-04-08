@@ -34,6 +34,7 @@
 
   <%= f.label 'Have any pets already?' %><br>
   <%= f.fields_for :pets, @user.pets.build do |pets_fields| %>
+    <%= pets_fields.hidden_field :id %>
     <%= pets_fields.label :name %>
     <%= pets_fields.text_field :name %><br>
     <%= pets_fields.label :nickname %>
