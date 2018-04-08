@@ -1,8 +1,13 @@
 <h1><%= @employee.username %></h1>
 <ul>
-  <h3>Works at: <%= link_to @employee.shelter.name, shelter_path(@employee.shelter) %></h3><br>
-  <h3>Pets taken care of by <%= @employee.username %>:</h3><br>
+  <h3><b>Works at:</b> <%= link_to @employee.shelter.name, shelter_path(@employee.shelter) %></h3><br>
+  <h3>Pets taken care of by <%= @employee.username %>:</h3>
   <% @employee.pets.each do |pet| %>
-    <%= link_to pet.name, shelter_pet_path(@employee.shelter, pet) %>
+    <%= link_to pet.name, shelter_pet_path(@employee.shelter, pet) %><br>
   <% end %>
 </ul>
+
+<% if current_employee == @employee %>
+  <%= link_to 'Edit Account Info', edit_employee_path(current_employee), class: "btn btn-light mb-3" %><br>
+  <%= link_to 'Delete Account', @employee, class: "btn btn-light mb-3", method: :delete, data: { confirm: 'Are you sure you would like to delete your account?' } %>
+<% end %>

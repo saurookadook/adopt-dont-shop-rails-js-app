@@ -5,11 +5,11 @@
   <p><b>Email:</b> <%= @user.email %></p>
   <p><b>Address:</b></p>
   <%= display_address(@user) %><br />
-  
+
   <% if @user.pets %>
     <p><b><%= link_to "View #{@user.username}'s pets", user_pets_path(@user) %></b></p><br>
   <% end %>
-</li>
+</ul>
 
 <% if current_user == @user %>
   <%= link_to 'Edit Account Info', edit_user_path(current_user), class: "btn btn-light mb-3" %><br>
