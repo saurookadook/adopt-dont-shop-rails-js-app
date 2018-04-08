@@ -1,5 +1,14 @@
 <h1><%= @shelter.name %></h1>
+<h4>Address:</h4>
 <p><%= display_address(@shelter) %></p>
+<h4>Contact info:</h4>
+<p><%= display_contact(@shelter) %></p>
+<h4>List of employees:</h4>
+<ul>
+  <% @shelter.employees.each do |employee| %>
+    <%= link_to employee.username, employee_path(employee) %><br>
+  <% end %>
+</ul>
 
 <h4>Pets ready for adoption!</h4>
 <% @shelter.pets.each do |pet| %>

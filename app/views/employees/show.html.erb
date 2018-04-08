@@ -3,6 +3,6 @@
   <h3>Works at: <%= link_to @employee.shelter.name, shelter_path(@employee.shelter) %></h3><br>
   <h3>Pets taken care of by <%= @employee.username %>:</h3><br>
   <% @employee.pets.each do |pet| %>
-    <%= render partial: 'layouts/pet', locals: {pet: pet} %>
+    <%= link_to pet.name, shelter_pet_path(@employee.shelter, pet) %>
   <% end %>
 </ul>

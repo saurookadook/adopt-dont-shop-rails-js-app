@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     session[:employee_id] = employee_id
   end
 
-  def set_pet!
+  def set_pet
     @pet ||= Pet.find(params[:id]) if params[:id]
   end
 

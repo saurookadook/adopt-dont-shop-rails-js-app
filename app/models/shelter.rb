@@ -1,4 +1,6 @@
 class Shelter < ApplicationRecord
+  include ActionView::Helpers
+
   has_many :employees
   has_many :pets, as: :owner
   has_one :address, as: :resident
@@ -23,5 +25,13 @@ class Shelter < ApplicationRecord
 
   def self.order_by_state
     self.joins(:address).order("addresses.state")
+  end
+
+  def contact_info
+    if !self.phone_number.nil? && !self.email.nil?
+      "Phone Number: " + self.phone_number + tag('br') + "Email: " + self.email
+    elsif !self.email.nil?
+      "Email: " + self.email
+    end
   end
 end
