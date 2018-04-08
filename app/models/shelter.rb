@@ -33,6 +33,8 @@ class Shelter < ApplicationRecord
       "Phone Number: " + self.phone_number + tag('br') + "Email: " + self.email
     elsif !self.email.nil?
       "Email: " + self.email
+    elsif !self.phone_number.nil?
+      "Phone Number: " + self.phone_number
     end
   end
 end
