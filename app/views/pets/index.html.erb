@@ -1,3 +1,7 @@
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
 <% if !@shelter.nil? %>
   <h1>Pets available for adoption at <%= @shelter.name %></h1>
 <% else %>

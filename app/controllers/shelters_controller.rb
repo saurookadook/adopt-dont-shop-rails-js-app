@@ -41,7 +41,7 @@ class SheltersController < ApplicationController
 
   def adopt
     # find how to remove pet from @shelter's pets
-    binding.pry
+    # binding.pry
     @pet.owner = current_user
     @pet.save
     flash[:message] = "You've adopted #{@pet.name}!"
@@ -52,7 +52,7 @@ class SheltersController < ApplicationController
 
   def shelter_params
     params.require(:shelter).permit(:name, :email, :phone_number, :city, :state,
-      address_attributes: [:street1, :street2, :city, :state, :zip]
+      address_attributes: [:street1, :street2, :city, :state, :zip],
       pets_attributes: [:id, :name, :nickname, :animal, :age, :breed, :info]
     )
   end
