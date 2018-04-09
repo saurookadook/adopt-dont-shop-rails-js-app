@@ -43,11 +43,17 @@ class SheltersController < ApplicationController
     # find how to remove pet from @shelter's pets
     binding.pry
     @pet.owner = current_user
+    @pet.save
+    flash[:message] = "You've adopted #{@pet.name}!"
+    redirect_to user_pets_path(current_user)
   end
 
   private
 
   def shelter_params
-    params.require(:shelter).permit(:name, :email, :phone_number, :city, :state, address_attributes: [:street1, :street2, :city, :state, :zip])
+    params.require(:shelter).permit(:name, :email, :phone_number, :city, :state,
+      address_attributes: [:street1, :street2, :city, :state, :zip]
+      pets_attributes: [:id, :name, :nickname, :animal, :age, :breed, :info]
+    )
   end
 end

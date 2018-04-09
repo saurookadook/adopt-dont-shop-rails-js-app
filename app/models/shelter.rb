@@ -1,12 +1,13 @@
 class Shelter < ApplicationRecord
   include ActionView::Helpers
 
+  has_one :address, as: :resident
   has_many :employees
   has_many :pets, as: :owner
-  has_one :address, as: :resident
 
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :employees
+  accepts_nested_attributes_for :pets, reject_if: proc {|attributes| attributes['name'].blank? || attributes['animal'].blank?}, allow_destroy: true
 
   validates :name, presence: true, uniqueness: true
   validates :email, :phone_number, uniqueness: true

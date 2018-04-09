@@ -49,7 +49,8 @@ class ApplicationController < ActionController::Base
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :city, :state,
       address_attributes: [:id, :street1, :street2, :city, :state, :zip],
-      pets_attributes:[:id, :name, :nickname, :animal, :age, :breed, :info])
+      pets_attributes:[:id, :name, :nickname, :animal, :age, :breed, :info]
+    )
   end
 
   def employee_params
