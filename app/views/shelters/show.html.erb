@@ -3,6 +3,7 @@
 <p><%= display_address(@shelter) %></p>
 <h4>Contact info:</h4>
 <p><%= display_contact(@shelter) %></p>
+<!-- maybe make separate view for employees list? -->
 <h4>List of employees:</h4>
 <ul>
   <% @shelter.employees.each do |employee| %>

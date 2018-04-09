@@ -14,6 +14,7 @@
   <%= f.label "Don't see your employer? Add info about yours below:" %><br>
 
   <%= f.fields_for :shelter, employee.build_shelter do |shelter_fields| %>
+    <%= shelter_fields.hidden_field :id %>
     <%= shelter_fields.label :name %>
     <%= shelter_fields.text_field :name %><br>
     <%= shelter_fields.label :email %>
@@ -21,6 +22,7 @@
     <%= shelter_fields.label :phone_number %>
     <%= shelter_fields.text_field :phone_number %><br>
     <%= shelter_fields.fields_for :address, employee.shelter.build_address do |address_fields| %>
+      <%= address_fields.hidden_field :id %>
       <%= address_fields.label :street1 %>
       <%= address_fields.text_field :street1 %><br>
       <%= address_fields.label :street2 %>

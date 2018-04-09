@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
 
   def employee_params
     params.require(:employee).permit(:first_name, :last_name, :username, :email, :password, :shelter_id,
-      shelter_attributes: [:name, :email, :phone_number,
+      shelter_attributes: [:id, :name, :email, :phone_number,
         address_attributes: [:id, :street1, :street2, :city, :state, :state, :zip]
         ]
       )
