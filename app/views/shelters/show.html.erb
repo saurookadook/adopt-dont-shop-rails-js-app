@@ -13,6 +13,9 @@
 <h4>Pets ready for adoption!</h4>
 <% @shelter.pets.each do |pet| %>
   <%= render partial: 'layouts/pet', locals: {pet: pet} %>
+  <% if current_user %>
+    <%= link_to "Adopt this Pet?", shelter_adopt_pet_path(@shelter, pet), class: "btn btn-light mb-3", method: :patch %>
+  <% end %>
 <% end %>
 
 <% if !current_employee.nil? %>

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :shelters, only: [:show] do
+    patch '/shelters/:id/pets/:id/adopt', to: 'shelters#adopt', as: 'adopt_pet'
     resources :pets, only: [:index, :show, :new, :edit]
   end
 end

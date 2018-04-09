@@ -49,10 +49,6 @@ class PetsController < ApplicationController
     end
   end
 
-  def adopt
-    # should add pet from Shelter to User
-  end
-
   def destroy
   end
 

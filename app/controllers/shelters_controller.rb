@@ -1,5 +1,6 @@
 class SheltersController < ApplicationController
-  before_action :set_shelter, only: [:show, :edit, :update]
+  before_action :set_shelter, only: [:show, :edit, :update, :adopt]
+  before_action :set_pet, only: [:adopt]
 
   def index
     if !params[:city].blank? && !params[:state].blank?
@@ -36,6 +37,12 @@ class SheltersController < ApplicationController
   end
 
   def update
+  end
+
+  def adopt
+    # find how to remove pet from @shelter's pets
+    binding.pry
+    @pet.owner = current_user
   end
 
   private
