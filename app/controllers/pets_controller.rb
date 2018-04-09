@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update]
-  before_action :set_shelter, only: [:show, :new, :edit, :update]
+  before_action :set_shelter, only: [:index, :show, :new, :edit, :update]
 
   def index
     # refactor into method
