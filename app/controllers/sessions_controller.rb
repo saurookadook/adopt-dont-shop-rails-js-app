@@ -8,15 +8,9 @@ class SessionsController < ApplicationController
     if !params[:provider].nil?
       @user = User.update_or_create(auth)
       finalize_login(@user)
-      # set_session(@user.id)
-      # flash[:message] = "Successfully logged in!"
-      # redirect_to :root
     elsif @user = User.find_by(username: user_params[:username])
       if @user.authenticate(user_params[:password])
         finalize_login(@user)
-        # set_session(@user.id)
-        # flash[:message] = "Successfully logged in!"
-        # redirect_to :root
       end
     else
       render :new
