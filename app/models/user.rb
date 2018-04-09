@@ -20,9 +20,9 @@ class User < ApplicationRecord
         oauth_token: auth.credentials.token,
         oauth_expires_at: Time.at(auth.credentials.expires_at)
       )
-      @user.save
+      @user.save!
     else
-      @user.update(
+      @user.update!(
         first_name: auth.info.first_name,
         last_name: auth.info.last_name,
         email: auth.info.email,
