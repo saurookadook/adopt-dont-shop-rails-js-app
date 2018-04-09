@@ -1,5 +1,5 @@
-<% if !@shelter.nil? %>
-  <h1>Pets available for adoption at <%= @shelter.name %></h1>
+<% if !@owner.nil? && @owner.class == Shelter %>
+  <h1>Pets available for adoption at <%= @owner.name %></h1>
 <% else %>
   <h1><%= @owner.username %>'s pets:</h1>
 <% end %>

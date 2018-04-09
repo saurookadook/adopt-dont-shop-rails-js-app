@@ -26,12 +26,27 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user_id
   end
 
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :city, :state,
+      address_attributes: [:id, :street1, :street2, :city, :state, :zip],
+      pets_attributes:[:id, :name, :nickname, :animal, :age, :breed, :info]
+    )
+  end
+
   def set_employee!
     @employee = Employee.find(params[:id]) if params[:id]
   end
 
   def set_employee_session(employee_id)
     session[:employee_id] = employee_id
+  end
+
+  def employee_params
+    params.require(:employee).permit(:first_name, :last_name, :username, :email, :password, :shelter_id,
+      shelter_attributes: [:name, :email, :phone_number,
+        address_attributes: [:id, :street1, :street2, :city, :state, :state, :zip]
+        ]
+      )
   end
 
   def set_pet
@@ -44,21 +59,6 @@ class ApplicationController < ActionController::Base
     elsif params[:id]
       @shelter ||= Shelter.find(params[:id])
     end
-  end
-
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :city, :state,
-      address_attributes: [:id, :street1, :street2, :city, :state, :zip],
-      pets_attributes:[:id, :name, :nickname, :animal, :age, :breed, :info]
-    )
-  end
-
-  def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :username, :email, :password, :shelter_id,
-      shelter_attributes: [:name, :email, :phone_number,
-        address_attributes: [:id, :street1, :street2, :city, :state, :state, :zip]
-        ]
-      )
   end
 
 end
