@@ -1,38 +1,38 @@
 <%= form_for employee do |f| %>
   <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <%= f.text_field :first_name %><br>
   <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+  <%= f.text_field :last_name %><br>
   <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= f.text_field :username %><br>
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email %><br>
   <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label "For which shelter do you work?" %>
-  <%= f.collection_radio_buttons :shelter_id, Shelter.all, :id, :name %>
-  <%= f.label "Don't see your employer? Add info about yours below:" %>
+  <%= f.password_field :password %><br>
+  <%= f.label "For which shelter do you work?" %><br>
+  <%= f.collection_radio_buttons :shelter_id, Shelter.all, :id, :name %><br>
+  <%= f.label "Don't see your employer? Add info about yours below:" %><br>
 
   <%= f.fields_for :shelter, employee.build_shelter do |shelter_fields| %>
     <%= shelter_fields.label :name %>
-    <%= shelter_fields.text_field :name %>
+    <%= shelter_fields.text_field :name %><br>
     <%= shelter_fields.label :email %>
-    <%= shelter_fields.text_field :email %>
+    <%= shelter_fields.text_field :email %><br>
     <%= shelter_fields.label :phone_number %>
-    <%= shelter_fields.text_field :phone_number %>
+    <%= shelter_fields.text_field :phone_number %><br>
     <%= shelter_fields.fields_for :address, employee.shelter.build_address do |address_fields| %>
       <%= address_fields.label :street1 %>
-      <%= address_fields.text_field :street1 %>
+      <%= address_fields.text_field :street1 %><br>
       <%= address_fields.label :street2 %>
-      <%= address_fields.text_field :street2 %>
+      <%= address_fields.text_field :street2 %><br>
       <%= address_fields.label :city %>
-      <%= address_fields.text_field :city %>
+      <%= address_fields.text_field :city %><br>
       <%= address_fields.label :state %>
-      <%= address_fields.text_field :state %>
+      <%= address_fields.text_field :state %><br>
       <%= address_fields.label :zip %>
-      <%= address_fields.text_field :zip %>
+      <%= address_fields.text_field :zip %><br>
     <% end %>
   <% end %>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-light mb-3" %>
 <% end %>

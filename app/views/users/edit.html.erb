@@ -47,10 +47,10 @@
       <%= pets_fields.label :breed %>
       <%= pets_fields.text_field :breed %><br>
       <%= pets_fields.label "Stories/info:" %><br>
-      <%= pets_fields.text_area :info %><br>
+      <%= pets_fields.text_area :info %><br />
     <% end %>
   <% end %>
     <!-- figure out way to add additional pets to form? -->
-
-  <%= f.submit %>
+  <br />
+  <%= f.submit class: "btn btn-light mb-3"%>
 <% end %>

@@ -14,6 +14,6 @@
 
 <% if current_user == @owner %>
   <%= link_to "Add a pet!", new_user_pet_path(@owner), class: "btn btn-light mb-3" %><br>
-<% elsif @owner.employees.include?(current_employee) %>
-  <%= link_to "Add a pet, who's ready for adoption!", new_shelter_pet_path(@owner), class: "btn btn-light mb-3" %>
+<% elsif @owner.class == Shelter %>
+  <%= link_to "Add a pet, who's ready for adoption!", new_shelter_pet_path(@owner), class: "btn btn-light mb-3" if @owner.employees.include?(current_employee) %>
 <% end %>
