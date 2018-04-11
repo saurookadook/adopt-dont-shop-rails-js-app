@@ -5,7 +5,7 @@
   <p><b>Email:</b> <%= @user.email %></p>
   <p><b>Address:</b></p>
   <%= display_address(@user) %><br />
-
+<br />
   <% if @user.pets %>
     <p><b><%= link_to "View #{@user.username}'s pets", user_pets_path(@user) %></b></p><br>
   <% end %>

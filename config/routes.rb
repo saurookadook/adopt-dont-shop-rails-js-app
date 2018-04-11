@@ -20,8 +20,6 @@ Rails.application.routes.draw do
 
   resources :employees, only: [:index, :show, :create, :edit, :update, :destroy]
 
-  resources :pets
-
   get '/shelters/by_city', to: 'shelters#by_city', as: 'shelters_by_city'
   get '/shelters/by_state', to: 'shelters#by_state', as: 'shelters_by_state'
   resources :shelters
@@ -32,7 +30,9 @@ Rails.application.routes.draw do
 
   resources :shelters, only: [:show] do
     patch '/shelters/:id/pets/:id/adopt', to: 'shelters#adopt', as: 'adopt_pet'
-    resources :pets, only: [:index, :show, :new, :edit]
+    resources :pets, only: [:index, :show, :new, :create, :edit, :update]
     resources :employees, only: [:index, :show]
   end
+
+  resources :pets
 end
