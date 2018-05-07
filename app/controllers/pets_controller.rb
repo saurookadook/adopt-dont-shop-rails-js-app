@@ -55,13 +55,15 @@ class PetsController < ApplicationController
   end
 
   def set_owner
+    # need to set owner properly
     if !current_user.nil?
       @owner = current_user
-      #fix this lol
     # elsif !set_shelter.nil?
     #   @owner = set_shelter
-    else
+    elsif !current_employee.nil?
       @owner = current_employee.shelter
+    else
+      @owner = :set_user!
     end
   end
 end
