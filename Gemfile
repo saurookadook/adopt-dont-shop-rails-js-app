@@ -41,6 +41,8 @@ gem 'pundit'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 
+gem 'active_model_serializers'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
