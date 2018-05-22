@@ -23,6 +23,11 @@
         <p class="shelterAddress"><%= display_address(@shelter3) %></p>
         <p><%= link_to "Learn more", shelter_path(@shelter3) %></p>
       </div>
+
+      <div class="additional shelters"></div>
+
+      <!-- set list counter variable? -->
+      <button class="js-more" data-id="<%= @list_1_counter %>">See More</button>
         <!-- list of attributes, with link to shelter page (dynamically generate) -->
     </div>
     <div class="col-4" id="recent-pets">
