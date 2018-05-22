@@ -1,3 +1,5 @@
+let shelterList = [];
+
 $(document).ready(function () {
   attachListeners();
 });
@@ -13,8 +15,10 @@ function attachListeners () {
   $('#recent-pets').on('click', () => displayRecentPets());
 }
 
+// perhaps loadShelterList would be better, and it would push shelter objects into shelterList variable?
+
 function displayShelters () {
-  
+  // use to_json to load properties correctly
 }
 
 function displayRecentPets () {
