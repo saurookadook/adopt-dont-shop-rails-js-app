@@ -18,7 +18,6 @@ class PetsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @pet = Pet.new(pet_params)
     @pet.owner = @owner
 
@@ -55,14 +54,11 @@ class PetsController < ApplicationController
   end
 
   def set_owner
-    # need to set owner properly
-    # binding.pry
+    # possibly clean up?
     user_id = params[:user_id] if params[:user_id]
     shelter_id = params[:shelter_id] if params[:shelter_id]
     if !current_user.nil? && id == current_user.id
       @owner = current_user
-    # elsif !set_shelter.nil?
-    #   @owner = set_shelter
     elsif !current_employee.nil? && shelter_id == current_employee.shelter.id
       @owner = current_employee.shelter
     elsif

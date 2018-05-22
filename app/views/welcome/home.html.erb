@@ -5,10 +5,24 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8" id="shelter-list">
-      <h4 class="shelterName"><%= @shelter1.name %></h4>
-      <p class="shelterAddress"><%= display_address(@shelter1) %></p>
-      <p><%= link_to "Learn more", shelter_path(@shelter1) %></p>
+    <div class="col-8 bg-white" id="shelter-list">
+      <div class="shelter-bubble bg-secondary">
+        <h4 class="shelterName"><%= @shelter1.name %></h4>
+        <p class="shelterAddress"><%= display_address(@shelter1) %></p>
+        <p><%= link_to "Learn more", shelter_path(@shelter1) %></p>
+      </div>
+
+      <div class="shelter-bubble bg-secondary">
+        <h4 class="shelterName"><%= @shelter2.name %></h4>
+        <p class="shelterAddress"><%= display_address(@shelter2) %></p>
+        <p><%= link_to "Learn more", shelter_path(@shelter2) %></p>
+      </div>
+
+      <div class="shelter-bubble bg-secondary">
+        <h4 class="shelterName"><%= @shelter3.name %></h4>
+        <p class="shelterAddress"><%= display_address(@shelter3) %></p>
+        <p><%= link_to "Learn more", shelter_path(@shelter3) %></p>
+      </div>
         <!-- list of attributes, with link to shelter page (dynamically generate) -->
     </div>
     <div class="col-4" id="recent-pets">
