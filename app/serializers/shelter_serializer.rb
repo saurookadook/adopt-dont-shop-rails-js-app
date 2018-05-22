@@ -1,3 +1,6 @@
 class ShelterSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :email, :phone_number
+  has_one :address, as: :resident
+  has_many :employees
+  has_many :pets, as: :owner
 end
