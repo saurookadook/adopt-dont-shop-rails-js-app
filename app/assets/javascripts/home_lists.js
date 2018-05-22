@@ -5,12 +5,6 @@ $(document).ready(function () {
 });
 
 function attachListeners () {
-  // $('td').on('click', function () {
-  //   if (!$.text(this) && !checkWinner()) {
-  //     doTurn(this);
-  //   }
-  // });
-
   $('#shelter-list').on('click', () => displayShelters());
   $('#recent-pets').on('click', () => displayRecentPets());
 }
@@ -18,6 +12,10 @@ function attachListeners () {
 // perhaps loadShelterList would be better, and it would push shelter objects into shelterList variable?
 
 function displayShelters () {
+  let id = $(this).data("id");
+  $.get("/" + id + ".json", function (data) {
+    $(".shelterName").text()
+  })
   // use to_json to load properties correctly
 }
 

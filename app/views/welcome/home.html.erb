@@ -6,9 +6,10 @@
 <div class="container">
   <div class="row">
     <div class="col-8" id="shelter-list">
-      <div>
+      <h4 class="shelterName"><%= @shelter1.name %></h4>
+      <p class="shelterAddress"><%= @shelter1.address %></p>
+      <p><%= link_to "Learn more", shelter_path(@shelter1) %></p>
         <!-- list of attributes, with link to shelter page (dynamically generate) -->
-      </div>
     </div>
     <div class="col-4" id="recent-pets">
       List of recently adoptable pets?
