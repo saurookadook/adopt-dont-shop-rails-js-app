@@ -13,21 +13,19 @@ class Shelter < ApplicationRecord
   validates :email, :phone_number, uniqueness: true
 
   def self.by_city(city_name)
-    # make list unique and in alphabetical order
-    self.joins(:address).where(addresses: {city: city_name})
+    self.joins(:address).where(addresses: {city: city_name}).uniq
   end
 
   def self.by_state(state_name)
-    # make list unique and in alphabetical order
-    self.joins(:address).where(addresses: {state: state_name})
+    self.joins(:address).where(addresses: {state: state_name}).uniq
   end
 
   def self.order_by_city
-    self.joins(:address).order("addresses.city")
+    self.joins(:address).order("addresses.city").uniq
   end
 
   def self.order_by_state
-    self.joins(:address).order("addresses.state")
+    self.joins(:address).order("addresses.state").uniq
   end
 
   # move elsewhere?

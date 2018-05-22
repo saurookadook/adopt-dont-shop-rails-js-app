@@ -56,14 +56,17 @@ class PetsController < ApplicationController
 
   def set_owner
     # need to set owner properly
-    if !current_user.nil?
+    # binding.pry
+    user_id = params[:user_id] if params[:user_id]
+    shelter_id = params[:shelter_id] if params[:shelter_id]
+    if !current_user.nil? && id == current_user.id
       @owner = current_user
     # elsif !set_shelter.nil?
     #   @owner = set_shelter
-    elsif !current_employee.nil?
+    elsif !current_employee.nil? && shelter_id == current_employee.shelter.id
       @owner = current_employee.shelter
-    else
-      @owner = :set_user!
+    elsif
+      !user_id.nil? ? @owner = User.find(params[:user_id]) : @owner = Shelter.find(params[:shelter_id])
     end
   end
 end
