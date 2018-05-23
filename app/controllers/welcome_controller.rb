@@ -6,5 +6,8 @@ class WelcomeController < ApplicationController
     @shelter1 = Shelter.order(created_at: :desc)[0]
     @shelter2 = Shelter.order(created_at: :desc)[1]
     @shelter3 = Shelter.order(created_at: :desc)[2]
+
+    # @shelters = Shelter.order(created_at: :desc)
+    # render json: @shelters
   end
 end
