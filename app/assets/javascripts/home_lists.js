@@ -13,13 +13,13 @@ function attachListeners () {
 function displayMoreShelters () {
   $('.js-more').on('click', function(e) {
     let counter = parseInt($('.js-more').attr('data-id')) * 3;
-    e.preventDefault();
     $.getJSON(this.href).done(function(data) {
-      $('#additional-shelters').html('');
+      // make separate shelters variable for this?
+      $('div#additional-shelters').html('');
       data.slice(3, counter).forEach(function(shelter) {
           let newShelter = new Shelter(this.id, this.name, this.email, this.phoneNumber, this.address, this.employees, this.pets);
           let formattedShelter = newShelter.formatShelterIndex();
-          $('#additional-shelters').append(formattedShelter);
+          $('div#additional-shelters').append(formattedShelter);
       });
     });
     $('.js-more').attr("data-id", function(i, val) {
