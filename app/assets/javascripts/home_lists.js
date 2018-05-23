@@ -39,6 +39,17 @@ function Shelter(id, name, email, phoneNumber, address, employees, pets) {
   this.pets = pets;
 }
 
+function Pet(id, name, nickname, animal, age, breed, info, owner) {
+  this.id = id;
+  this.name = name;
+  this.nickname = nickname;
+  this.animal = animal;
+  this.age = age;
+  this.breed = breed;
+  this.info = info;
+  this.owner = owner;
+}
+
 // prototype to format shelter
 Shelter.prototype.formatShelterIndex = function () {
   let shelterHtml = '';
@@ -48,4 +59,10 @@ Shelter.prototype.formatShelterIndex = function () {
   shelterHtml += `<a href="/shelters/${this.id}">Learn more</a>`;
   shelterHtml += '</div>';
   return shelterHtml;
+}
+
+Pet.prototype.formatShelterPets = function () {
+  let petHtml = '';
+  petHtml += `<h4 class="petName" data-id="${this.id}">${this.name} - <small>${this.animal}</small></h4>`;
+  return petHtml;
 }
