@@ -5,7 +5,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8 bg-white" id="shelter-list">
+    <!-- <div class="col-8 bg-white" id="shelter-list">
       <div class="shelter-bubble bg-secondary">
         <h4 class="shelterName"><%= @shelter1.name %></h4>
         <p class="shelterAddress"><%= display_address(@shelter1) %></p>
@@ -22,14 +22,14 @@
         <h4 class="shelterName"><%= @shelter3.name %></h4>
         <p class="shelterAddress"><%= display_address(@shelter3) %></p>
         <p><%= link_to "Learn more", shelter_path(@shelter3) %></p>
-      </div>
+      </div> -->
 
-      <div id="most-recent-shelters"></div>
+      <div class="col-8 bg-white" id="most-recent-shelters"></div>
 
       <div id="additional-shelters"></div>
 
       <!-- set list counter variable? -->
-      <button class="js-more" data-id="<%= @list_1_counter %>">See More</button>
+      <button class="js-more" data-id="1">See More</button>
         <!-- list of attributes, with link to shelter page (dynamically generate) -->
     </div>
     <div class="col-4" id="recent-pets">
