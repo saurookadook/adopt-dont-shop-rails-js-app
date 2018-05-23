@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
     @shelters = Shelter.order(created_at: :desc)
     respond_to do |format|
       format.html { render :home }
-      format.html { render json: @shelters }
+      format.json { render json: @shelters }
     end
   end
 end

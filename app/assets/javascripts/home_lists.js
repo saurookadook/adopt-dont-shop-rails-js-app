@@ -14,6 +14,7 @@ function displayMoreShelters () {
   $('.js-more').on('click', function(e) {
     let counter = parseInt($('.js-more').attr('data-id')) * 3;
     $.getJSON(this.href).done(function(data) {
+      debugger
       // make separate shelters variable for this?
       $('div#additional-shelters').html('');
       data.slice(3, counter).forEach(function(shelter) {
@@ -52,6 +53,7 @@ function Pet(id, name, nickname, animal, age, breed, info, owner) {
 
 // prototype to format shelter
 Shelter.prototype.formatShelterIndex = function () {
+  debugger
   let shelterHtml = '';
   shelterHtml += '<div class="shelter-bubble bg-secondary">';
   shelterHtml += `<h4 class="shelterName" data-id="${this.id}">${this.name}</h4>`;
