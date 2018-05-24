@@ -1,24 +1,25 @@
 
 
 
-$(document).ready(function () {
+$(document).on('turbolinks: load', function () {
   attachListeners();
 });
 
-function attachListeners () {
-  $('#shelter-list').on('click', () => displayMoreShelters());
-  $('#recent-pets').on('click', () => loadRecentPets());
-}
+// function attachListeners () {
+//   $('#shelter-list').on('click', () => displayMoreShelters());
+//   $('#recent-pets').on('click', () => loadRecentPets());
+// }
 
-function displayMoreShelters () {
+function attachListeners () {
   $('.js-more').on('click', function(e) {
     let counter = parseInt($('.js-more').attr('data-id')) * 3;
     $.getJSON(this.href).done(function(data) {
-      debugger
       // make separate shelters variable for this?
       $('div#additional-shelters').html('');
       data.slice(3, counter).forEach(function(shelter) {
+          debugger
           let newShelter = new Shelter(this.id, this.name, this.email, this.phoneNumber, this.address, this.employees, this.pets);
+          debugger
           let formattedShelter = newShelter.formatShelterIndex();
           $('div#additional-shelters').append(formattedShelter);
       });
@@ -29,7 +30,7 @@ function displayMoreShelters () {
   });
 };
 
-// Make prototypes
+// JavaScript Model Objects
 function Shelter(id, name, email, phoneNumber, address, employees, pets) {
   this.id = id;
   this.name = name;
@@ -51,7 +52,7 @@ function Pet(id, name, nickname, animal, age, breed, info, owner) {
   this.owner = owner;
 }
 
-// prototype to format shelter
+// Prototypes to properly format
 Shelter.prototype.formatShelterIndex = function () {
   debugger
   let shelterHtml = '';
