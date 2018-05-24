@@ -8,23 +8,39 @@ $(document).ready(function () {
 
 function attachListeners () {
   $('#shelter-list .js-more').on('click', displayMoreShelters);
-  // $('#recent-pets').on('click', () => loadRecentPets());
+  $('#recent-pets .js-more').on('click', displayMorePets);
 }
 
 function displayMoreShelters (e) {
   e.preventDefault();
-  let counter = parseInt($('button.js-more').attr('data-id')) * 3;
+  let counter = parseInt($('.js-more').attr('data-id')) * 3;
   $.getJSON(this.href).done(function(data) {
-    $('div#additional-shelters').html('');
+    $('#additional-shelters').html('');
     data.slice(3, counter).forEach(function(shelter) {
-      console.log("I'm being clicked!");
-        let newShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phoneNumber, shelter.address, shelter.employees, shelter.pets);
-        let formattedShelter = newShelter.formatShelterIndex();
-        $('div#additional-shelters').append(formattedShelter);
+      let newShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phoneNumber, shelter.address, shelter.employees, shelter.pets);
+      let formattedShelter = newShelter.formatShelterIndex();
+      $('#additional-shelters').append(formattedShelter);
     });
   });
-  $('button.js-more').attr("data-id", function(i, val) {
+  $('.js-more').attr("data-id", function(i, val) {
     return ++val;
+  });
+};
+
+function displayMorePets (e) {
+  e.preventDefault();
+  let counter = parseInt($('.js-more').attr('data-id')) * 3;
+  $.getJSON(this.href).done(function(data) {
+    $('#additional-pets').html('');
+    data.slice(3, counter).forEach(function(shelter) {
+      debugger
+      let newPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
+      let formattedPet = newPet.formatPetsHome();
+      $('#additional-pets').append(formattedPet);
+    });
+    $('.js-more').attr("data-id", function(i, val) {
+      return ++val;
+    })
   });
 };
 
@@ -54,11 +70,26 @@ function Pet(id, name, nickname, animal, age, breed, info, owner) {
 Shelter.prototype.formatShelterIndex = function () {
   let shelterHtml = '';
   shelterHtml += '<div class="shelter-bubble bg-secondary">';
-  shelterHtml += `<h4 class="shelterName" data-id="${this.id}">${this.name}</h4>`;
+  shelterHtml += `<h4 class="shelterName">${this.name}</h4>`;
   shelterHtml += `<p class="shelterAddress">${this.address.city}, ${this.address.state}</p>`;
   shelterHtml += `<p><a href="/shelters/${this.id}">Learn more</a></p>`;
   shelterHtml += '</div>';
   return shelterHtml;
+}
+
+Pet.prototype.formatPetsHome = function () {
+  let petHtml = '';
+  petHtml += '<div class="shelter-bubble bg-secondary">';
+  petHtml += `<h4 class="petName">Name: ${this.name}</h4>`;
+  petHtml += `<p class="petAnimal">Animal: ${this.animal}</p>`;
+  if (this.owner.username != undefined) {
+    petHtml += `<p class="petOnwer">Owner: ${this.owner.username}</p>`;
+  } else {
+    petHtml += `<p class="petOwner">Owner: ${this.owner.name}</p>`;
+  }
+  // may need to ask about this
+  petHtml += `<p><a href="/pets/${this.id}">Learn more</a></p></div>`;
+  return petHtml;
 }
 
 Pet.prototype.formatShelterPets = function () {

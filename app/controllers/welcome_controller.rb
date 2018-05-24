@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
     respond_to do |format|
       format.html { render :home }
       format.json { render json: @shelters }
+      format.json { render json: @pets }
     end
   end
 end
