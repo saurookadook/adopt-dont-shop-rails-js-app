@@ -6,33 +6,26 @@ $(document).ready(function () {
 //   attachListeners();
 // });
 
-// function attachListeners () {
-//   $('#shelter-list').on('click', () => displayMoreShelters());
-//   $('#recent-pets').on('click', () => loadRecentPets());
-// }
-
 function attachListeners () {
-  // generating additional shelters on home page
-  $('button.js-more').on('click', function(e) {
-    e.preventDefault();
-    let counter = parseInt($('button.js-more').attr('data-id')) * 3;
-    $.getJSON(this.href).done(function(data) {
-      // make separate shelters variable for this?
-      $('div#additional-shelters').html('');
-      // debugger
-      data.slice(3, counter).forEach(function(shelter) {
-        // console.log("I'm being clicked!");
-          let newShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phoneNumber, shelter.address, shelter.employees, shelter.pets);
-          let formattedShelter = newShelter.formatShelterIndex();
-          $('div#additional-shelters').append(formattedShelter);
-      });
-    });
-    $('button.js-more').attr("data-id", function(i, val) {
-      return ++val;
+  $('#shelter-list .js-more').on('click', displayMoreShelters);
+  // $('#recent-pets').on('click', () => loadRecentPets());
+}
+
+function displayMoreShelters (e) {
+  e.preventDefault();
+  let counter = parseInt($('button.js-more').attr('data-id')) * 3;
+  $.getJSON(this.href).done(function(data) {
+    $('div#additional-shelters').html('');
+    data.slice(3, counter).forEach(function(shelter) {
+      console.log("I'm being clicked!");
+        let newShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phoneNumber, shelter.address, shelter.employees, shelter.pets);
+        let formattedShelter = newShelter.formatShelterIndex();
+        $('div#additional-shelters').append(formattedShelter);
     });
   });
-
-  // generating additional pets on home page
+  $('button.js-more').attr("data-id", function(i, val) {
+    return ++val;
+  });
 };
 
 // JavaScript Model Objects
