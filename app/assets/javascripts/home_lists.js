@@ -56,7 +56,7 @@ Shelter.prototype.formatShelterIndex = function () {
   shelterHtml += '<div class="shelter-bubble bg-secondary">';
   shelterHtml += `<h4 class="shelterName" data-id="${this.id}">${this.name}</h4>`;
   shelterHtml += `<p class="shelterAddress">${this.address.city}, ${this.address.state}</p>`;
-  shelterHtml += `<a href="/shelters/${this.id}">Learn more</a>`;
+  shelterHtml += `<p><a href="/shelters/${this.id}">Learn more</a></p>`;
   shelterHtml += '</div>';
   return shelterHtml;
 }
