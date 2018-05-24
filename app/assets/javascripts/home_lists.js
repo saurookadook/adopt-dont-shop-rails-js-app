@@ -12,15 +12,17 @@ $(document).ready(function () {
 // }
 
 function attachListeners () {
+  // generating additional shelters on home page
   $('button.js-more').on('click', function(e) {
+    e.preventDefault();
     let counter = parseInt($('button.js-more').attr('data-id')) * 3;
     $.getJSON(this.href).done(function(data) {
       // make separate shelters variable for this?
       $('div#additional-shelters').html('');
+      // debugger
       data.slice(3, counter).forEach(function(shelter) {
-          // debugger
+        // console.log("I'm being clicked!");
           let newShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phoneNumber, shelter.address, shelter.employees, shelter.pets);
-          // debugger
           let formattedShelter = newShelter.formatShelterIndex();
           $('div#additional-shelters').append(formattedShelter);
       });
@@ -29,6 +31,8 @@ function attachListeners () {
       return ++val;
     });
   });
+
+  // generating additional pets on home page
 };
 
 // JavaScript Model Objects
@@ -55,7 +59,6 @@ function Pet(id, name, nickname, animal, age, breed, info, owner) {
 
 // Prototypes to properly format
 Shelter.prototype.formatShelterIndex = function () {
-  // debugger
   let shelterHtml = '';
   shelterHtml += '<div class="shelter-bubble bg-secondary">';
   shelterHtml += `<h4 class="shelterName" data-id="${this.id}">${this.name}</h4>`;

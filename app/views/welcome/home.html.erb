@@ -6,20 +6,22 @@
 <div class="container">
   <div class="row">
     <div class="col-8 bg-white" id="shelter-list">
-      <% @shelters.each_with_index do |shelter, i| %>
-        <% if i < 3 %>
-          <div class="shelter-bubble bg-secondary">
-            <h4 class="shelterName"><%= shelter.name %></h4>
-            <p class="shelterAddress"><%= shelter.address.city %>, <%= shelter.address.state %></p>
-            <p><%= link_to "Learn more", shelter_path(shelter) %></p>
-          </div>
+      <div class="bg-white" id="initial-shelters">
+        <% @shelters.each_with_index do |shelter, i| %>
+          <% if i < 3 %>
+            <div class="shelter-bubble bg-secondary">
+              <h4 class="shelterName"><%= shelter.name %></h4>
+              <p class="shelterAddress"><%= shelter.address.city %>, <%= shelter.address.state %></p>
+              <p><%= link_to "Learn more", shelter_path(shelter) %></p>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
 
-      <div class="col-8 bg-white" id="additional-shelters"></div>
+      <div class="bg-white" id="additional-shelters"></div>
 
       <!-- set list counter variable? -->
-      <button class="js-more" data-id="1">See More</button>
+      <button class="js-more" data-id="2">See More</button>
         <!-- list of attributes, with link to shelter page (dynamically generate) -->
     </div>
     <div class="col-4" id="recent-pets">
