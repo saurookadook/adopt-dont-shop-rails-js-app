@@ -1,9 +1,10 @@
-
-
-
-$(document).on('turbolinks: load', function () {
+$(document).ready(function () {
   attachListeners();
 });
+
+// $(document).on('turbolinks: load', function () {
+//   attachListeners();
+// });
 
 // function attachListeners () {
 //   $('#shelter-list').on('click', () => displayMoreShelters());
@@ -11,20 +12,20 @@ $(document).on('turbolinks: load', function () {
 // }
 
 function attachListeners () {
-  $('.js-more').on('click', function(e) {
-    let counter = parseInt($('.js-more').attr('data-id')) * 3;
+  $('button.js-more').on('click', function(e) {
+    let counter = parseInt($('button.js-more').attr('data-id')) * 3;
     $.getJSON(this.href).done(function(data) {
       // make separate shelters variable for this?
       $('div#additional-shelters').html('');
       data.slice(3, counter).forEach(function(shelter) {
-          debugger
-          let newShelter = new Shelter(this.id, this.name, this.email, this.phoneNumber, this.address, this.employees, this.pets);
-          debugger
+          // debugger
+          let newShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phoneNumber, shelter.address, shelter.employees, shelter.pets);
+          // debugger
           let formattedShelter = newShelter.formatShelterIndex();
           $('div#additional-shelters').append(formattedShelter);
       });
     });
-    $('.js-more').attr("data-id", function(i, val) {
+    $('button.js-more').attr("data-id", function(i, val) {
       return ++val;
     });
   });
@@ -54,7 +55,7 @@ function Pet(id, name, nickname, animal, age, breed, info, owner) {
 
 // Prototypes to properly format
 Shelter.prototype.formatShelterIndex = function () {
-  debugger
+  // debugger
   let shelterHtml = '';
   shelterHtml += '<div class="shelter-bubble bg-secondary">';
   shelterHtml += `<h4 class="shelterName" data-id="${this.id}">${this.name}</h4>`;
