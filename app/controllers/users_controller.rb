@@ -5,12 +5,12 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # def show
+  def show
   #   respond_to do |format|
   #     format.html { render :show }
   #     format.json { render @user.pets }
   #   end
-  # end
+  end
 
   def pets_index
     respond_to do |format|

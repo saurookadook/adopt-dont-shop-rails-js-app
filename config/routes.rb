@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get '/users/:id/pets', to: 'users#pets_index', as: :user_pets_index
 
   resources :users, only: [:show] do
-    resources :pets, only: [:index, :show, :new, :edit]
+    resources :pets, only: [:show, :new, :edit]
   end
 
   resources :shelters, only: [:show] do
