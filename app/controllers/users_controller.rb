@@ -1,15 +1,22 @@
 class UsersController < ApplicationController
-  before_action :set_user!, only: [:show, :edit, :update, :destroy]
+  before_action :set_user!, only: [:pets_index, :show, :edit, :update, :destroy]
 
   def index
     @users = User.all
   end
 
-  def show
-    # respond_to do |format|
-    #   format.html { render :show }
-    #   format.html { render json: @user }
-    # end
+  # def show
+  #   respond_to do |format|
+  #     format.html { render :show }
+  #     format.json { render @user.pets }
+  #   end
+  # end
+
+  def pets_index
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @user.pets }
+    end
   end
 
   def new

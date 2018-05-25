@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get '/shelters/by_state', to: 'shelters#by_state', as: 'shelters_by_state'
   resources :shelters
 
+  get '/users/:id/pets', to: 'users#pets_index', as: :user_pets_index
+
   resources :users, only: [:show] do
     resources :pets, only: [:index, :show, :new, :edit]
   end
