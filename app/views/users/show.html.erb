@@ -8,8 +8,14 @@
 <br />
   <% if @user.pets %>
     <p><b><%= link_to "View #{@user.username}'s pets", user_pets_path(@user) %></b></p><br>
+    <p><a href="#" id="view-pets"><b>View <%= @user.username %>'s pets</b></a></p>
+    <div id="pets-list"></div>
   <% end %>
 </ul>
+
+<% if current_user == @owner %>
+  <%= link_to "Add a pet!", new_user_pet_path(@owner), class: "btn btn-light mb-3" id: "add-user-pet" %><br>
+<% end %>
 
 <% if current_user == @user %>
   <%= link_to 'Edit Account Info', edit_user_path(current_user), class: "btn btn-light mb-3" %><br>
