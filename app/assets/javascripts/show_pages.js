@@ -1,6 +1,10 @@
-$(document).ready(function () {
+// $(document).ready(function () {
+//   attachListeners();
+// })
+
+$(document).on('turbolinks: load', function () {
   attachListeners();
-})
+});
 
 function attachListeners () {
   $('#view-user-pets').on('click', displayUserPets)
@@ -8,7 +12,9 @@ function attachListeners () {
 
 function displayUserPets(e) {
   e.preventDefault();
+  debugger
   $.getJSON(this.href).done(function(data) {
+    debugger
     $('#pets-list').html('');
     data.forEach(function (pet) {
       let newUserPet = new UserPet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
