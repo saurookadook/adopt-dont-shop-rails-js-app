@@ -2,9 +2,9 @@ $(document).ready(function () {
   attachHomeListeners();
 });
 
-$(document).on('turbolinks: load', function () {
-  attachHomeListeners();
-});
+// $(document).on('turbolinks: load', function () {
+//   attachHomeListeners();
+// });
 
 function attachHomeListeners () {
   $('#shelter-list .js-more').on('click', displayMoreShelters);

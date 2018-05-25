@@ -24,10 +24,10 @@ Rails.application.routes.draw do
   get '/shelters/by_state', to: 'shelters#by_state', as: 'shelters_by_state'
   resources :shelters
 
-  get '/users/:id/pets', to: 'users#pets_index', as: :user_pets_index
+  get '/users/:id/pets_list', to: 'users#pets_list', as: :user_pets_list
 
   resources :users, only: [:show] do
-    resources :pets, only: [:show, :new, :edit]
+    resources :pets, only: [:index, :show, :new, :edit]
   end
 
   resources :shelters, only: [:show] do

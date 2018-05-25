@@ -2,6 +2,6 @@
 
 <% @users.each do |user| %>
   <%= link_to "#{user.username}'s profile page", user_path(user) %><br>
-  <!-- <%= link_to "#{user.username}'s pets", user_pets_index_path(user) if !user.pets.nil? %><br> -->
+  <!-- <%= link_to "#{user.username}'s pets", user_pets_list_path(user) if !user.pets.nil? %><br> -->
   <br>
 <% end %>

@@ -2,12 +2,13 @@ $(document).ready(function () {
   attachShowListeners();
 })
 
-$(document).on('turbolinks: load', function () {
-  attachShowListeners();
-});
+// $(document).on('turbolinks: load', function () {
+//   attachShowListeners();
+// });
 
 function attachShowListeners () {
   $('#view-user-pets').on('click', displayUserPets)
+  $('#add-user-pet').on('click', displayUserPets)
 }
 
 function displayUserPets(e) {

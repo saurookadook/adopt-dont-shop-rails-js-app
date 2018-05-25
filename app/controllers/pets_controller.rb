@@ -1,14 +1,14 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update]
-  before_action :set_owner, only: [:show, :new, :create, :edit, :update]
+  before_action :set_owner, only: [:index, :show, :new, :create, :edit, :update]
 
-  # def index
-  #   if !@owner.nil?
-  #     @pets = @owner.pets
-  #   else
-  #     @pets = Pet.all
-  #   end
-  # end
+  def index
+    if !@owner.nil?
+      @pets = @owner.pets
+    else
+      @pets = Pet.all
+    end
+  end
 
   def show
   end
