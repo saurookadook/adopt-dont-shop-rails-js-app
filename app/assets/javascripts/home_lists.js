@@ -1,12 +1,12 @@
-// $(document).ready(function () {
-//   attachListeners();
-// });
-
-$(document).on('turbolinks: load', function () {
-  attachListeners();
+$(document).ready(function () {
+  attachHomeListeners();
 });
 
-function attachListeners () {
+$(document).on('turbolinks: load', function () {
+  attachHomeListeners();
+});
+
+function attachHomeListeners () {
   $('#shelter-list .js-more').on('click', displayMoreShelters);
   $('#recent-pets .js-more').on('click', displayMorePets);
 }
@@ -22,7 +22,7 @@ function displayMoreShelters (e) {
       $('#additional-shelters').append(formattedShelter);
     });
   });
-  $('.js-more').attr("data-id", function(i, val) {
+  $('#shelter-list .js-more').attr("data-id", function(i, val) {
     return ++val;
   });
 };
