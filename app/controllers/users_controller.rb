@@ -20,6 +20,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_pet
+    
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @new_pet }
+    end
+  end
+
   def new
     @user = User.new
   end

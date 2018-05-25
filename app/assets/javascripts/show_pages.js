@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 function attachShowListeners () {
   $('#view-user-pets').on('click', displayUserPets)
-  $('#add-user-pet').on('click', displayUserPets)
+  $('#add-user-pet').on('click', addUserPet)
 }
 
 function displayUserPets(e) {
@@ -20,6 +20,22 @@ function displayUserPets(e) {
       let formattedUserPet = newUserPet.formatUserPet();
       $('#pets-list').append(formattedUserPet);
     })
+  })
+}
+
+function addUserPet(e) {
+  e.preventDefault();
+  url = this.action;
+  const data = $(this).serialize();
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    success: function(response) {
+      let newUserPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
+      let formattedUserPet = newUserPet.formatUserPet();
+      $('#pets-list').append(formattedUserPet);
+    }
   })
 }
 
