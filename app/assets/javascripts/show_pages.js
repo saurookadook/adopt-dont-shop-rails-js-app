@@ -8,9 +8,11 @@ function attachListeners () {
 
 function displayUserPets(e) {
   e.preventDefault();
+  debugger
   $.getJSON(this.href).done(function(data) {
+    debugger
     $('#additional-pets').html('');
-    console.log(data);
+
   })
 }
 

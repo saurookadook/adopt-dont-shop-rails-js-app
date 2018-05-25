@@ -13,8 +13,8 @@
   <% end %>
 </ul>
 
-<% if current_user == @owner %>
-  <%= link_to "Add a pet!", new_user_pet_path(@owner), class: "btn btn-light mb-3" id: "add-user-pet" %><br>
+<% if current_user == @user %>
+  <%= link_to "Add a pet!", new_user_pet_path(@user), class: "btn btn-light mb-3", id: "add-user-pet" %><br>
 <% end %>
 
 <% if current_user == @user %>
