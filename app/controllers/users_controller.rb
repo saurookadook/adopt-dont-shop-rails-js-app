@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    # add pet via AJAX
   #   respond_to do |format|
   #     format.html { render :show }
   #     format.json { render @user.pets }
