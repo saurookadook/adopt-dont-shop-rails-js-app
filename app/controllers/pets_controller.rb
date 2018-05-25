@@ -8,6 +8,10 @@ class PetsController < ApplicationController
     else
       @pets = Pet.all
     end
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @pets }
+    end
   end
 
   def show

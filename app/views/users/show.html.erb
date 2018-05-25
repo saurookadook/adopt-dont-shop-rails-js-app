@@ -7,8 +7,7 @@
   <%= display_address(@user) %><br />
 <br />
   <% if @user.pets %>
-    <p><b><%= link_to "View #{@user.username}'s pets", user_pets_path(@user) %></b></p><br>
-    <p><a href="#" id="view-pets"><b>View <%= @user.username %>'s pets</b></a></p>
+    <p><b><%= link_to "View #{@user.username}'s pets", user_pets_path(@user), id: "view-pets" %></b></p><br>
     <div id="pets-list"></div>
   <% end %>
 </ul>
