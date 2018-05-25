@@ -35,6 +35,7 @@ function addUserPet(e) {
       let newUserPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
       let formattedUserPet = newUserPet.formatUserPet();
       $('#pets-list').append(formattedUserPet);
+      $('')
     }
   })
 }
