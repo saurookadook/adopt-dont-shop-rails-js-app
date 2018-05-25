@@ -10,8 +10,10 @@ function displayUserPets(e) {
   e.preventDefault();
   $.getJSON(this.href).done(function(data) {
     $('#additional-pets').html('');
+    debugger
     data.forEach(function (pet) {
-      let newUserPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
+      debugger
+      let newUserPet = new UserPet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
       let formattedUserPet = newUserPet.formatUserPet();
       $('#additional-pets').append(formattedUserPet);
     })
@@ -25,7 +27,7 @@ function User(id, username, pets) {
   this.pets = pets;
 };
 
-function Pet(id, name, nickname, animal, age, breed, info, owner) {
+function UserPet(id, name, nickname, animal, age, breed, info, owner) {
   this.id = id;
   this.name = name;
   this.nickname = nickname;
@@ -60,21 +62,21 @@ function Pet(id, name, nickname, animal, age, breed, info, owner) {
 //   return userPetHtml;
 // }
 
-Pet.prototype.formatUserPet = function () {
+UserPet.prototype.formatUserPet = function () {
   let userPetHtml = '';
   userPetHtml +=  `<h4>Name: ${this.name}</h4>`
   userPetHtml +=  '<ul>'
-  if (pet.nickname != undefined) {
+  if (this.nickname != undefined) {
     userPetHtml +=  `<p>Nickname: ${this.nickname}</p>`
   }
   userPetHtml +=  `<p>Species:  ${this.animal}</p>`
-  if (pet.age != undefined) {
+  if (this.age != undefined) {
     userPetHtml +=  `<p>Age: ${this.age}</p>`
   }
-  if (pet.breed != undefined) {
+  if (this.breed != undefined) {
     userPetHtml +=  `<p>Breed: ${this.breed}</p>`
   }
-  if (pet.info != undefined) {
+  if (this.info != undefined) {
     userPetHtml +=  `<p>Info: ${this.info}</p>`
   }
   userPetHtml +=  '</ul><br />'
