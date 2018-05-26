@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     if current_user == @user
-      @new_pet = current_user.pets.build
+      @pet = current_user.pets.build
     end
   #   respond_to do |format|
   #     format.html { render :show }
@@ -23,10 +23,10 @@ class UsersController < ApplicationController
   end
 
   def add_pet
-    @new_pet = current_user.pets.build
+    @pet = current_user.pets.build
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @new_pet }
+      format.json { render json: @pet }
     end
   end
 

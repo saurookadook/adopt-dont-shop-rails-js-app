@@ -20,11 +20,16 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @pet.owner = @owner
+    @user = @owner
 
     if @pet.valid?
       @pet.save
-      redirect_to user_pets_path(@owner) if @pet.owner_type == "User"
-      redirect_to shelter_pets_path(@owner) if @pet.owner_type == "Shelter"
+      respond_to do |format|
+        format.html { render "users/show" }
+        format.json { render json: @pet }
+      end
+      # redirect_to user_pets_path(@owner) if @pet.owner_type == "User"
+      # redirect_to shelter_pets_path(@owner) if @pet.owner_type == "Shelter"
     else
       render :new
     end
@@ -59,7 +64,6 @@ class PetsController < ApplicationController
     shelter_id = params[:shelter_id] if params[:shelter_id]
     owner_id = pet_params[:owner_id].to_i if pet_params[:owner_id]
     owner_type = pet_params[:owner_type] if pet_params[:owner_type]
-    binding.pry
     if !current_user.nil? && (user_id == current_user.id || (owner_id == current_user.id && owner_type == "User"))
       @owner = current_user
     elsif !current_employee.nil? && (shelter_id == current_employee.shelter.id || (owner_id == current_employee.shelter.id && owner_type == "Shelter"))
