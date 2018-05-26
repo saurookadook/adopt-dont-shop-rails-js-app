@@ -13,12 +13,9 @@
 </ul>
 
 <% if current_user == @user %>
-  <%= link_to "Add a pet!", add_user_pet_path(@new_pet), class: "btn btn-light mb-3", id: "add-user-pet" %><br>
-<% end %>
-
-<%= form_for (@new_pet) do %>
-  <%= render partial: 'layouts/errors', locals: {resource: @user_pet} %>
-  <%= render partial: 'form', locals: {pet: @user_pet} %>
+  <%= link_to "Add a pet!", user_add_pet_path(current_user), class: "btn btn-light mb-3", id: "add-user-pet" %><br>
+  <%= render partial: 'layouts/errors', locals: {resource: @new_pet} %>
+  <%= render partial: 'pets/form', locals: {pet: @new_pet} %>
 <% end %>
 
 <% if current_user == @user %>

@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    # add pet via AJAX
+    if current_user == @user
+      @new_pet = current_user.pets.build
+    end
   #   respond_to do |format|
   #     format.html { render :show }
   #     format.json { render @user.pets }
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def add_pet
-    
+    @new_pet = current_user.pets.build
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @new_pet }
