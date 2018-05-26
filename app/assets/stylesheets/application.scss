@@ -38,21 +38,39 @@ a:hover {
 }
 
 // Home page
-#initial-shelters, #initial-pets {
+#initial-shelters, #additional-shelters, #initial-pets, #additional-pets {
   padding: 5px;
 }
 
 #initial-shelters {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#additional-shelters {
+  padding-top: 0px
+}
+
+#shelter-list {
   margin-right: 15px;
   margin-left: -30px;
 }
 
-#initial-pets {
+#shelter-list div:last-child {
+  margin-bottom: 0px;
+}
+
+#recent-pets {
   margin-left: 15px;
 }
 
+.shelter-bubble, .pet-bubble {
+  padding-top: 5px;
+  margin: 10px 10px 15px 10px;
+}
+
 .shelter-bubble .shelterName {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   margin-bottom: 0;
 }
 
@@ -61,15 +79,23 @@ a:hover {
   margin-bottom: 0px;
 }
 
-.shelter-bubble .home-learn-more {
+.pet-bubble .petName {
+  margin-bottom: 0;
+}
+
+.pet-bubble .petAnimal {
+  margin-bottom: 0;
+}
+
+.pet-bubble p {
+  margin-bottom: 10px;
+}
+
+.home-learn-more {
   margin: 0;
-}
-
-.shelter-bubble {
-  padding-top: 5px;
-  margin: 10px 10px 15px 10px;
-}
-
-.shelter-bubble p {
   padding-bottom: 5px;
+}
+
+.home-buttons {
+  padding-bottom: 10px;
 }
