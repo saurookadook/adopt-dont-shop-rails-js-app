@@ -57,9 +57,12 @@ class PetsController < ApplicationController
     # possibly clean up?
     user_id = params[:user_id] if params[:user_id]
     shelter_id = params[:shelter_id] if params[:shelter_id]
-    if !current_user.nil? && id == current_user.id
+    owner_id = pet_params[:owner_id].to_i if pet_params[:owner_id]
+    owner_type = pet_params[:owner_type] if pet_params[:owner_type]
+    binding.pry
+    if !current_user.nil? && (user_id == current_user.id || (owner_id == current_user.id && owner_type == "User"))
       @owner = current_user
-    elsif !current_employee.nil? && shelter_id == current_employee.shelter.id
+    elsif !current_employee.nil? && (shelter_id == current_employee.shelter.id || (owner_id == current_employee.shelter.id && owner_type == "Shelter"))
       @owner = current_employee.shelter
     elsif
       !user_id.nil? ? @owner = User.find(params[:user_id]) : @owner = Shelter.find(params[:shelter_id])
