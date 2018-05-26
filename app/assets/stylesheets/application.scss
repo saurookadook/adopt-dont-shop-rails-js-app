@@ -38,15 +38,24 @@ a:hover {
 }
 
 // Home page
-#shelter-list, #recent-pets {
-  padding-top: 15px;
+#initial-shelters, #initial-pets {
+  padding: 15px;
 }
 
-#shelter-list {
+#initial-shelters {
   margin-right: 15px;
   margin-left: -30px;
 }
 
-#recent-pets {
+#initial-pets {
   margin-left: 15px;
+}
+
+.shelter-bubble {
+  padding-top: 5px;
+  margin: 10px
+}
+
+.shelter-bubble p {
+  padding-bottom: 5px;
 }

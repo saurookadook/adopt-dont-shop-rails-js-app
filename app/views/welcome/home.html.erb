@@ -5,34 +5,35 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8 bg-white" id="shelter-list">
-      <div id="initial-shelters">
+    <div class="col-8" id="shelter-list">
+      <div class="bg-white" id="initial-shelters">
         <% @shelters.each_with_index do |shelter, i| %>
           <% if i < 3 %>
             <div class="shelter-bubble bg-secondary">
               <h4 class="shelterName"><%= shelter.name %></h4>
               <p class="shelterAddress"><%= shelter.address.city %>, <%= shelter.address.state %></p>
-              <p><%= link_to "Learn more", shelter_path(shelter) %></p>
+              <p><%= link_to "Learn more", shelter_path(shelter), class: "home-learn-more" %></p>
             </div>
           <% end %>
         <% end %>
       </div>
 
-      <div id="additional-shelters"></div>
+      <div class="bg-white" id="additional-shelters"></div>
 
       <button class="js-more" data-id="2">See More</button>
 
     </div>
+
     <!-- make both of these look better.... -->
-    <div class="col-4 bg-white" id="recent-pets">
-      <div id="initial-pets">
+    <div class="col-4" id="recent-pets">
+      <div class="bg-white" id="initial-pets">
         <% @pets.each_with_index do |pet, i| %>
           <% if i < 3 %>
-            <div class="shelter-bubble bg-secondary">
+            <div class="pet-bubble bg-secondary">
               <h4 class="petName"><%= pet.name %></h4>
               <p class="petAnimal"><%= pet.animal %></p>
               <p class="petOnwer"><%= pet.owner.class == User ? pet.owner.username : pet.owner.name %></p>
-              <p><%= link_to "More Info", pet_path(pet) %></p>
+              <p><%= link_to "More Info", pet_path(pet), class: "home-learn-more" %></p>
             </div>
           <% end %>
         <% end %>
