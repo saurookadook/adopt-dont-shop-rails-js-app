@@ -24,6 +24,7 @@ class PetsController < ApplicationController
 
     if @pet.valid?
       @pet.save
+      flash[:message] = "#{@pet.name} successfully added!"
       respond_to do |format|
         format.html { render "users/show" }
         format.json { render json: @pet }

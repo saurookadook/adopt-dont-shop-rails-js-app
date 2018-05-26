@@ -36,3 +36,17 @@ a {
 a:hover {
   color: white;
 }
+
+// Home page
+#shelter-list, #recent-pets {
+  padding-top: 15px;
+}
+
+#shelter-list {
+  margin-right: 15px;
+  margin-left: -30px;
+}
+
+#recent-pets {
+  margin-left: 15px;
+}
