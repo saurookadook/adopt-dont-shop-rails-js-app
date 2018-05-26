@@ -12,7 +12,7 @@
             <div class="shelter-bubble bg-secondary">
               <h4 class="shelterName"><%= shelter.name %></h4>
               <p class="shelterAddress"><%= shelter.address.city %>, <%= shelter.address.state %></p>
-              <p><%= link_to "Learn more", shelter_path(shelter), class: "home-learn-more" %></p>
+              <p class="home-learn-more"><%= link_to "Learn more", shelter_path(shelter) %></p>
             </div>
           <% end %>
         <% end %>
@@ -33,7 +33,7 @@
               <h4 class="petName"><%= pet.name %></h4>
               <p class="petAnimal"><%= pet.animal %></p>
               <p class="petOnwer"><%= pet.owner.class == User ? pet.owner.username : pet.owner.name %></p>
-              <p><%= link_to "More Info", pet_path(pet), class: "home-learn-more" %></p>
+              <p class="home-learn-more"><%= link_to "More Info", pet_path(pet) %></p>
             </div>
           <% end %>
         <% end %>

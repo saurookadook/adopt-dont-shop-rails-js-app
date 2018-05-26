@@ -39,7 +39,7 @@ a:hover {
 
 // Home page
 #initial-shelters, #initial-pets {
-  padding: 15px;
+  padding: 5px;
 }
 
 #initial-shelters {
@@ -51,9 +51,23 @@ a:hover {
   margin-left: 15px;
 }
 
+.shelter-bubble .shelterName {
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+
+.shelter-bubble .shelterAddress {
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+}
+
+.shelter-bubble .home-learn-more {
+  margin: 0;
+}
+
 .shelter-bubble {
   padding-top: 5px;
-  margin: 10px
+  margin: 10px 10px 15px 10px;
 }
 
 .shelter-bubble p {
