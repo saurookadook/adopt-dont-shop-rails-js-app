@@ -1,7 +1,24 @@
-<h1>All of our Adopters!</h1><br>
+<h1 class="p-3 bg-white text-dark">All of our Adopters!</h1><br>
 
-<% @users.each do |user| %>
-  <%= link_to "#{user.username}'s profile page", user_path(user) %><br>
-  <!-- <%= link_to "#{user.username}'s pets", user_pets_list_path(user) if !user.pets.nil? %><br> -->
-  <br>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <% @users.each_with_index do |user, i| %>
+        <% if i.even? %>
+          <%= link_to "#{user.username}'s profile page", user_path(user), id: "user-index-l" %><br>
+          <!-- <%= link_to "#{user.username}'s pets", user_pets_list_path(user) if !user.pets.nil? %><br> -->
+          <br>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <% @users.each_with_index do |user, i| %>
+        <% if i.odd? %>
+          <%= link_to "#{user.username}'s profile page", user_path(user), id: "user-index-r" %><br>
+          <!-- <%= link_to "#{user.username}'s pets", user_pets_list_path(user) if !user.pets.nil? %><br> -->
+          <br>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
