@@ -17,7 +17,7 @@ function displayMoreShelters (e) {
   $.getJSON(this.href).done(function(data) {
     $('#additional-shelters').html('');
     data.slice(3, counter).forEach(function(shelter) {
-      let newShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phoneNumber, shelter.address, shelter.employees, shelter.pets);
+      let newShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address, shelter.employees, shelter.pets);
       let formattedShelter = newShelter.formatShelterIndex();
       $('#additional-shelters').append(formattedShelter);
     });

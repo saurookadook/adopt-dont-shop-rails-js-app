@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <!-- perhaps set numbers in col divs and update each in JS function? -->
-    <div class="col-6">
+    <div class="col-6 list-1">
     <% shelters[0...6].each_with_index do |shelter, i| %>
       <% if i.even? %>
         <div class="index-shelter-container bg-white p-3">
@@ -16,7 +16,7 @@
     <% end %>
     </div>
 
-    <div class="col-6">
+    <div class="col-6 list-2">
       <% shelters[0...6].each_with_index do |shelter, i| %>
         <% if i.odd? %>
           <div class="index-shelter-container bg-white p-3">
