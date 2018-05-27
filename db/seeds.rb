@@ -16,8 +16,8 @@ address7 = Address.create(street1: "142 Kindness Ct.", street2: "", city: "Burli
 address8 = Address.create(street1: "99 Victor Rd.", street2: "", city: "Fairport", state: "NY", zip: "14450", resident_id: 8, resident_type: "Shelter")
 address9 = Address.create(street1: "1845 Pontius Ave.", street2: "", city: "Los Angeles", state: "CA", zip: "90025", resident_id: 9, resident_type: "Shelter")
 address10 = Address.create(street1: "629 Oakland Park Ave.", street2: "", city: "Columbus (London)", state: "OH", zip: "43214", resident_id: 10, resident_type: "Shelter")
-address11 = Address.create(street1: "", street2: "", city: "", state: "", zip: "", resident_id: 11, resident_type: "Shelter")
-address12 = Address.create(street1: "", street2: "", city: "", state: "", zip: "", resident_id: 12, resident_type: "Shelter")
+address11 = Address.create(street1: "2700 Toomey Ave.", street2: "", city: "Charlotte", state: "NC", zip: "28203", resident_id: 11, resident_type: "Shelter")
+address12 = Address.create(street1: "2144 N. Wood Street", street2: "", city: "Chicago", state: "IL", zip: "60614", resident_id: 12, resident_type: "Shelter")
 address13 = Address.create(street1: "2061 15th Ave W", street2: "", city: "Seattle", state: "WA", zip: "98119", resident_id: 13, resident_type: "Shelter")
 address14 = Address.create(street1: "1067 NE Columbia Blvd.", street2: "", city: "Portland", state: "OR", zip: "97211", resident_id: 14, resident_type: "Shelter")
 
@@ -45,12 +45,11 @@ shelter6 = Shelter.new(name: "Pets Without Parents", email: "pets@petswithoutpar
 shelter6.address = address10
 shelter6.save
 
-shelter7 = Shelter.new(name: "", email: "", phone_number: "")
+shelter7 = Shelter.new(name: "Humane Society of Charlotte", email: "adoptioncenter@humanecharlotte.org", phone_number: "704-377-0534")
 shelter7.address = address11
 shelter7.save
 
-# https://www.onetail.org/
-shelter8 = Shelter.new(name: "", email: "", phone_number: "")
+shelter8 = Shelter.new(name: "One Tail At A Time", email: "KerryOTAT@gmail.com", phone_number: "")
 shelter8.address = address12
 shelter8.save
 
@@ -58,8 +57,7 @@ shelter9 = Shelter.new(name: "Seattle Animal Shelter", email: "seattleanimalshel
 shelter9.address = address13
 shelter9.save
 
-# https://www.facebook.com/OregonHumane/
-shelter10 = Shelter.new(name: "Oregon Humane Society", email: "", phone_number: "503-285-7722")
+shelter10 = Shelter.new(name: "Oregon Humane Society", email: "records@oregonhumane.org", phone_number: "503-285-7722")
 shelter10.address = address14
 shelter10.save
 
