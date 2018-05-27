@@ -44,9 +44,6 @@ a:hover {
 
 #initial-shelters, #initial-pets {
   border-radius: 15px 15px 0 0;
-}
-
-#initial-shelters {
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -70,7 +67,7 @@ a:hover {
 
 .shelter-bubble, .pet-bubble {
   border-radius: 5px;
-  margin: 10px 10px 15px 10px;
+  margin: 0 10px 15px 10px;
   padding-top: 5px;
 }
 

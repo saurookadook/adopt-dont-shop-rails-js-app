@@ -1,13 +1,13 @@
-<h1>Contributing Shelters:</h1><br />
+<h1 class="p-3 bg-white text-dark">Contributing Shelters:</h1><br />
 
 <h3>Filter Shelters:</h3>
 <%= form_tag("/shelters", method: "get") do %>
   <%= select_tag "city", options_for_select(Shelter.all.map {|s| s.address.city}), include_blank: true %>
   <%= select_tag "state", options_for_select(Shelter.all.map {|s| s.address.state}), include_blank: true %>
-  <%= submit_tag "Filter" %>
+  <%= submit_tag "Filter", class: "mb-3" %>
 <% end %>
 
-<%= render 'list', locals: {shelters: @shelters[(@index_1 * 6)...(@index_2 * 6)]} %>
+<%= render partial: 'list', locals: {shelters: @shelters[(@index_1 * 3)...(@index_2 * 3)]} %>
 
 <!-- data-id issue? -->
-<button class="js-next" data-id-1="<%= @index_1 %>" data-id-2="<%= @index_2 %>">Next 6 Shelters</button>
+<button class="js-next mt-3" data-id-1="<%= @index_1 %>" data-id-2="<%= @index_2 %>">Next 6 Shelters</button>
