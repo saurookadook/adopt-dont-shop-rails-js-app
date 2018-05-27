@@ -1,6 +1,33 @@
-<% @shelters.each do |shelter| %>
-  <h4><%= link_to shelter.name, shelter_path(shelter) %></h4>
-  <%= display_address(shelter) %><br>
-  <%= display_contact(shelter) %><br />
-  <br />
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+    <% shelters.each_with_index do |shelter, i| %>
+      <% if i.even? %>
+        <div class="index-shelter-container bg-white p-3">
+          <div class="index-shelter-info bg-secondary p-2">
+            <h4><%= link_to shelter.name, shelter_path(shelter) %></h4>
+            <%= display_address(shelter) %><br>
+            <%= display_contact(shelter) %><br />
+            <br />
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+
+    <div class="col-6">
+      <% shelters.each_with_index do |shelter, i| %>
+        <% if i.odd? %>
+          <div class="index-shelter-container bg-white p-3">
+            <div class="index-shelter-info bg-secondary p-2">
+              <h4><%= link_to shelter.name, shelter_path(shelter) %></h4>
+              <%= display_address(shelter) %><br>
+              <%= display_contact(shelter) %><br />
+              <br />
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,8 @@ class SheltersController < ApplicationController
     elsif !params[:state].blank?
       @shelters ||= Shelter.by_state(params[:state])
     end
+    @index_1 = 0;
+    @index_2 = 2;
     @shelters ||= Shelter.all
   end
 
