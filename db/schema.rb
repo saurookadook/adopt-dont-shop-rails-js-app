@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180327005014) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.string "street1"
     t.string "street2"
@@ -19,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "state"
     t.string "zip"
     t.string "resident_type"
-    t.integer "resident_id"
+    t.bigint "resident_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["resident_type", "resident_id"], name: "index_addresses_on_resident_type_and_resident_id"
@@ -52,7 +55,7 @@ ActiveRecord::Schema.define(version: 20180327005014) do
     t.string "breed"
     t.text "info"
     t.string "owner_type"
-    t.integer "owner_id"
+    t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id"], name: "index_pets_on_owner_type_and_owner_id"
