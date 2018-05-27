@@ -11,6 +11,13 @@ function loadNextShelters(e) {
   $('#shelters-index').html('');
   $.getJSON(this.href, function(data) {
       debugger
+      let index1 = parseInt($('#shelters-index').attr("data-id")[0]) * 6;
+      debugger
+      let index2 = parseInt($('#shelters-index').attr("data-id")[1]) * 6;
+      debugger
+      data.slice(index1, index2).forEach(function(data) {
+        debugger
+      })
     })
 }
 
