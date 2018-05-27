@@ -13,6 +13,7 @@ class SheltersController < ApplicationController
     @index_1 = 0;
     @index_2 = 2;
     @shelters ||= Shelter.all
+    # maybe need to render JSON with multiple arguments?
   end
 
   def by_city
