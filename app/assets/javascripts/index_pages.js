@@ -11,22 +11,14 @@ function loadNextShelters(e) {
   $('#shelters-index .list-1').html('');
   $('#shelters-index .list-2').html('');
   $.getJSON(this.href, function(data) {
-    // debugger
     let index1 = parseInt($('#shelters-index').attr("data-id")[0]) + 1;
-    // debugger
     let index2 = parseInt($('#shelters-index').attr("data-id")[1]) + 1;
-    // debugger
     data.slice((index1 * 6), (index2 * 6)).forEach(function(shelter, i) {
-      // debugger
       let nextShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address);
-      // debugger
       let formattedNextShelter = nextShelter.formatShelterIndex();
-      // debugger
       if (i % 2 === 0) {
-        // debugger
         $('#shelters-index .list-1').append(formattedNextShelter);
       } else {
-        // debugger
         $('#shelters-index .list-2').append(formattedNextShelter);
       }
     })
