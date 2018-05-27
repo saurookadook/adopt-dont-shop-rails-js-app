@@ -23,22 +23,22 @@ function displayUserPets(e) {
   })
 }
 
-function addUserPet(e) {
-  e.preventDefault();
-  url = this.action;
-  const data = $(this).serialize();
-  $.ajax({
-    type: "POST",
-    url: url,
-    data: data,
-    success: function(response) {
-      let newUserPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
-      let formattedUserPet = newUserPet.formatUserPet();
-      $('#pets-list').append(formattedUserPet);
-      $('')
-    }
-  })
-}
+// function addUserPet(e) {
+//   e.preventDefault();
+//   url = this.action;
+//   const data = $(this).serialize();
+//   $.ajax({
+//     type: "POST",
+//     url: url,
+//     data: data,
+//     success: function(response) {
+//       let newUserPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
+//       let formattedUserPet = newUserPet.formatUserPet();
+//       $('#pets-list').append(formattedUserPet);
+//       $('')
+//     }
+//   })
+// }
 
 // ***** organize models into own file? ******
 function User(id, username, pets) {

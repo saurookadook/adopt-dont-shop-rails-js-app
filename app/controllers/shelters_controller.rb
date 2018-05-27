@@ -10,10 +10,11 @@ class SheltersController < ApplicationController
     elsif !params[:state].blank?
       @shelters ||= Shelter.by_state(params[:state])
     end
-    @index_1 = 0;
-    @index_2 = 2;
     @shelters ||= Shelter.all
-    # maybe need to render JSON with multiple arguments?
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @shelters }
+    end
   end
 
   def by_city

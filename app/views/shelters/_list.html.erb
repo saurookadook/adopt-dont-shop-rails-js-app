@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" data-id="02" id="shelters-index">
   <div class="row">
     <!-- perhaps set numbers in col divs and update each in JS function? -->
     <div class="col-6">
-    <% shelters.each_with_index do |shelter, i| %>
+    <% shelters[0...6].each_with_index do |shelter, i| %>
       <% if i.even? %>
         <div class="index-shelter-container bg-white p-3">
           <div class="index-shelter-info bg-secondary p-2">
@@ -17,7 +17,7 @@
     </div>
 
     <div class="col-6">
-      <% shelters.each_with_index do |shelter, i| %>
+      <% shelters[0...6].each_with_index do |shelter, i| %>
         <% if i.odd? %>
           <div class="index-shelter-container bg-white p-3">
             <div class="index-shelter-info bg-secondary p-2">

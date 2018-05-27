@@ -7,7 +7,7 @@
   <%= submit_tag "Filter", class: "mb-3" %>
 <% end %>
 
-<%= render partial: 'list', locals: {shelters: @shelters[(@index_1 * 3)...(@index_2 * 3)]} %>
+<%= render partial: 'list', locals: { shelters: @shelters } %>
 
 <!-- data-id issue? -->
-<button class="js-next mt-3" data-id-1="<%= @index_1 %>" data-id-2="<%= @index_2 %>">Next 6 Shelters</button>
+<button class="js-next mt-3">Next 6 Shelters</button>
