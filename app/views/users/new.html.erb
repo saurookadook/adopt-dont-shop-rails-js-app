@@ -1,53 +1,72 @@
 <%= render partial: 'layouts/errors', locals: {resource: @user} %>
 
-<h1>Become an Adopter!</h1><br>
+<h1 class="p-3 bg-white text-dark">Become an Adopter!</h1><br>
 <!-- utilize partial(s)? -->
 <%= form_for @user do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %><br>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %><br>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %><br>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
+        <%= f.label :username %>
+        <%= f.text_field :username %><br>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
+        <%= f.label :email %>
+        <%= f.text_field :email %><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
+        <%= f.label :password %>
+        <%= f.password_field :password %><br>
+      </div>
 
-  <%= f.label "Current Location (city and state required)" %>
-  <%= f.fields_for :address, @user.build_address do |address_fields| %>
-    <%= address_fields.label :street1 %>
-    <%= address_fields.text_field :street1 %>
-    <%= address_fields.label :street2 %>
-    <%= address_fields.text_field :street2 %>
-    <%= address_fields.label :city %>
-    <%= address_fields.text_field :city %>
-    <%= address_fields.label :state %>
-    <%= address_fields.text_field :state %>
-    <%= address_fields.label :zip %>
-    <%= address_fields.text_field :zip %>
-  <% end %>
+      <div class="col-6">
+        <%= f.label "Current Location (city and state required)" %><br>
+        <%= f.fields_for :address, @user.build_address do |address_fields| %>
+          <%= address_fields.label :street1 %>
+          <%= address_fields.text_field :street1 %><br>
+          <%= address_fields.label :street2 %>
+          <%= address_fields.text_field :street2 %><br>
+          <%= address_fields.label :city %>
+          <%= address_fields.text_field :city %><br>
+          <%= address_fields.label :state %>
+          <%= address_fields.text_field :state %><br>
+          <%= address_fields.label :zip %>
+          <%= address_fields.text_field :zip %><br>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <%= f.label 'Have any pets already?' %><br>
-  <%= f.fields_for :pets, @user.pets.build do |pets_fields| %>
-    <%= pets_fields.hidden_field :id %>
-    <%= pets_fields.label :name %>
-    <%= pets_fields.text_field :name %><br>
-    <%= pets_fields.label :nickname %>
-    <%= pets_fields.text_field :nickname %><br>
-    <%= pets_fields.label :animal %>
-    <%= pets_fields.text_field :animal %><br>
-    <%= pets_fields.label :age %>
-    <%= pets_fields.number_field :age %><br>
-    <%= pets_fields.label :breed %>
-    <%= pets_fields.text_field :breed %><br>
-    <%= pets_fields.label 'Any stories to share about them?'%><br>
-    <%= pets_fields.text_area :info %><br />
-  <% end %>
+  <br>
+
+        <%= f.label 'Have any pets already?' %><br>
+
+  <div class="container">
+    <div class="row">
+        <%= f.fields_for :pets, @user.pets.build do |pets_fields| %>
+      <div class="col-6">
+          <%= pets_fields.hidden_field :id %>
+          <%= pets_fields.label :name %>
+          <%= pets_fields.text_field :name %><br>
+          <%= pets_fields.label :nickname %>
+          <%= pets_fields.text_field :nickname %><br>
+          <%= pets_fields.label :animal %>
+          <%= pets_fields.text_field :animal %><br>
+      </div>
+      <div class="col-6">
+          <%= pets_fields.label :age %>
+          <%= pets_fields.number_field :age %><br>
+          <%= pets_fields.label :breed %>
+          <%= pets_fields.text_field :breed %><br>
+          <%= pets_fields.label 'Any stories to share about them?'%><br>
+          <%= pets_fields.text_area :info %><br />
+      </div>
+        <% end %>
+    </div>
+  </div>
   <!-- figure out way to add additional pets to form? -->
 
   <br />
