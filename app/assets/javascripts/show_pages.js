@@ -1,19 +1,19 @@
-$(document).ready(function () {
-  attachShowListeners();
-})
-
-// $(document).on('turbolinks: load', function () {
+// $(document).ready(function () {
 //   attachShowListeners();
-// });
+// })
+
+$(document).on('turbolinks: load', function () {
+  attachShowListeners();
+});
 
 function attachShowListeners () {
   $('#view-user-pets').on('click', displayUserPets)
-  $('#add-user-pet').on('click', addUserPet)
+  // $('#add-user-pet').on('click', addUserPet)
 }
 
 function displayUserPets(e) {
   e.preventDefault();
-  $.getJSON(this.href).done(function(data) {
+  $.getJSON(this.href, function(data) {
     $('#pets-list').html('');
     data.forEach(function (pet) {
       let newUserPet = new UserPet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
