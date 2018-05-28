@@ -26,10 +26,23 @@ class UsersController < ApplicationController
   end
 
   def add_pet
-    @blank_pet = current_user.pets.build
-    respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @blank_pet }
+    @pet = Pet.new(pet_params)
+    @pet.owner = @owner
+    @user = @owner
+
+    @blank_pet = @user.pets.build
+
+    if @pet.valid?
+      @pet.save
+      flash[:message] = "#{@pet.name} successfully added!"
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @pet }
+      end
+      # redirect_to user_pets_path(@owner) if @pet.owner_type == "User"
+      # redirect_to shelter_pets_path(@owner) if @pet.owner_type == "Shelter"
+    else
+      render :new
     end
   end
 
