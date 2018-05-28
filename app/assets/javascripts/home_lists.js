@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 function attachHomeListeners () {
   $('#shelter-list .js-more').on('click', displayMoreShelters);
-  // $('#recent-pets .js-more').on('click', displayMorePets);
+  $('#recent-pets .js-more').on('click', displayMorePets);
 }
 
 function displayMoreShelters (e) {
@@ -27,22 +27,22 @@ function displayMoreShelters (e) {
   });
 };
 
-// function displayMorePets (e) {
-//   e.preventDefault();
-//   let counter = parseInt($('#recent-pets .js-more').attr('data-id')) * 3;
-//   $.getJSON(this.href).done(function(data) {
-//     $('#additional-pets').html('');
-//     data.slice(3, counter).forEach(function(shelter) {
-//       debugger
-//       let newPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
-//       let formattedPet = newPet.formatPetsHome();
-//       $('#additional-pets').append(formattedPet);
-//     });
-//     $('.js-more').attr("data-id", function(i, val) {
-//       return ++val;
-//     })
-//   });
-// };
+function displayMorePets (e) {
+  e.preventDefault();
+  let counter = parseInt($('#recent-pets .js-more').attr('data-id')) * 3;
+  $.getJSON(this.href).done(function(data) {
+    $('#additional-pets').html('');
+    data.slice(3, counter).forEach(function(shelter) {
+      debugger
+      let newPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
+      let formattedPet = newPet.formatPetsHome();
+      $('#additional-pets').append(formattedPet);
+    });
+    $('.js-more').attr("data-id", function(i, val) {
+      return ++val;
+    })
+  });
+};
 
 // JavaScript Model Objects
 function Shelter(id, name, email, phoneNumber, address, employees, pets) {

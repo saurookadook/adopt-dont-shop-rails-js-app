@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user!, only: [:pets_list, :show, :edit, :update, :destroy]
+  before_action :set_user!, only: [:pets_list, :add_pet, :show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -27,15 +27,17 @@ class UsersController < ApplicationController
 
   def add_pet
     @pet = Pet.new(pet_params)
-    @pet.owner = @owner
-    @user = @owner
+    @pet.owner = @user
 
     @blank_pet = @user.pets.build
 
     if @pet.valid?
       @pet.save
+      @new_pets = @user.pets
+      binding.pry
       flash[:message] = "#{@pet.name} successfully added!"
       respond_to do |format|
+        binding.pry
         format.html { render :show }
         format.json { render json: @pet }
       end

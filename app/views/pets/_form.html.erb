@@ -1,5 +1,5 @@
-<% if local_assigns.has_key? url: %>
-  <%= form_for pet, url: url do |f| %>
+<% if local_assigns.has_key? :user %>
+  <%= form_for [user, pet] do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
     <%= f.label :nickname %>

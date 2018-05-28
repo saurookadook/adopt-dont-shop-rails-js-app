@@ -59,6 +59,10 @@ class ApplicationController < ActionController::Base
     @pet ||= Pet.find(params[:id]) if params[:id]
   end
 
+  def pet_params
+    params.require(:pet).permit(:name, :nickname, :animal, :age, :breed, :info, :owner_id, :owner_type, employee_ids: [])
+  end
+
   def set_shelter
     if params[:shelter_id]
       @shelter ||= Shelter.find(params[:shelter_id])

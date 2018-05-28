@@ -16,7 +16,7 @@
   <%= link_to "Add a pet!", user_path(@user), class: "btn btn-light mb-3", id: "add-user-pet" %><br>
   <%= render partial: 'layouts/errors', locals: { resource: @blank_pet } %>
   <!-- <div id="add-user-pet-form"> -->
-    <%= render partial: 'pets/form', locals: { url: user_pets_list_update_path(@user), pet: @blank_pet} %>
+    <%= render partial: 'pets/form', locals: { user: @user, pet: @blank_pet} %>
   <!-- </div> -->
 <% end %>
 
