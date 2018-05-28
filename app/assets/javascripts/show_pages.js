@@ -8,8 +8,8 @@ $(document).ready(function () {
 
 function attachShowListeners () {
   $("#view-user-pets").on('click', displayUserPets)
-  $("#add-user-pet").on('click', displayUserPets)
-  $("#pet-commit").on('submit', addUserPet)
+  // $("#add-user-pet").on('click', displayUserPets)
+  $("#add-user-pet").on('submit', addUserPet)
 }
 
 function displayUserPets(e) {
