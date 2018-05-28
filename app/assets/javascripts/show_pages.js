@@ -1,14 +1,15 @@
-// $(document).ready(function () {
-//   attachShowListeners();
-// })
-
-$(document).on('turbolinks: load', function () {
+$(document).ready(function () {
   attachShowListeners();
-});
+})
+
+// $(document).on('turbolinks: load', function () {
+//   attachShowListeners();
+// });
 
 function attachShowListeners () {
   $('#view-user-pets').on('click', displayUserPets)
-  // $('#add-user-pet').on('click', addUserPet)
+  $("#add-user-pet").on('click', displayMorePets)
+  $('#pet-submit').on('click', addUserPet)
 }
 
 function displayUserPets(e) {
@@ -23,22 +24,35 @@ function displayUserPets(e) {
   })
 }
 
-// function addUserPet(e) {
-//   e.preventDefault();
-//   url = this.action;
-//   const data = $(this).serialize();
-//   $.ajax({
-//     type: "POST",
-//     url: url,
-//     data: data,
-//     success: function(response) {
-//       let newUserPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
-//       let formattedUserPet = newUserPet.formatUserPet();
-//       $('#pets-list').append(formattedUserPet);
-//       $('')
-//     }
-//   })
-// }
+function displayAddPetForm(e) {
+  e.preventDefault();
+  $('#add-user-pet-form').toggle();
+}
+
+function addUserPet(e) {
+  debugger
+  e.preventDefault();
+  url = this.action;
+  const data = $(this).serialize();
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    success: function(response) {
+      debugger
+      let newUserPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
+      let formattedUserPet = newUserPet.formatUserPet();
+      $('#pets-list').append(formattedUserPet);
+      $('#pet_name').val('');
+      $('#pet_nickname').val('');
+      $('#pet_animal').val('');
+      $('#pet_age').val('');
+      $('#pet_breed').val('');
+      $('#pet_info').val('');
+      // $('#add-user-pet-form').toggle();
+    }
+  })
+}
 
 // ***** organize models into own file? ******
 function User(id, username, pets) {

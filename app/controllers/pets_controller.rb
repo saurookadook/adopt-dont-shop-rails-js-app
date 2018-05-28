@@ -18,15 +18,18 @@ class PetsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @pet = Pet.new(pet_params)
     @pet.owner = @owner
     @user = @owner
+
+    @blank_pet = @user.pets.build
 
     if @pet.valid?
       @pet.save
       flash[:message] = "#{@pet.name} successfully added!"
       respond_to do |format|
-        format.html { render "users/show" }
+        format.html { render 'users/show' }
         format.json { render json: @pet }
       end
       # redirect_to user_pets_path(@owner) if @pet.owner_type == "User"

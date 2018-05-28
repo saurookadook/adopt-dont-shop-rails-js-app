@@ -7,15 +7,18 @@ class UsersController < ApplicationController
 
   def show
     if current_user == @user
-      @pet = current_user.pets.build
+      @blank_pet = current_user.pets.build
     end
-  #   respond_to do |format|
-  #     format.html { render :show }
-  #     format.json { render @user.pets }
-  #   end
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render @user.pets }
+    end
   end
 
   def pets_list
+    if current_user == @user
+      @blank_pet = current_user.pets.build
+    end
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @user.pets }
@@ -23,10 +26,10 @@ class UsersController < ApplicationController
   end
 
   def add_pet
-    @pet = current_user.pets.build
+    @blank_pet = current_user.pets.build
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @pet }
+      format.json { render json: @blank_pet }
     end
   end
 
