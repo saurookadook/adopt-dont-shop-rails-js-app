@@ -7,9 +7,9 @@ $(document).ready(function () {
 // });
 
 function attachShowListeners () {
-  $('#view-user-pets').on('click', displayUserPets)
+  $("#view-user-pets").on('click', displayUserPets)
   $("#add-user-pet").on('click', displayUserPets)
-  $('#pet-submit').on('submit', addUserPet(e))
+  $("#pet-commit").on('submit', addUserPet)
 }
 
 function displayUserPets(e) {

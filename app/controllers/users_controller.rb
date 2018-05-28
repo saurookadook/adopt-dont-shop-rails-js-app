@@ -34,10 +34,9 @@ class UsersController < ApplicationController
     if @pet.valid?
       @pet.save
       @new_pets = @user.pets
-      binding.pry
+      
       flash[:message] = "#{@pet.name} successfully added!"
       respond_to do |format|
-        binding.pry
         format.html { render :show }
         format.json { render json: @pet }
       end
