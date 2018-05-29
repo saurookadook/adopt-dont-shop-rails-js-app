@@ -1,6 +1,6 @@
-$(document).ready(function () {
-  attachIndexListeners();
-})
+// $(document).ready(function () {
+//   attachIndexListeners();
+// })
 
 function attachIndexListeners() {
   $('.js-next').on('click', loadNextShelters)

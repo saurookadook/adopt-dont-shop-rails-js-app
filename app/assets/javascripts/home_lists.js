@@ -1,5 +1,7 @@
 $(document).ready(function () {
   attachHomeListeners();
+  attachIndexListeners();
+  attachShowListeners();
 });
 
 // $(document).on('turbolinks: load', function () {
@@ -33,7 +35,6 @@ function displayMorePets (e) {
   $.getJSON(this.href).done(function(data) {
     $('#additional-pets').html('');
     data.slice(3, counter).forEach(function(shelter) {
-      debugger
       let newPet = new HomePet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
       let formattedPet = newHomePet.formatPetsHome();
       $('#additional-pets').append(formattedPet);

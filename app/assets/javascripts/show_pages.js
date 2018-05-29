@@ -1,6 +1,6 @@
-$(document).ready(function () {
-  attachShowListeners();
-})
+// $(document).ready(function () {
+//   attachShowListeners();
+// })
 
 // $(document).on('turbolinks: load', function () {
 //   attachShowListeners();
