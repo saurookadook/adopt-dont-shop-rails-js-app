@@ -17,8 +17,8 @@ function displayMoreShelters (e) {
   $.getJSON(this.href).done(function(data) {
     $('#additional-shelters').html('');
     data.slice(3, counter).forEach(function(shelter) {
-      let newShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address, shelter.employees, shelter.pets);
-      let formattedShelter = newShelter.formatShelterIndex();
+      let newShelter = new HomeShelter(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address, shelter.employees, shelter.pets);
+      let formattedShelter = newShelter.formatSheltersHome();
       $('#additional-shelters').append(formattedShelter);
     });
   });
@@ -34,8 +34,8 @@ function displayMorePets (e) {
     $('#additional-pets').html('');
     data.slice(3, counter).forEach(function(shelter) {
       debugger
-      let newPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
-      let formattedPet = newPet.formatPetsHome();
+      let newPet = new HomePet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
+      let formattedPet = newHomePet.formatPetsHome();
       $('#additional-pets').append(formattedPet);
     });
     $('.js-more').attr("data-id", function(i, val) {
@@ -45,7 +45,7 @@ function displayMorePets (e) {
 };
 
 // JavaScript Model Objects
-function Shelter(id, name, email, phoneNumber, address, employees, pets) {
+function HomeShelter(id, name, email, phoneNumber, address, employees, pets) {
   this.id = id;
   this.name = name;
   this.email = email;
@@ -55,7 +55,7 @@ function Shelter(id, name, email, phoneNumber, address, employees, pets) {
   this.pets = pets;
 }
 
-function Pet(id, name, nickname, animal, age, breed, info, owner) {
+function HomePet(id, name, nickname, animal, age, breed, info, owner) {
   this.id = id;
   this.name = name;
   this.nickname = nickname;
@@ -67,7 +67,7 @@ function Pet(id, name, nickname, animal, age, breed, info, owner) {
 }
 
 // Prototypes to properly format
-Shelter.prototype.formatShelterIndex = function () {
+HomeShelter.prototype.formatSheltersHome = function () {
   let shelterHtml = '';
   shelterHtml += '<div class="shelter-bubble bg-secondary">';
   shelterHtml += `<h4 class="shelterName">${this.name}</h4>`;
@@ -77,7 +77,7 @@ Shelter.prototype.formatShelterIndex = function () {
   return shelterHtml;
 }
 
-Pet.prototype.formatPetsHome = function () {
+HomePet.prototype.formatPetsHome = function () {
   let petHtml = '';
   petHtml += '<div class="shelter-bubble bg-secondary">';
   petHtml += `<h4 class="petName">Name: ${this.name}</h4>`;
@@ -92,7 +92,7 @@ Pet.prototype.formatPetsHome = function () {
   return petHtml;
 }
 
-Pet.prototype.formatShelterPets = function () {
+HomePet.prototype.formatShelterPets = function () {
   let petHtml = '';
   petHtml += `<h4 class="petName" data-id="${this.id}">${this.name} - <small>${this.animal}</small></h4>`;
   return petHtml;

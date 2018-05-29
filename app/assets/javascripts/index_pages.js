@@ -14,7 +14,7 @@ function loadNextShelters(e) {
     let index1 = parseInt($('#shelters-index').attr("data-id")[0]) + 1;
     let index2 = parseInt($('#shelters-index').attr("data-id")[1]) + 1;
     data.slice((index1 * 6), (index2 * 6)).forEach(function(shelter, i) {
-      let nextShelter = new Shelter(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address);
+      let nextShelter = new ShelterIndex(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address);
       let formattedNextShelter = nextShelter.formatShelterIndex();
       if (i % 2 === 0) {
         $('#shelters-index .list-1').append(formattedNextShelter);
@@ -26,7 +26,7 @@ function loadNextShelters(e) {
   })
 }
 
-function Shelter(id, name, email, phoneNumber, address) {
+function ShelterIndex(id, name, email, phoneNumber, address) {
   this.id = id;
   this.name = name;
   this.email = email;
@@ -34,7 +34,7 @@ function Shelter(id, name, email, phoneNumber, address) {
   this.address = address;
 }
 
-Shelter.prototype.formatShelterIndex = function () {
+ShelterIndex.prototype.formatShelterIndex = function () {
   let shelterIndexHtml = '';
   // find out way to use `display_address` helper
   shelterIndexHtml += '<div class="index-shelter-container bg-white p-3">'

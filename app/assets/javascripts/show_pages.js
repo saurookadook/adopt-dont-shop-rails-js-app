@@ -31,7 +31,7 @@ function displayAddPetForm(e) {
 
 function addUserPet(e) {
   e.preventDefault();
-  let url = this.action;
+  url = this.action;
   const data = $(this).serialize();
   $.ajax({
     type: "POST",
