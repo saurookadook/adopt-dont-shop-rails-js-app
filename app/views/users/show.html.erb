@@ -8,16 +8,19 @@
         <p><b>Email:</b> <%= @user.email %></p>
         <p><b>Address:</b></p>
         <%= display_address(@user) %><br />
-      <br />
+        <br />
+      </ul>
+
+    </div>
+
+    <div class="col-6">
+      <ul>
         <% if @user.pets %>
           <p><b><%= link_to "View #{@user.username}'s pets", user_pets_list_path(@user), id: "view-user-pets" %></b></p><br>
           <div id="pets-list"></div>
         <% end %>
       </ul>
 
-    </div>
-
-    <div class="col-6">
       <% if current_user == @user %>
         <%= link_to "Add a pet!", user_path(@user), class: "btn btn-light mb-3", id: "add-user-pet" %><br>
         <%= render partial: 'layouts/errors', locals: { resource: @blank_pet } %>
@@ -26,10 +29,11 @@
         <!-- </div> -->
       <% end %>
 
-      <% if current_user == @user %>
-        <%= link_to 'Edit Account Info', edit_user_path(current_user), class: "btn btn-light mb-3" %><br>
-        <%= link_to 'Delete Account', @user, class: "btn btn-light mb-3", method: :delete, data: { confirm: 'Are you sure you would like to delete your account?' } %>
-      <% end %>
     </div>
   </div>
 </div>
+
+<% if current_user == @user %>
+  <%= link_to 'Edit Account Info', edit_user_path(current_user), class: "btn btn-light mb-3" %><br>
+  <%= link_to 'Delete Account', @user, class: "btn btn-light mb-3", method: :delete, data: { confirm: 'Are you sure you would like to delete your account?' } %>
+<% end %>

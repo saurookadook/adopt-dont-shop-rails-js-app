@@ -9,7 +9,7 @@ $(document).ready(function () {
 function attachShowListeners () {
   $("#view-user-pets").on('click', displayUserPets)
   // $("#add-user-pet").on('click', displayUserPets)
-  $("#add-user-pet").on('submit', addUserPet)
+  $("#new_pet").on('submit', addUserPet)
 }
 
 function displayUserPets(e) {
@@ -30,7 +30,6 @@ function displayAddPetForm(e) {
 }
 
 function addUserPet(e) {
-  debugger
   e.preventDefault();
   let url = this.action;
   const data = $(this).serialize();
@@ -39,7 +38,7 @@ function addUserPet(e) {
     url: url,
     data: data,
     success: function(response) {
-      let newUserPet = new Pet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
+      let newUserPet = new UserPet(response.id, response.name, response.nickname, response.animal, response.age, response.breed, response.info, response.owner);
       let formattedUserPet = newUserPet.formatUserPet();
       $('#pets-list').append(formattedUserPet);
       $('#pet_name').val('');
