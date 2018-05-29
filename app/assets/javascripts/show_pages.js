@@ -33,11 +33,14 @@ function addUserPet(e) {
   e.preventDefault();
   url = this.action;
   const data = $(this).serialize();
+  debugger
   $.ajax({
     type: "POST",
     url: url,
     data: data,
+    dataType: "json",
     success: function(response) {
+      debugger
       let newUserPet = new UserPet(response.id, response.name, response.nickname, response.animal, response.age, response.breed, response.info, response.owner);
       let formattedUserPet = newUserPet.formatUserPet();
       $('#pets-list').append(formattedUserPet);

@@ -6,6 +6,8 @@ $(document).ready(function () {
 
 // $(document).on('turbolinks: load', function () {
 //   attachHomeListeners();
+//   attachIndexListeners();
+//   attachShowListeners();
 // });
 
 function attachHomeListeners () {
