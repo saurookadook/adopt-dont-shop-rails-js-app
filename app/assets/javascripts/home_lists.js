@@ -20,7 +20,8 @@ function displayMoreShelters (e) {
   let counter = parseInt($('#shelter-list .js-more').attr('data-id')) * 3;
   $.getJSON(this.href).done(function(data) {
     $('#additional-shelters').html('');
-    data.slice(3, counter).forEach(function(shelter) {
+    let sheltersData = JSON.parse(data.shelters);
+    sheltersData.slice(3, counter).forEach(function(shelter) {
       let newShelter = new HomeShelter(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address, shelter.employees, shelter.pets);
       let formattedShelter = newShelter.formatSheltersHome();
       $('#additional-shelters').append(formattedShelter);
@@ -36,8 +37,9 @@ function displayMorePets (e) {
   let counter = parseInt($('#recent-pets .js-more').attr('data-id')) * 3;
   $.getJSON(this.href).done(function(data) {
     $('#additional-pets').html('');
-    data.slice(3, counter).forEach(function(shelter) {
-      let newPet = new HomePet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
+    let petsData = JSON.parse(data.pets);
+    petsData.slice(3, counter).forEach(function(pet) {
+      let newHomePet = new HomePet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
       let formattedPet = newHomePet.formatPetsHome();
       $('#additional-pets').append(formattedPet);
     });
@@ -85,7 +87,7 @@ HomePet.prototype.formatPetsHome = function () {
   petHtml += '<div class="shelter-bubble bg-secondary">';
   petHtml += `<h4 class="petName">Name: ${this.name}</h4>`;
   petHtml += `<p class="petAnimal">Animal: ${this.animal}</p>`;
-  if (this.owner.username != undefined) {
+  if (!this.owner.username) {
     petHtml += `<p class="petOnwer">Owner: ${this.owner.username}</p>`;
   } else {
     petHtml += `<p class="petOwner">Owner: ${this.owner.name}</p>`;
