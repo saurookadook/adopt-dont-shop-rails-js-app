@@ -87,7 +87,7 @@ HomePet.prototype.formatPetsHome = function () {
   petHtml += '<div class="shelter-bubble bg-secondary">';
   petHtml += `<h4 class="petName">Name: ${this.name}</h4>`;
   petHtml += `<p class="petAnimal">Animal: ${this.animal}</p>`;
-  if (!this.owner.username) {
+  if (this.owner.username != undefined) {
     petHtml += `<p class="petOnwer">Owner: ${this.owner.username}</p>`;
   } else {
     petHtml += `<p class="petOwner">Owner: ${this.owner.name}</p>`;
