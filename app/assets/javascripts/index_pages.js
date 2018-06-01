@@ -26,6 +26,7 @@ function loadNextShelters(e) {
   })
 }
 
+// Translate JSON reponses into JavaScript Model Objects
 function ShelterIndex(id, name, email, phoneNumber, address) {
   this.id = id;
   this.name = name;

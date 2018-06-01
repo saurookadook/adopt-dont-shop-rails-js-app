@@ -49,7 +49,7 @@ function displayMorePets (e) {
   });
 };
 
-// JavaScript Model Objects
+// Translate JSON reponses into JavaScript Model Objects
 function HomeShelter(id, name, email, phoneNumber, address, employees, pets) {
   this.id = id;
   this.name = name;

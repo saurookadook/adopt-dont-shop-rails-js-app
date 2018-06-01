@@ -12,6 +12,7 @@ function attachShowListeners () {
   $("#new_pet").on('submit', addUserPet)
 }
 
+// display render index resource on show page and include has_many relationship in rendered info (User has_many Pets)
 function displayUserPets(e) {
   e.preventDefault();
   $.getJSON(this.href, function(data) {
@@ -55,6 +56,7 @@ function addUserPet(e) {
   })
 }
 
+// Translate JSON reponses into JavaScript Model Objects
 // ***** organize models into own file? ******
 function User(id, username, pets) {
   this.id = id;

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  # possibly re-order?(most specific to general)
+
   root to: 'welcome#home'
 
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy]

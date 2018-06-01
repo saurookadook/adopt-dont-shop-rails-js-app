@@ -21,6 +21,8 @@ address12 = Address.create(street1: "2144 N. Wood Street", street2: "", city: "C
 address13 = Address.create(street1: "2061 15th Ave W", street2: "", city: "Seattle", state: "WA", zip: "98119", resident_id: 13, resident_type: "Shelter")
 address14 = Address.create(street1: "1067 NE Columbia Blvd.", street2: "", city: "Portland", state: "OR", zip: "97211", resident_id: 14, resident_type: "Shelter")
 
+# find way to clean this up? 
+
 shelter1 = Shelter.new(name: "San Francisco SPCA", email: "adoptions@sfpca.org", phone_number: "415-522-3500")
 shelter1.address = address5
 shelter1.save
