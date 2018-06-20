@@ -38,9 +38,11 @@ function ShelterIndex(id, name, email, phoneNumber, address) {
 ShelterIndex.prototype.formatShelterIndex = function () {
   let shelterIndexHtml = '';
   // find out way to use `display_address` helper
-  shelterIndexHtml += '<div class="index-shelter-container bg-white p-3">'
-  shelterIndexHtml += '<div class="index-shelter-info bg-secondary p-2">'
-  shelterIndexHtml += `<h4><a href="/shelters/${this.id}">${this.name}</a></h4>`
+  shelterIndexHtml += `
+    <div class="index-shelter-container bg-white p-3">
+    <div class="index-shelter-info bg-secondary p-2">
+    <h4><a href="/shelters/${this.id}">${this.name}</a></h4>`
+  // display_addres helper method
   if (this.address.street2 != "") {
     shelterIndexHtml += `${this.address.street1}<br>${this.address.street2}<br>${this.address.city}, ${this.address.state} ${this.address.zip}`
   } else if (this.address.street1 != "" && this.address.zip != "") {
@@ -49,6 +51,7 @@ ShelterIndex.prototype.formatShelterIndex = function () {
     shelterIndexHtml += `${this.address.city}, ${this.address.state}`
   }
   shelterIndexHtml += "<br>"
+  // display_contact helper method
   if (this.phoneNumber != null && this.email != null) {
     shelterIndexHtml += `Phone Number: ${this.phoneNumber}<br>Email: ${this.email}`
   } else if (this.email != null) {

@@ -18,9 +18,10 @@ function attachHomeListeners () {
 function displayMoreShelters (e) {
   e.preventDefault();
   let counter = parseInt($('#shelter-list .js-more').attr('data-id')) * 3;
-  $.getJSON(this.href).done(function(data) {
+  $.getJSON('/shelters').done(function(data) {
     $('#additional-shelters').html('');
-    let sheltersData = JSON.parse(data.shelters);
+    // let sheltersData = JSON.parse(data);
+    let sheltersData = data.order_by(created_at)
     sheltersData.slice(3, counter).forEach(function(shelter) {
       let newShelter = new HomeShelter(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address, shelter.employees, shelter.pets);
       let formattedShelter = newShelter.formatSheltersHome();
@@ -35,9 +36,10 @@ function displayMoreShelters (e) {
 function displayMorePets (e) {
   e.preventDefault();
   let counter = parseInt($('#recent-pets .js-more').attr('data-id')) * 3;
-  $.getJSON(this.href).done(function(data) {
+  $.getJSON('/pets').done(function(data) {
     $('#additional-pets').html('');
-    let petsData = JSON.parse(data.pets);
+    // let petsData = JSON.parse(data.pets);
+    let petsData = data.order_by(created_at)
     petsData.slice(3, counter).forEach(function(pet) {
       let newHomePet = new HomePet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
       let formattedPet = newHomePet.formatPetsHome();
