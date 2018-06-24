@@ -6,8 +6,6 @@ class PetsController < ApplicationController
     if !@owner.nil?
       @owner ||= set_owner
       @pets ||= @owner.pets
-    # else
-    #   @pets = Pet.all
     end
     @pets ||= Pet.all
     respond_to do |format|
@@ -24,7 +22,6 @@ class PetsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @pet = Pet.new(pet_params)
     @pet.owner = @owner
     @user = @owner

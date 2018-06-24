@@ -18,8 +18,9 @@
 @import "bootstrap";
 
 body {
-  background: green;
+  background: white;
   color: white;
+  font-family: Garamond, Bookman, Palatino, Georgia;
   text-align: center;
 }
 
@@ -28,6 +29,10 @@ body {
   background-size: cover;
   height: 500px;
   width: 100%;
+}
+
+.page-header, .page-divider {
+  background: #7FFFD4;
 }
 
 a {
