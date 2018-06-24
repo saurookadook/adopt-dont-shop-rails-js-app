@@ -46,7 +46,9 @@ function displayMorePets (e) {
     })
     sortedPets.slice(3, counter).forEach(function(pet) {
       let newHomePet = new HomePet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
-      let formattedPet = newHomePet.formatPetsHome();
+      if (newHomePet.owner.type === "shelter") {
+        let formattedPet = newHomePet.formatPetsHome();
+      }
       $('#additional-pets').append(formattedPet);
     });
     $('.js-more').attr("data-id", function(i, val) {

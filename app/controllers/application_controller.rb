@@ -19,8 +19,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def set_user!
-    # @user ||= User.find(params[:id]) if params[:id]
-    # check this?
     if params[:id]
       @user = User.find(params[:id])
     elsif params[:user_id]
