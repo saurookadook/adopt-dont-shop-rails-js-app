@@ -20,9 +20,11 @@ function displayMoreShelters (e) {
   let counter = parseInt($('#shelter-list .js-more').attr('data-id')) * 3;
   $.getJSON('/shelters').done(function(data) {
     $('#additional-shelters').html('');
-    // let sheltersData = JSON.parse(data);
-    let sheltersData = data.order_by(created_at)
-    sheltersData.slice(3, counter).forEach(function(shelter) {
+    // let sheltersData = JSON.parse(data.shelters)
+    let sortedShelters = data.sort(function(a, b) {
+      return a.created_at - b.created_at
+    })
+    sortedShelters.slice(3, counter).forEach(function(shelter) {
       let newShelter = new HomeShelter(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address, shelter.employees, shelter.pets);
       let formattedShelter = newShelter.formatSheltersHome();
       $('#additional-shelters').append(formattedShelter);
@@ -39,7 +41,9 @@ function displayMorePets (e) {
   $.getJSON('/pets').done(function(data) {
     $('#additional-pets').html('');
     // let petsData = JSON.parse(data.pets);
-    let petsData = data.order_by(created_at)
+    let sortedPets = data.sort(function(a, b) {
+      return a.created_at - b.created_at
+    })
     petsData.slice(3, counter).forEach(function(pet) {
       let newHomePet = new HomePet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
       let formattedPet = newHomePet.formatPetsHome();
