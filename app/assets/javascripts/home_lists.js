@@ -44,7 +44,7 @@ function displayMorePets (e) {
     let sortedPets = data.sort(function(a, b) {
       return a.created_at - b.created_at
     })
-    petsData.slice(3, counter).forEach(function(pet) {
+    sortedPets.slice(3, counter).forEach(function(pet) {
       let newHomePet = new HomePet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
       let formattedPet = newHomePet.formatPetsHome();
       $('#additional-pets').append(formattedPet);

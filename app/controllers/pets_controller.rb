@@ -1,10 +1,10 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update]
-  before_action :set_owner, only: [:index, :show, :new, :create, :edit, :update]
+  before_action :set_owner, only: [:show, :new, :create, :edit, :update]
 
   def index
-    binding.pry
     if !@owner.nil?
+      @owner ||= set_owner
       @pets ||= @owner.pets
     # else
     #   @pets = Pet.all
@@ -65,7 +65,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    binding.pry
     params.require(:pet).permit(:name, :nickname, :animal, :age, :breed, :info, :owner_id, :owner_type, employee_ids: [])
   end
 
