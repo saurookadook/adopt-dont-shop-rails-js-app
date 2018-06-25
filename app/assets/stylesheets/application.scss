@@ -18,7 +18,7 @@
 @import "bootstrap";
 
 body {
-  background: white;
+  background: #F0F8FF;
   color: white;
   font-family: Garamond, Bookman, Palatino, Georgia;
   text-align: center;
@@ -31,8 +31,9 @@ body {
   width: 100%;
 }
 
-.page-header, .page-divider {
-  background: #7FFFD4;
+.container-bubble, .home-button, .page-header, .page-divider, .card-footer {
+  // background: #7FFFD4;
+  background: #2E8B57;
 }
 
 a {
@@ -105,7 +106,7 @@ a:hover {
   padding-bottom: 5px;
 }
 
-.home-buttons {
+.home-button {
   border-radius: 0 0 15px 15px;
   padding-bottom: 10px;
 }

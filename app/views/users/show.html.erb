@@ -2,7 +2,7 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-6">
+    <div class="col-6 container-bubble">
       <ul>
         <p><b>Name:</b> <%= @user.full_name %></p>
         <p><b>Email:</b> <%= @user.email %></p>
@@ -13,7 +13,7 @@
 
     </div>
 
-    <div class="col-6">
+    <div class="col-6 container-bubble">
       <ul>
         <% if @user.pets %>
           <p><b><%= link_to "View #{@user.username}'s pets", user_pets_list_path(@user), id: "view-user-pets" %></b></p><br>

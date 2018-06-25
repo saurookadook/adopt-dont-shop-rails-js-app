@@ -1,12 +1,13 @@
 <div class="home">
-  <h1 class="p-3 text-dark page-header">Welcome to Adopt Don't Shop</h1>
+  <h1 class="p-3 text-light page-header">Welcome to Adopt Don't Shop</h1>
 </div>
-<p class="p-3 text-dark page-divider">Help give a home to an animal in need!</p>
+<p class="p-3 text-light page-divider">Help give a home to an animal in need!</p>
 
 <div class="container">
   <div class="row">
     <div class="col-8" id="shelter-list">
-      <div class="bg-white" id="initial-shelters">
+      <!-- <h3>Recently Added Shelters</h3> -->
+      <div class="container-bubble" id="initial-shelters">
         <% @shelters.each_with_index do |shelter, i| %>
           <% if i < 3 %>
             <div class="shelter-bubble bg-secondary">
@@ -18,15 +19,16 @@
         <% end %>
       </div>
 
-      <div class="bg-white" id="additional-shelters"></div>
+      <div class="container-bubble" id="additional-shelters"></div>
 
-      <div class="bg-white home-buttons"><button class="js-more" data-id="2">See More</button></div>
+      <div class="home-button"><button class="js-more" data-id="2">See More</button></div>
 
     </div>
 
     <!-- make both of these look better.... -->
     <div class="col-4" id="recent-pets">
-      <div class="bg-white" id="initial-pets">
+      <!-- <h3>Newly Adoptable Pets</h3> -->
+      <div class="container-bubble" id="initial-pets">
         <% @pets.each_with_index do |pet, i| %>
           <% if i < 3 %>
             <div class="pet-bubble bg-secondary">
@@ -39,9 +41,9 @@
         <% end %>
       </div>
 
-      <div class="bg-white" id="additional-pets"></div>
+      <div class="container-bubble" id="additional-pets"></div>
 
-      <div class="bg-white home-buttons"><button class="js-more" data-id="2">See More</button></div>
+      <div class="home-button"><button class="js-more" data-id="2">See More</button></div>
     </div>
   </div>
 </div>
