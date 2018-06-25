@@ -1,11 +1,11 @@
-<h1 class="p-3 bg-white text-dark">All of our Adopters!</h1><br>
+<h1 class="p-3 page-header text-light">All of our Adopters!</h1><br>
 
 <div class="container">
   <div class="row">
     <div class="col-6">
       <% @users.each_with_index do |user, i| %>
         <% if i.even? %>
-          <div class="user-bubble bg-white py-3">
+          <div class="user-bubble container-bubble py-3">
             <%= link_to "#{user.username}'s profile page", user_path(user), class: "bg-secondary p-2", id: "user-index-l" %><br>
             <!-- <%= link_to "#{user.username}'s pets", user_pets_list_path(user) if !user.pets.nil? %><br> -->
           </div>
@@ -17,7 +17,7 @@
     <div class="col-6">
       <% @users.each_with_index do |user, i| %>
         <% if i.odd? %>
-          <div class="user-bubble bg-white py-3">
+          <div class="user-bubble container-bubble py-3">
             <%= link_to "#{user.username}'s profile page", user_path(user), class: "bg-secondary p-2", id: "user-index-r" %><br>
             <!-- <%= link_to "#{user.username}'s pets", user_pets_list_path(user) if !user.pets.nil? %><br> -->
           </div>
