@@ -31,9 +31,17 @@ body {
   width: 100%;
 }
 
-.container-bubble, .home-button, .page-header, .page-divider, .card-footer {
+.flash-message {
+  color: #000;
+}
+
+.container-bubble, .page-header, .page-divider, .card-footer {
   // background: #7FFFD4;
   background: #2E8B57;
+}
+
+.card-footer:last-child {
+  border-radius: 0px;
 }
 
 a {
@@ -46,14 +54,26 @@ a:hover {
 }
 
 // Home page
+.home-bubble {
+  background: white;
+}
+
 #initial-shelters, #additional-shelters, #initial-pets, #additional-pets {
   padding: 5px;
 }
 
 #initial-shelters, #initial-pets {
+  border: 2px solid #2E8B57;
+  border-bottom: 0px;
   border-radius: 15px 15px 0 0;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+#additional-shelters, #additional-pets {
+  border: 2px solid #2E8B57;
+  border-top: 0px;
+  border-bottom: 0px;
 }
 
 #additional-shelters {
@@ -107,6 +127,9 @@ a:hover {
 }
 
 .home-button {
+  background: white;
+  border: 2px solid #2E8B57;
+  border-top: 0px;
   border-radius: 0 0 15px 15px;
   padding-bottom: 10px;
 }
