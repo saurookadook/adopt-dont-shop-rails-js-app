@@ -49,7 +49,7 @@ class SheltersController < ApplicationController
     @pet.owner = current_user
     @pet.save
     flash[:message] = "You've adopted #{@pet.name}!"
-    redirect_to user_pets_path(current_user)
+    redirect_to user_path(current_user)
   end
 
   private
