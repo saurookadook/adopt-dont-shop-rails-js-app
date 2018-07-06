@@ -10,6 +10,7 @@ function loadNextShelters(e) {
   e.preventDefault();
   $('#shelters-index .list-1').html('');
   $('#shelters-index .list-2').html('');
+  // this.href == undefined: potentially because of <button> instead of <a>?
   $.getJSON(this.href, function(data) {
     let index1 = parseInt($('#shelters-index').attr("data-id")[0]) + 1;
     let index2 = parseInt($('#shelters-index').attr("data-id")[1]) + 1;
@@ -39,9 +40,9 @@ ShelterIndex.prototype.formatShelterIndex = function () {
   let shelterIndexHtml = '';
   // find out way to use `display_address` helper
   shelterIndexHtml += `
-    <div class="index-shelter-container bg-white p-3">
+    <div class="index-shelter-container bg-white p-3 mb-2">
     <div class="index-shelter-info bg-secondary p-2">
-    <h4><a href="/shelters/${this.id}">${this.name}</a></h4>`
+    <h4 class="pt-2">${this.name}</h4>`
   // display_addres helper method
   if (this.address.street2 != "") {
     shelterIndexHtml += `${this.address.street1}<br>${this.address.street2}<br>${this.address.city}, ${this.address.state} ${this.address.zip}`
@@ -59,6 +60,8 @@ ShelterIndex.prototype.formatShelterIndex = function () {
   } else if (this.phoneNumber != null) {
     shelterIndexHtml += `Phone Number: ${this.phoneNumber}`
   }
-  shelterIndexHtml += "</div></div>"
+  shelterIndexHtml += `
+    <p class="index-learn-more"><a href="/shelters/${this.id}">Learn More</a></p>
+    </div></div>`
   return shelterIndexHtml;
 }

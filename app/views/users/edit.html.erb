@@ -1,56 +1,63 @@
 <%= render partial: 'layouts/errors', locals: {resource: @user} %>
 
-<h1>Update your Account info:</h1>
-<!-- utilize partial(s)? -->
-<%= form_for @user do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %><br>
+<h1 class="page-header">Update your Account info:</h1>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %><br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 user-bubble text-secondary">
+      <!-- utilize partial(s)? -->
+      <%= form_for @user do |f| %>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %><br>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %><br>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
+        <%= f.label :username %>
+        <%= f.text_field :username %><br>
 
-  <%= f.label "Current Location" %><br>
-  <%= f.fields_for :address, @user.address do |address_fields| %>
-    <%= address_fields.hidden_field :id %>
-    <%= address_fields.label :street1 %>
-    <%= address_fields.text_field :street1 %><br>
-    <%= address_fields.label :street2 %>
-    <%= address_fields.text_field :street2 %><br>
-    <%= address_fields.label :city %>
-    <%= address_fields.text_field :city %><br>
-    <%= address_fields.label :state %>
-    <%= address_fields.text_field :state %><br>
-    <%= address_fields.label :zip %>
-    <%= address_fields.text_field :zip %><br>
-  <% end %>
+        <%= f.label :email %>
+        <%= f.text_field :email %><br>
 
-  <br>
+        <%= f.label "Current Location" %><br>
+        <%= f.fields_for :address, @user.address do |address_fields| %>
+          <%= address_fields.hidden_field :id %>
+          <%= address_fields.label :street1 %>
+          <%= address_fields.text_field :street1 %><br>
+          <%= address_fields.label :street2 %>
+          <%= address_fields.text_field :street2 %><br>
+          <%= address_fields.label :city %>
+          <%= address_fields.text_field :city %><br>
+          <%= address_fields.label :state %>
+          <%= address_fields.text_field :state %><br>
+          <%= address_fields.label :zip %>
+          <%= address_fields.text_field :zip %><br>
+        <% end %>
 
-  <% if @user.pets %>
-    <%= f.label 'Your pets:' %><br>
-    <%= f.fields_for :pets, @user.pets.each do |pets_fields| %>
-      <%= pets_fields.hidden_field :id %>
-      <%= pets_fields.label :name %>
-      <%= pets_fields.text_field :name %><br>
-      <%= pets_fields.label :nickname %>
-      <%= pets_fields.text_field :nickname %><br>
-      <%= pets_fields.label :animal %>
-      <%= pets_fields.text_field :animal %><br>
-      <%= pets_fields.label :age %>
-      <%= pets_fields.number_field :age %><br>
-      <%= pets_fields.label :breed %>
-      <%= pets_fields.text_field :breed %><br>
-      <%= pets_fields.label "Stories/info:" %><br>
-      <%= pets_fields.text_area :info %><br />
-    <% end %>
-  <% end %>
-    <!-- figure out way to add additional pets to form? -->
-  <br />
-  <%= f.submit class: "btn btn-light mb-3"%>
-<% end %>
+        <br>
+
+        <% if @user.pets %>
+          <%= f.label 'Your pets:' %><br>
+          <%= f.fields_for :pets, @user.pets.each do |pets_fields| %>
+            <%= pets_fields.hidden_field :id %>
+            <%= pets_fields.label :name %>
+            <%= pets_fields.text_field :name %><br>
+            <%= pets_fields.label :nickname %>
+            <%= pets_fields.text_field :nickname %><br>
+            <%= pets_fields.label :animal %>
+            <%= pets_fields.text_field :animal %><br>
+            <%= pets_fields.label :age %>
+            <%= pets_fields.number_field :age %><br>
+            <%= pets_fields.label :breed %>
+            <%= pets_fields.text_field :breed %><br>
+            <%= pets_fields.label "Stories/info:" %><br>
+            <%= pets_fields.text_area :info %><br />
+          <% end %>
+        <% end %>
+          <!-- figure out way to add additional pets to form? -->
+        <br />
+        <%= f.submit class: "btn btn-light border-secondary mb-3"%>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -6,9 +6,10 @@
       <% if i.even? %>
         <div class="index-shelter-container bg-white p-3 mb-2">
           <div class="index-shelter-info bg-secondary p-2">
-            <h4><%= link_to shelter.name, shelter_path(shelter) %></h4>
+            <h4 class="pt-2"><%= shelter.name %></h4>
             <%= display_address(shelter) %><br>
             <%= display_contact(shelter) %><br />
+            <p class="index-learn-more"><%= link_to "Learn more", shelter_path(shelter) %></p>
             <br />
           </div>
         </div>
@@ -21,9 +22,10 @@
         <% if i.odd? %>
           <div class="index-shelter-container bg-white p-3 mb-2">
             <div class="index-shelter-info bg-secondary p-2">
-              <h4><%= link_to shelter.name, shelter_path(shelter) %></h4>
+              <h4 class="pt-2"><%= link_to shelter.name, shelter_path(shelter) %></h4>
               <%= display_address(shelter) %><br>
               <%= display_contact(shelter) %><br />
+              <p class="index-learn-more"><%= link_to "Learn more", shelter_path(shelter) %></p>
               <br />
             </div>
           </div>

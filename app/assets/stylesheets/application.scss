@@ -45,13 +45,14 @@ body {
 }
 
 a {
-  color: white;
+  color: #6c757d;
   text-decoration: none;
 }
 
 a:hover {
-  color: white;
+  color: #6c757d;
 }
+
 
 // Home page
 .home-bubble {
@@ -134,16 +135,25 @@ a:hover {
   padding-bottom: 10px;
 }
 
-// User Index page
+
+// User pages
 .user-bubble {
+  background: white;
+  border: 2px solid #2E8B57;
   border-radius: 5px;
   padding: 5px;
 }
+
 
 // Shelter Index page
 .index-shelter-container {
   border: 2px solid #2E8B57;
 }
+
+.index-learn-more {
+  margin-bottom: -15px;
+}
+
 
 // Pet Form
 #add-user-pet-form {
