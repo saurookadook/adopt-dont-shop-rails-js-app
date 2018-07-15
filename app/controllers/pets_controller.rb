@@ -61,10 +61,6 @@ class PetsController < ApplicationController
 
   private
 
-  def pet_params
-    params.require(:pet).permit(:name, :nickname, :animal, :age, :breed, :info, :owner_id, :owner_type, employee_ids: [])
-  end
-
   def set_owner
     # possibly clean up?
     user_id = params[:user_id] if params[:user_id]
