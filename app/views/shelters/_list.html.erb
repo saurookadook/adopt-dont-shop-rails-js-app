@@ -5,7 +5,7 @@
     <% shelters[0...6].each_with_index do |shelter, i| %>
       <% if i.even? %>
         <div class="index-shelter-container bg-white p-3 mb-2">
-          <div class="index-shelter-info bg-secondary p-2">
+          <div class="index-shelter-info text-secondary p-2">
             <h4 class="pt-2"><%= shelter.name %></h4>
             <%= display_address(shelter) %><br>
             <%= display_contact(shelter) %><br />
@@ -21,7 +21,7 @@
       <% shelters[0...6].each_with_index do |shelter, i| %>
         <% if i.odd? %>
           <div class="index-shelter-container bg-white p-3 mb-2">
-            <div class="index-shelter-info bg-secondary p-2">
+            <div class="index-shelter-info text-secondary p-2">
               <h4 class="pt-2"><%= link_to shelter.name, shelter_path(shelter) %></h4>
               <%= display_address(shelter) %><br>
               <%= display_contact(shelter) %><br />

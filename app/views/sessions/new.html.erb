@@ -1,17 +1,24 @@
-<h1>Log In:</h1>
-<%= form_for @user, url: login_path do |f| %>
-  <%= f.label :username %><br>
-  <%= f.text_field :username %><br>
+<h1 class="page-header p-3">Log In:</h1>
 
-  <%= f.label :password %><br>
-  <%= f.password_field :password %><br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 user-bubble text-secondary">
+      <%= form_for @user, url: login_path do |f| %>
+        <%= f.label :username %><br>
+        <%= f.text_field :username %><br>
 
-  <br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %><br>
 
-  <%= f.submit 'Log In', class: "btn btn-light mb-3" %>
-<% end %>
+        <br>
 
-<%= link_to "Sign in with Google", '/auth/google_oauth2', id: 'login', class: "btn btn-light mb-3" %>
+        <%= f.submit 'Log In', class: "btn btn-light border-secondary mb-3" %>
+      <% end %>
 
-<p class="pt-3">Don't have an account?</p>
-<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-light mb-3" %><br>
+      <%= link_to "Sign in with Google", '/auth/google_oauth2', id: 'login', class: "btn btn-light border-secondary mb-3" %>
+
+      <p class="pt-3">Don't have an account?</p>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-light border-secondary mb-3" %><br>
+    </div>
+  </div>
+</div>

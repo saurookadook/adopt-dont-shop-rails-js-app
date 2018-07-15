@@ -18,12 +18,12 @@ function attachHomeListeners () {
 function displayMoreShelters (e) {
   e.preventDefault();
   let counter = parseInt($('#shelter-list .js-more').attr('data-id')) * 3;
-  $.getJSON('/shelters').done(function(data) {
+  $.getJSON().done(function(data) {
     $('#additional-shelters').html('');
-    // let sheltersData = JSON.parse(data.shelters)
-    let sortedShelters = data.sort(function(a, b) {
-      return a.created_at - b.created_at
-    })
+    let sortedShelters = JSON.parse(data.shelters)
+    // let sortedShelters = data.sort(function(a, b) {
+    //   return a.created_at - b.created_at
+    // })
     sortedShelters.slice(3, counter).forEach(function(shelter) {
       let newShelter = new HomeShelter(shelter.id, shelter.name, shelter.email, shelter.phone_number, shelter.address, shelter.employees, shelter.pets);
       let formattedShelter = newShelter.formatSheltersHome();
@@ -38,20 +38,21 @@ function displayMoreShelters (e) {
 function displayMorePets (e) {
   e.preventDefault();
   let counter = parseInt($('#recent-pets .js-more').attr('data-id')) * 3;
-  $.getJSON('/pets').done(function(data) {
+  $.getJSON().done(function(data) {
     $('#additional-pets').html('');
-    // let petsData = JSON.parse(data.pets);
-    let sortedPets = data.sort(function(a, b) {
-      return a.created_at - b.created_at
-    })
+    let sortedPets = JSON.parse(data.pets);
+    // let sortedPets = data.sort(function(a, b) {
+    //   return a.created_at - b.created_at
+    // })
     sortedPets.slice(3, counter).forEach(function(pet) {
       let newHomePet = new HomePet(pet.id, pet.name, pet.nickname, pet.animal, pet.age, pet.breed, pet.info, pet.owner);
-      if (newHomePet.owner.type === "shelter") {
+      // if (newHomePet.owner.type === "shelter") {
         let formattedPet = newHomePet.formatPetsHome();
-      }
-      $('#additional-pets').append(formattedPet);
+        $('#additional-pets').append(formattedPet);
+      // }
+
     });
-    $('.js-more').attr("data-id", function(i, val) {
+    $('#recent-pets .js-more').attr("data-id", function(i, val) {
       return ++val;
     })
   });
@@ -82,7 +83,7 @@ function HomePet(id, name, nickname, animal, age, breed, info, owner) {
 // Prototypes to properly format
 HomeShelter.prototype.formatSheltersHome = function () {
   let shelterHtml = '';
-  shelterHtml += '<div class="shelter-bubble bg-secondary">';
+  shelterHtml += '<div class="shelter-bubble text-secondary">';
   shelterHtml += `<h4 class="shelterName">${this.name}</h4>`;
   shelterHtml += `<p class="shelterAddress">${this.address.city}, ${this.address.state}</p>`;
   shelterHtml += `<p><a href="/shelters/${this.id}">Learn more</a></p>`;
@@ -92,7 +93,7 @@ HomeShelter.prototype.formatSheltersHome = function () {
 
 HomePet.prototype.formatPetsHome = function () {
   let petHtml = '';
-  petHtml += '<div class="shelter-bubble bg-secondary">';
+  petHtml += '<div class="pet-bubble text-secondary">';
   petHtml += `<h4 class="petName">Name: ${this.name}</h4>`;
   petHtml += `<p class="petAnimal">Animal: ${this.animal}</p>`;
   if (this.owner.username != undefined) {

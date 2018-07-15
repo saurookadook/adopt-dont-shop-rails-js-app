@@ -1,15 +1,22 @@
-<h1>Employee Login:</h1>
-<%= form_for @employee, url: employee_login_path do |f| %>
-  <%= f.label :username %><br>
-  <%= f.text_field :username %><br>
+<h1 class="page-header p-3">Employee Login:</h1>
 
-  <%= f.label :password %><br>
-  <%= f.password_field :password %><br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 user-bubble text-secondary">
+      <%= form_for @employee, url: employee_login_path do |f| %>
+        <%= f.label :username %><br>
+        <%= f.text_field :username %><br>
 
-  <br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %><br>
 
-  <%= f.submit 'Log In', class: "btn btn-light mb-3" %>
-<% end %>
+        <br>
 
-<p class="pt-3">Don't have an account?</p>
-<%= link_to "Sign Up", new_employee_registration_path, class: "btn btn-light mb-3" %><br>
+        <%= f.submit 'Log In', class: "btn btn-light border-secondary mb-3" %>
+      <% end %>
+
+      <p class="pt-3">Don't have an account?</p>
+      <%= link_to "Sign Up", new_employee_registration_path, class: "btn btn-light border-secondary mb-3" %><br>
+    </div>
+  </div>
+</div>

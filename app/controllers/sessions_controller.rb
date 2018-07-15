@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete :user_id if !session[:user_id].nil?
+    flash[:message] = "You have successfully logged out."
     redirect_to :root
   end
 

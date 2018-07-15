@@ -31,6 +31,7 @@ function displayAddPetForm(e) {
 }
 
 function addUserPet(e) {
+  // also needs some fixing, I think
   e.preventDefault();
   url = this.action;
   const data = $(this).serialize();

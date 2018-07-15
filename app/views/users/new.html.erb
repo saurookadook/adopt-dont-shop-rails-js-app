@@ -1,11 +1,11 @@
 <%= render partial: 'layouts/errors', locals: {resource: @user} %>
 
-<h1 class="p-3 bg-white text-dark">Become an Adopter!</h1><br>
+<h1 class="page-header p-3">Become an Adopter!</h1><br>
 <!-- utilize partial(s)? -->
 <%= form_for @user do |f| %>
   <div class="container">
-    <div class="row">
-      <div class="col-6">
+    <div class="row justify-content-around">
+      <div class="col-5 user-bubble text-secondary py-2">
         <%= f.label :first_name %>
         <%= f.text_field :first_name %><br>
 
@@ -22,7 +22,7 @@
         <%= f.password_field :password %><br>
       </div>
 
-      <div class="col-6">
+      <div class="col-5 user-bubble text-secondary py-2">
         <%= f.label "Current Location (city and state required)" %><br>
         <%= f.fields_for :address, @user.build_address do |address_fields| %>
           <%= address_fields.label :street1 %>
@@ -42,12 +42,12 @@
 
   <br>
 
-        <%= f.label 'Have any pets already?' %><br>
+        <%= f.label 'Have any pets already?', class: "container-bubble p-2" %><br>
 
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-around">
         <%= f.fields_for :pets, @user.pets.build do |pets_fields| %>
-      <div class="col-6">
+      <div class="col-5 user-bubble text-secondary py-2">
           <%= pets_fields.hidden_field :id %>
           <%= pets_fields.label :name %>
           <%= pets_fields.text_field :name %><br>
@@ -56,7 +56,7 @@
           <%= pets_fields.label :animal %>
           <%= pets_fields.text_field :animal %><br>
       </div>
-      <div class="col-6">
+      <div class="col-5 user-bubble text-secondary py-2">
           <%= pets_fields.label :age %>
           <%= pets_fields.number_field :age %><br>
           <%= pets_fields.label :breed %>
@@ -70,5 +70,5 @@
   <!-- figure out way to add additional pets to form? -->
 
   <br />
-  <%= f.submit class: "btn btn-light mb-3" %>
+  <%= f.submit class: "btn btn-light border-secondary mb-3" %>
 <% end %>

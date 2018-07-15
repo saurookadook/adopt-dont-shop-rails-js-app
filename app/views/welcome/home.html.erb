@@ -10,7 +10,7 @@
       <div class="home-bubble" id="initial-shelters">
         <% @shelters.each_with_index do |shelter, i| %>
           <% if i < 3 %>
-            <div class="shelter-bubble bg-secondary">
+            <div class="shelter-bubble text-secondary">
               <h4 class="shelterName"><%= shelter.name %></h4>
               <p class="shelterAddress"><%= shelter.address.city %>, <%= shelter.address.state %></p>
               <p class="home-learn-more"><%= link_to "Learn more", shelter_path(shelter) %></p>
@@ -31,7 +31,7 @@
       <div class="home-bubble" id="initial-pets">
         <% @pets.each_with_index do |pet, i| %>
           <% if i < 3 %>
-            <div class="pet-bubble bg-secondary">
+            <div class="pet-bubble text-secondary">
               <h4 class="petName"><%= pet.name %></h4>
               <p class="petAnimal"><%= pet.animal %></p>
               <p class="petOnwer"><%= pet.owner.class == User ? pet.owner.username : pet.owner.name %></p>

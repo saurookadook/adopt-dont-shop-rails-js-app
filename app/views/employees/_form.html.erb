@@ -10,6 +10,7 @@
   <%= f.label :password %>
   <%= f.password_field :password %><br>
   <%= f.label "For which shelter do you work?" %><br>
+  <!-- use dropdown instead -->
   <%= f.collection_radio_buttons :shelter_id, Shelter.all, :id, :name %><br>
   <%= f.label "Don't see your employer? Add info about yours below:" %><br>
 
@@ -36,5 +37,5 @@
     <% end %>
   <% end %>
 
-  <%= f.submit class: "btn btn-light mb-3" %>
+  <%= f.submit class: "btn btn-light border-secondary mb-3" %>
 <% end %>
