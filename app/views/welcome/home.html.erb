@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8" id="shelter-list">
-      <!-- <h3>Recently Added Shelters</h3> -->
+      <h3 class="container-bubble p-2 rounded">Recently Added Shelters</h3>
       <div class="home-bubble" id="initial-shelters">
         <% @shelters.each_with_index do |shelter, i| %>
           <% if i < 3 %>
@@ -27,7 +27,7 @@
 
     <!-- make both of these look better.... -->
     <div class="col-4" id="recent-pets">
-      <!-- <h3>Newly Adoptable Pets</h3> -->
+      <h3 class="container-bubble p-2 rounded">Newly Adoptable Pets</h3>
       <div class="home-bubble" id="initial-pets">
         <% @pets.each_with_index do |pet, i| %>
           <% if i < 3 %>

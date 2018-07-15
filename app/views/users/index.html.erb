@@ -6,7 +6,7 @@
       <% @users.each_with_index do |user, i| %>
         <% if i.even? %>
           <div class="user-bubble py-3">
-            <%= link_to "#{user.username}'s profile page", user_path(user), class: "text-secondary p-2", id: "user-index-l" %><br>
+            <%= link_to "#{user.username}'s profile page", user_path(user), class: "text-secondary p-2 rounded", id: "user-index-l" %><br>
             <!-- <%= link_to "#{user.username}'s pets", user_pets_list_path(user) if !user.pets.nil? %><br> -->
           </div>
           <br>
@@ -18,7 +18,7 @@
       <% @users.each_with_index do |user, i| %>
         <% if i.odd? %>
           <div class="user-bubble py-3">
-            <%= link_to "#{user.username}'s profile page", user_path(user), class: "text-secondary p-2", id: "user-index-r" %><br>
+            <%= link_to "#{user.username}'s profile page", user_path(user), class: "text-secondary p-2 rounded", id: "user-index-r" %><br>
             <!-- <%= link_to "#{user.username}'s pets", user_pets_list_path(user) if !user.pets.nil? %><br> -->
           </div>
           <br>
