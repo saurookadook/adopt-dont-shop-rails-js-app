@@ -1,30 +1,37 @@
-<div class="container-bubble">
-  <h1><%= @shelter.name %></h1>
-  <h4>Address:</h4>
-  <p><%= display_address(@shelter) %></p>
-  <h4>Contact info:</h4>
-  <p><%= display_contact(@shelter) %></p>
-  <!-- maybe make separate view for employees list? -->
-  <h4>List of employees:</h4>
-  <ul>
-    <% @shelter.employees.each do |employee| %>
-      <%= link_to employee.username, employee_path(employee) %><br>
-    <% end %>
-  </ul>
+<h1 class="page-header py-2"><%= @shelter.name %></h1>
 
-  <h4>Pets ready for adoption!</h4>
-  <% @shelter.pets.each do |pet| %>
-    <%= render partial: 'layouts/pet', locals: {pet: pet} %>
-    <% if current_user %>
-      <%= link_to "Adopt this Pet?", shelter_adopt_pet_path(@shelter, pet), class: "btn btn-light mb-3", method: :patch %>
-    <% end %>
-  <% end %>
+<div class="container">
+  <div class="row justify-content-around">
+    <div class="col-5 shelter-container text-secondary py-3">
+      <h4>Address:</h4>
+      <p><%= display_address(@shelter) %></p>
+      <h4>Contact info:</h4>
+      <p><%= display_contact(@shelter) %></p>
+      <!-- maybe make separate view for employees list? -->
+      <h4>List of employees:</h4>
+      <ul>
+        <% @shelter.employees.each do |employee| %>
+          <%= link_to employee.username, employee_path(employee) %><br>
+        <% end %>
+      </ul>
+    </div>
 
-  <% if !current_employee.nil? %>
-    <%= link_to "Add Pet to Adoptable List", new_shelter_pet_path(@shelter), class: "btn btn-light mb-3" %>
-    <% if current_employee.admin %>
-      <%= link_to "Edit Shelter Information", edit_shelter_path(@shelter), class: "btn btn-light mb-3" %>
-      <%= link_to 'Delete Account', @shelter, class: "btn btn-light mb-3", method: :delete, data: { confirm: 'Are you sure you would like to delete this shelter and all of its associated accounts?' } %>
-    <% end %>
-  <% end %>
+    <div class="col-5 shelter-container text-secondary py-3">
+      <h4>Pets ready for adoption!</h4>
+      <% @shelter.pets.each do |pet| %>
+        <%= render partial: 'layouts/pet', locals: {pet: pet} %>
+        <% if current_user %>
+          <%= link_to "Adopt this Pet?", shelter_adopt_pet_path(@shelter, pet), class: "btn btn-light border-secondary mb-3", method: :patch %>
+        <% end %>
+      <% end %>
+
+      <% if !current_employee.nil? %>
+        <%= link_to "Add Pet to Adoptable List", new_shelter_pet_path(@shelter), class: "btn btn-light border-secondary mb-3" %>
+        <% if current_employee.admin %>
+          <%= link_to "Edit Shelter Information", edit_shelter_path(@shelter), class: "btn btn-light border-secondary mb-3" %>
+          <%= link_to 'Delete Account', @shelter, class: "btn btn-light border-secondary mb-3", method: :delete, data: { confirm: 'Are you sure you would like to delete this shelter and all of its associated accounts?' } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
