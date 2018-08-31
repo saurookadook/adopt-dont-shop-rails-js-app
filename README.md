@@ -23,4 +23,4 @@ To view on a local environment, enter the following commands into terminal:
 
 ## Deployment
 
-Adopt Don't Shop is deployed on Heroku [here](https://github.com/saurookadook/adopt-dont-shop-rails-js-app). If there are any bugs or issues, please raise an issue on the GitHub repo and specify that the problem is with the hosted version of the app.
+Adopt Don't Shop is deployed on Heroku [here](https://young-brushlands-18834.herokuapp.com/). If there are any bugs or issues, please raise an issue on the GitHub repo and specify that the problem is with the hosted version of the app.
