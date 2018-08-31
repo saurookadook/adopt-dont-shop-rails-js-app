@@ -7,7 +7,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.integer :age
       t.string :breed
       t.text :info
-      t.references :owner, polymorphic: true, index: true
+      t.references :owner, polymorphic: true, index: true # owner_type & owner_id
 
       t.timestamps null: false
     end

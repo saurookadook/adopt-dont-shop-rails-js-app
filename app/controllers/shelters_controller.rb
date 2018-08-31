@@ -46,7 +46,7 @@ class SheltersController < ApplicationController
   def adopt
     # find how to remove pet from @shelter's pets
     # binding.pry
-    @pet.owner = current_user
+    @pet.owner = current_user 
     @pet.save
     flash[:message] = "You've adopted #{@pet.name}!"
     redirect_to user_path(current_user)
