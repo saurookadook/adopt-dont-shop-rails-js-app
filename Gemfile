@@ -45,6 +45,8 @@ gem 'jquery-rails'
 
 gem 'active_model_serializers'
 
+gem 'carrierwave', '~> 1.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
