@@ -23,7 +23,7 @@
       <%= f.hidden_field :owner_type, value: "User" %>
     <% end %>
 
-    <%= f.submit class: "btn btn-light border-secondary mb-3", data: { disable_with: false } %>
+    <%= f.submit class: "btn btn-light border-secondary mb-3", id: "pet-submit", data: { disable_with: false } %>
   <% end %>
 <% else %>
   <%= form_for pet do |f| %>
